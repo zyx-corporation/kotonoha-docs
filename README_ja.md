@@ -20,6 +20,7 @@
 | --- | --- |
 | [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) | SLS の **公開仕様**（正本） |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS **コア実装** とコードに紐づく開発者向け文書 |
+| [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | 公式 **`kotonoha`** CLI（[`CLI 定義`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)） |
 | **kotonoha-docs（本リポジトリ）** | **仕様外**の公開ドキュメント（マニュアル・チュートリアル等） |
 
 ## 言語方針
