@@ -19,12 +19,15 @@
 | --- | --- | --- |
 | [Kotonoha Method — ドラフト骨子](kotonoha_method_outline.md) | [`docs/method/kotonoha_method_outline.md`](../method/kotonoha_method_outline.md) | SLSの制度的実装としてのKotonoha Methodの章立て案。 |
 | [SLS + RDE 開発手法](sls_rde_development_method.md) | [`docs/method/sls_rde_development_method.md`](../method/sls_rde_development_method.md) | Kotonohaを進化させる際の実践、レビュー観点、ワークフロー習慣。 |
+| [表現・公開展開方針](rendering_and_publication_policy.md) | future HTML / JS / SVG publication | HTML+JavaScript+SVG化、章のセクション分割、図表多用、紙媒体化を見据えた代替表現の方針。 |
 
 ## 執筆方針
 
 - 章単位で、まず日本語版を執筆する。
 - 日本語版の確認後、対応する英語版を [`docs/method/`](../method/README.md) に作成する。
 - 英語版作成時には、単純翻訳ではなく、外部公開・国際読者向けに必要な補足と用語整理を行う。
+- 将来的には、Markdown本文を基盤に、HTML、JavaScript、SVGによる読者向け表現へ発展させる。
+- インタラクティブ表現を導入する場合も、紙媒体化に備えて静的図表・表・脚注・代替説明を用意する。
 
 ## 想定読者
 
