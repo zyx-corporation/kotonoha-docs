@@ -8,6 +8,7 @@ Japanese documents are separated under [`docs/method_ja/`](../method_ja/README.m
 | --- | --- | --- |
 | [Kotonoha Method — draft outline](kotonoha_method_outline.md) | English (primary) | Draft chapter structure for Kotonoha Method as the institutional implementation of SLS. |
 | [SLS + RDE development method](sls_rde_development_method.md) | English (primary) | Practices, review lens, and workflow habits used when evolving Kotonoha. |
+| [License notice](LICENSE.md) | English | CC BY-NC-ND 4.0 notice for Method documents. |
 | [Japanese method documents](../method_ja/README.md) | Japanese | 日本語版のMethod文書。 |
 
 ## Audience
@@ -21,3 +22,7 @@ Japanese documents are separated under [`docs/method_ja/`](../method_ja/README.m
 - **Implementation** → [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core).
 - **Japanese method docs** → [`docs/method_ja/`](../method_ja/README.md).
 - **Operational manuals and tutorials** → [`docs/manual/`](../manual/README.md), [`docs/tutorials/`](../tutorials/README.md).
+
+## License
+
+Unless otherwise stated in a specific file, Kotonoha Method documents under this directory are licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**. See [LICENSE.md](LICENSE.md).
