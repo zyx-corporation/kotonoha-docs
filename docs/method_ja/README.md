@@ -28,6 +28,7 @@
 | [Kotonoha Method — ドラフト骨子](kotonoha_method_outline.md) | [`docs/method/kotonoha_method_outline.md`](../method/kotonoha_method_outline.md) | SLSの制度的実装としてのKotonoha Methodの章立て案。 |
 | [SLS + RDE 開発手法](sls_rde_development_method.md) | [`docs/method/sls_rde_development_method.md`](../method/sls_rde_development_method.md) | Kotonohaを進化させる際の実践、レビュー観点、ワークフロー習慣。 |
 | [表現・公開展開方針](rendering_and_publication_policy.md) | future HTML / JS / SVG publication | HTML+JavaScript+SVG化、章のセクション分割、図表多用、紙媒体化を見据えた代替表現の方針。 |
+| [ライセンス注記](LICENSE.md) | CC BY-NC-ND 4.0 | Kotonoha Method文書のライセンス注記。 |
 
 ## 執筆方針
 
@@ -48,3 +49,7 @@
 - **実装** → [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core)
 - **英語Method文書** → [`docs/method/`](../method/README.md)
 - **運用マニュアルとチュートリアル** → [`docs/manual/`](../manual/README.md), [`docs/tutorials/`](../tutorials/README.md)
+
+## ライセンス
+
+特に個別ファイルで別途明記しない限り、このディレクトリ以下のKotonoha Method文書は **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International（CC BY-NC-ND 4.0）** で提供する。詳細は [LICENSE.md](LICENSE.md) を参照する。
