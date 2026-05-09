@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="360" viewBox="0 0 1120 360" role="img" aria-labelledby="title desc">
+  <title id="title">要望から実装までの意味変化フロー</title>
+  <desc id="desc">ユーザー要望がIssue、仕様、実装、文書へ変換される過程で、意味が保存、変換、補完、喪失されうることを示す静的SVG図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222" />
+    </marker>
+    <style>
+      .box { fill: #fff; stroke: #222; stroke-width: 2; rx: 14; }
+      .label { font-family: sans-serif; font-size: 18px; font-weight: 700; fill: #111; }
+      .small { font-family: sans-serif; font-size: 13px; fill: #222; }
+      .note { font-family: sans-serif; font-size: 14px; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .risk { fill: none; stroke: #555; stroke-dasharray: 6 5; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect x="30" y="70" width="170" height="96" class="box" />
+  <text x="115" y="104" text-anchor="middle" class="label">要望</text>
+  <text x="115" y="132" text-anchor="middle" class="small">曖昧な願望</text>
+  <text x="115" y="150" text-anchor="middle" class="small">価値・痛み</text>
+
+  <rect x="260" y="70" width="170" height="96" class="box" />
+  <text x="345" y="104" text-anchor="middle" class="label">Issue</text>
+  <text x="345" y="132" text-anchor="middle" class="small">作業単位化</text>
+  <text x="345" y="150" text-anchor="middle" class="small">意図・非目標</text>
+
+  <rect x="490" y="70" width="170" height="96" class="box" />
+  <text x="575" y="104" text-anchor="middle" class="label">仕様</text>
+  <text x="575" y="132" text-anchor="middle" class="small">構造化</text>
+  <text x="575" y="150" text-anchor="middle" class="small">条件・制約</text>
+
+  <rect x="720" y="70" width="170" height="96" class="box" />
+  <text x="805" y="104" text-anchor="middle" class="label">実装</text>
+  <text x="805" y="132" text-anchor="middle" class="small">動作化</text>
+  <text x="805" y="150" text-anchor="middle" class="small">テスト・制御</text>
+
+  <rect x="950" y="70" width="140" height="96" class="box" />
+  <text x="1020" y="104" text-anchor="middle" class="label">文書</text>
+  <text x="1020" y="132" text-anchor="middle" class="small">読者向け説明</text>
+  <text x="1020" y="150" text-anchor="middle" class="small">公開責任</text>
+
+  <path d="M205 118 L255 118" class="arrow" />
+  <path d="M435 118 L485 118" class="arrow" />
+  <path d="M665 118 L715 118" class="arrow" />
+  <path d="M895 118 L945 118" class="arrow" />
+
+  <path d="M115 200 C260 270, 475 270, 575 200" class="risk" />
+  <path d="M575 200 C700 270, 880 270, 1020 200" class="risk" />
+
+  <text x="115" y="220" text-anchor="middle" class="note">元の意図</text>
+  <text x="345" y="286" text-anchor="middle" class="note">保存 / 変換 / 補完 / 喪失</text>
+  <text x="805" y="286" text-anchor="middle" class="note">意味変化をRDE観点で確認</text>
+  <text x="1020" y="220" text-anchor="middle" class="note">責任ある公開状態</text>
+
+  <text x="560" y="334" text-anchor="middle" class="small">印刷用代替説明: この図は、要望がIssue、仕様、実装、文書へ進むたびに意味が変化しうるため、各段階で保存・変換・補完・喪失を確認する必要があることを示す。</text>
+</svg>
