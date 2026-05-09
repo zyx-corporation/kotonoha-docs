@@ -4,6 +4,8 @@ This section describes **how the Kotonoha project applies Semantic Lineage Syste
 
 | Document | Language | Description |
 | --- | --- | --- |
+| [Kotonoha Method — draft outline](kotonoha_method_outline.md) | English (primary) | Draft chapter structure for Kotonoha Method as the institutional implementation of SLS. |
+| [Kotonoha Method — ドラフト骨子](kotonoha_method_outline_ja.md) | Japanese | 上記の日本語版。SLSの制度的実装としてのKotonoha Methodの章立て案。 |
 | [SLS + RDE development method](sls_rde_development_method.md) | English (primary) | Practices, review lens, and workflow habits used when evolving Kotonoha. |
 | [SLS + RDE 開発手法（日本語）](sls_rde_development_method_ja.md) | Japanese | 上記の日本語版。 |
 
