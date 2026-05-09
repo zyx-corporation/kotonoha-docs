@@ -50,7 +50,8 @@ h2 {
 }
 
 h3 {
-  margin: 20px 0 8px;
+  margin: 24px 0 8px;
+  font-size: 1.2rem;
 }
 
 .lead {
@@ -93,6 +94,14 @@ main {
   border-radius: 24px;
   background: var(--panel);
   box-shadow: 0 14px 40px rgb(0 0 0 / 0.04);
+}
+
+.card > p,
+.card > ul,
+.card > ol,
+.card > table,
+.card > blockquote {
+  max-width: 880px;
 }
 
 .figure-card img {
@@ -141,6 +150,41 @@ button[aria-pressed="true"] {
   padding: 12px 18px;
   background: var(--soft);
   border-radius: 12px;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-left: 5px solid var(--accent);
+  background: var(--soft);
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--soft);
+  color: var(--accent);
+}
+
+tr:last-child td {
+  border-bottom: 0;
 }
 
 @media print {
