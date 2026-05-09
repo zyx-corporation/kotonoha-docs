@@ -11,6 +11,7 @@
 | 置く | 置かない |
 | --- | --- |
 | 利用・運用のマニュアル、学習用チュートリアル、FAQ、移行メモなど | 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義**（→ `kotonoha-spec`） |
+| 開発**手法**（SLS + RDE を自プロセスにどう当てるか） | [`docs/method/`](docs/method/README.md) | 仕様正本ではない（説明・手順の層）。 |
 | 本リポジトリへの貢献手順（[`CONTRIBUTING.md`](CONTRIBUTING.md)） | 非公開の計画・草案（→ `kotonoha-management`） |
 
 ## 関連リポジトリ

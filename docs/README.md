@@ -6,6 +6,7 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 
 | Section | Purpose |
 | --- | --- |
+| [Method](method/README.md) | How Kotonoha development applies **SLS + RDE** in practice (non-normative). |
 | [Manual](manual/README.md) | Reference-style topics (setup, operations, troubleshooting). |
 | [Tutorials](tutorials/README.md) | Guided learning paths and hands-on exercises. |
 

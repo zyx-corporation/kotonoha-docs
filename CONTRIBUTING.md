@@ -24,11 +24,14 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 
 | Area | Path |
 | --- | --- |
+| Development **method** (SLS + RDE in practice) | [`docs/method/`](docs/method/README.md) |
 | Manual-style reference | [`docs/manual/`](docs/manual/README.md) |
 | Tutorials | [`docs/tutorials/`](docs/tutorials/README.md) |
 | Index | [`docs/README.md`](docs/README.md) |
 
 ## Reviews
+
+Substantive edits may be discussed using the **SLS + RDE review lens** described in [`docs/method/sls_rde_development_method.md`](docs/method/sls_rde_development_method.md) (loss, deviation risk, next steps—not only correctness).
 
 Maintainers may request alignment with `kotonoha-spec` terminology. If you are unsure whether content is specification-level, ask in the Issue before investing in a large rewrite.
 

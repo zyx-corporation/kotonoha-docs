@@ -13,6 +13,7 @@ This repository hosts user-facing and contributor-facing materials such as **man
 | End-user and operator **manuals** | [`docs/manual/`](docs/manual/README.md) | Task-oriented reference (installation, configuration, operations). |
 | **Tutorials** and learning paths | [`docs/tutorials/`](docs/tutorials/README.md) | Step-by-step guides for newcomers. |
 | **Contribution** workflow for *this docs repo* | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Distinct from implementation contribution guides in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core). |
+| **Method** (SLS + RDE in our own process) | [`docs/method/`](docs/method/README.md) | How we build Kotonoha using semantic-lineage and RDE-style review—*not* the spec. |
 | Other **non-normative** public docs | [`docs/README.md`](docs/README.md) | Glossaries for readers, FAQs, migration notes—without locking API or schema semantics. |
 
 ## What does *not* belong here
