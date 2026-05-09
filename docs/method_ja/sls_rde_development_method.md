@@ -2,7 +2,7 @@
 
 本書は、**Kotonoha** の計画・仕様・実装・公開ドキュメントを進めるときに、**Semantic Lineage System（SLS）** の考え方と **Resonant Deviation Evaluator（RDE）** 型のレビューを、**ソフトウェア実装を待たずに**どう運用しているかを説明する公開資料である。**規範仕様ではない**。API・スキーマの正本は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) に置く。
 
-**English:** [sls_rde_development_method.md](sls_rde_development_method.md)
+**English:** [`docs/method/sls_rde_development_method.md`](../method/sls_rde_development_method.md)
 
 ---
 
