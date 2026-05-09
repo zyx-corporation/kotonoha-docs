@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kotonoha Method — 日本語版プロトタイプ</title>
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">Kotonoha Method / draft / non-normative</p>
+    <h1>Kotonoha Method</h1>
+    <p class="lead">SLSを制度として運用するための、意味・判断・責任のプロジェクト方法論。</p>
+    <nav aria-label="主要セクション">
+      <a href="#chapter-0">Chapter 0</a>
+      <a href="#chapter-1">Chapter 1</a>
+      <a href="#figure-1">図表</a>
+      <a href="#print-note">印刷/PDF</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="chapter-0" class="card">
+      <p class="section-label">Chapter 0</p>
+      <h2>システム・エンジニアリング初学者のための導入</h2>
+      <p>システムとは、コードだけではなく、人間、文書、運用、判断、責任を含む関係の構造である。エンジニアリングは、曖昧な願望を検証可能で運用可能な構造へ変換する営みである。</p>
+      <p>その変換の過程では、意味が変わり、何かが失われる。Kotonoha Method は、その意味変化を見えるようにし、判断と責任へ接続する。</p>
+      <p class="source-link"><a href="../chapter_00_intro_for_beginning_system_engineers.md">Markdown章本文を読む</a></p>
+    </section>
+
+    <section id="chapter-1" class="card">
+      <p class="section-label">Chapter 1</p>
+      <h2>タスク管理から意味統治へ</h2>
+      <p>既存のプロジェクト管理は、作業状態の可視化に優れている。しかし、AI支援時代のプロジェクトでは、作業の進捗だけではなく、意味の変化を追跡する必要がある。</p>
+      <p>Gitは不可欠だが、意味履歴そのものではない。Issueは重要だが、閉じられたIssueが意味的にも閉じられたとは限らない。Pull Requestは便利だが、mergeされた変更が元の意図を保存しているとは限らない。</p>
+      <p class="source-link"><a href="../chapter_01_task_management_to_semantic_governance.md">Markdown章本文を読む</a></p>
+    </section>
+
+    <section id="figure-1" class="card figure-card">
+      <p class="section-label">Figure 1</p>
+      <h2>要望から実装までの意味変化フロー</h2>
+      <p>要望はIssue、仕様、実装、文書へ変換される。その過程で、意味は保存されるだけでなく、変換され、補完され、失われることがある。</p>
+      <div class="figure-toolbar" aria-label="図表表示切替">
+        <button type="button" data-mode="diagram" aria-pressed="true">図を表示</button>
+        <button type="button" data-mode="text" aria-pressed="false">静的説明を表示</button>
+      </div>
+      <figure class="diagram-view" data-view="diagram">
+        <img src="../assets/svg/semantic-transformation-flow.svg" alt="要望がIssue、仕様、実装、文書へ変換される過程で、意味が保存、変換、補完、喪失されうることを示す図。" />
+        <figcaption>図1: 要望から実装までの意味変化フロー。</figcaption>
+      </figure>
+      <div class="text-view hidden" data-view="text">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、要望がIssue、仕様、実装、文書へ進むたびに意味が変化しうることを示す。各段階で、元の意図が保存されたのか、実装可能な形へ変換されたのか、新しい補足が加えられたのか、あるいは何かが失われたのかを確認する必要がある。</p>
+        <ol>
+          <li>要望: 曖昧な願望、価値、痛みが含まれる。</li>
+          <li>Issue: 作業単位へ変換され、意図と非目標が記録される。</li>
+          <li>仕様: 条件、制約、振る舞いとして構造化される。</li>
+          <li>実装: 動作、テスト、制御として具体化される。</li>
+          <li>文書: 読者向け説明となり、公開責任を帯びる。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="print-note" class="card print-note">
+      <p class="section-label">Print / PDF</p>
+      <h2>印刷/PDFへの配慮</h2>
+      <p>このHTMLプロトタイプではインタラクティブ要素を推奨する。ただし、JavaScriptが無効でも本文、図表、静的説明が読める構造を維持する。印刷時にはボタンを非表示にし、図表と静的説明を両方表示する。</p>
+    </section>
+  </main>
+
+  <script src="site.js"></script>
+</body>
+</html>
