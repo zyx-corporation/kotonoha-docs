@@ -13,6 +13,14 @@
 | Chapter 0 | [システム・エンジニアリング初学者のための導入](chapter_00_intro_for_beginning_system_engineers.md) | draft / Japanese first | これまで何が問題だったのか、エンジニアリングは何をどう変えるのか、Kotonohaが何を担うのか。 |
 | Chapter 1 | [タスク管理から意味統治へ](chapter_01_task_management_to_semantic_governance.md) | draft / Japanese first | Kotonoha Method が既存PMを意味統治へ拡張する理由。 |
 
+## HTML / JS / SVG プロトタイプ
+
+| 文書 | 説明 |
+| --- | --- |
+| [method_site/index.html](method_site/index.html) | 日本語版Kotonoha Methodの初期HTMLプロトタイプ。 |
+| [sections/README.md](sections/README.md) | 章をセクションへ分割するための構成案。 |
+| [assets/svg/semantic-transformation-flow.svg](assets/svg/semantic-transformation-flow.svg) | 要望から実装までの意味変化フロー図。 |
+
 ## 補助文書
 
 | 文書 | 対応 | 説明 |
@@ -27,7 +35,7 @@
 - 日本語版の確認後、対応する英語版を [`docs/method/`](../method/README.md) に作成する。
 - 英語版作成時には、単純翻訳ではなく、外部公開・国際読者向けに必要な補足と用語整理を行う。
 - 将来的には、Markdown本文を基盤に、HTML、JavaScript、SVGによる読者向け表現へ発展させる。
-- インタラクティブ表現を導入する場合も、紙媒体化に備えて静的図表・表・脚注・代替説明を用意する。
+- インタラクティブ表現を推奨する場合も、紙媒体化に備えて静的図表・表・脚注・代替説明を用意する。
 
 ## 想定読者
 
