@@ -10,6 +10,7 @@
 
 | 章 | 文書 | 状態 | 説明 |
 | --- | --- | --- | --- |
+| Chapter 0 | [システム・エンジニアリング初学者のための導入](chapter_00_intro_for_beginning_system_engineers.md) | draft / Japanese first | これまで何が問題だったのか、エンジニアリングは何をどう変えるのか、Kotonohaが何を担うのか。 |
 | Chapter 1 | [タスク管理から意味統治へ](chapter_01_task_management_to_semantic_governance.md) | draft / Japanese first | Kotonoha Method が既存PMを意味統治へ拡張する理由。 |
 
 ## 補助文書
