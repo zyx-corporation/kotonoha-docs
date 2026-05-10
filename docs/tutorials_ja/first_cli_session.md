@@ -82,6 +82,8 @@ interchange envelope は、Kotonoha 関連データをツール間で交換す�
 kotonoha interchange emit | kotonoha interchange validate --strict
 ```
 
+**契約メモ：** **`kotonoha-core`** **0.1.6** 以降、interchange エンベロープには **許可されるトップレベルキーのみ**（`format`、`spec_bundle`、`lineage_unit`、`rde_document`）。**`lineage_unit`** オブジェクトにも **`id` と `prior_unit_id` だけ** が許されます。未定義のフィールドがあると検証が失敗し（`interchange validate` で終了コード **2**）、仕様側で vocabulary を追記したバージョンを待つ運用になります。
+
 RDE skeleton と interchange envelope の違いは重要です。
 
 - RDE skeleton: 意味変化を点検するためのレビュー向け構造

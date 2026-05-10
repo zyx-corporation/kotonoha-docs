@@ -82,6 +82,8 @@ Validate it:
 kotonoha interchange emit | kotonoha interchange validate --strict
 ```
 
+**Contract note:** validating with **`kotonoha-core` ≥ 0.1.6** rejects **extra JSON keys** at the interchange **top level** (only `format`, `spec_bundle`, `lineage_unit`, `rde_document`) and rejects unknown keys beside `id` / `prior_unit_id` inside **`lineage_unit`** (exit **2** from `interchange validate`). Prefer extending the recorded vocabulary via spec-tracked revisions rather than ad-hoc envelope fields.
+
 The difference between the RDE skeleton and the interchange envelope is important:
 
 - RDE skeleton: a review-oriented structure for meaning-change inspection.
