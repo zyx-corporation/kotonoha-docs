@@ -29,6 +29,9 @@ Status: draft / non-normative
 | Figure 0-1 | `engineering-transformation-loss.svg` | Chapter 0 | 0.2 / 0.5 | エンジニアリングが願望・暗黙知・属人的判断を構造へ変換し、その過程で喪失が生じることを示す。 | SVG作成済み / HTML図表索引掲載済み |
 | Figure 0-2 / 1-1 | `semantic-transformation-flow.svg` | Chapter 0 / Chapter 1 | 0.8 / 1.1 | 要望からIssue、仕様、実装、文書への変換過程で意味が変化することを示す。 | SVG作成済み / トップHTML・図表索引掲載済み |
 | Figure 1-2 | `task-vs-semantic-completion.svg` | Chapter 1 | 1.4 | タスク完了と意味完了の違いを示す。 | SVG作成済み / 図表索引掲載済み |
+| Figure 1-3 | `git-diff-vs-semantic-lineage.svg` | Chapter 1 | 1.3 | Gitがファイル差分を示す一方、意味履歴には意図・喪失・責任が必要であることを示す。 | SVG作成済み / 図表索引掲載済み |
+| Figure 1-4 | `ai-output-promotion-flow.svg` | Chapter 1 | 1.5 / 1.6 | AI生成物が draft / hypothesis / reviewed / accepted / published へ移る流れを示す。 | SVG作成済み / 図表索引掲載済み |
+| Figure 1-5 | `responsibility-recapture-flow.svg` | Chapter 1 | 1.8 | 人間、AI、レビュー、CI、文書が分散的に関与した後、承認点と記録へ再収束する構造を示す。 | SVG作成済み / 図表索引掲載済み |
 
 ---
 
@@ -36,11 +39,9 @@ Status: draft / non-normative
 
 | Figure ID | 対応章 | 対応セクション | 図表案 | 目的 | 優先度 |
 | --- | --- | --- | --- | --- | --- |
-| Figure 1-3 | Chapter 1 | 1.3 | Git diff vs Semantic lineage 比較図 | Gitがファイル差分を示す一方、意味履歴には意図・喪失・責任が必要であることを示す。 | 高 |
-| Figure 1-4 | Chapter 1 | 1.8 | 責任再収束フロー | 人間、AI、レビュー、CI、文書が分散的に関与した後、承認点と記録へ再収束する構造を示す。 | 高 |
-| Figure 1-5 | Chapter 1 | 1.5 / 1.6 | AI生成物の昇格フロー | AI生成物が draft / hypothesis / reviewed / accepted / published へ移る流れを示す。 | 高 |
-| Figure 2-1 | Chapter 2 | TBD | 中核語彙関係図 | 意味、意図、成果物、判断、責任、ΔM、保存、変換、補完、喪失、逸脱の関係を示す。 | 中 |
-| Figure 2-2 | Chapter 2 | TBD | RDE観測カテゴリ図 | preserved / transformed / complemented / unresolved / loss / drift risk / next update policy の関係を示す。 | 中 |
+| Figure 2-1 | Chapter 2 | TBD | 中核語彙関係図 | 意味、意図、成果物、判断、責任、ΔM、保存、変換、補完、喪失、逸脱の関係を示す。 | 高 |
+| Figure 2-2 | Chapter 2 | TBD | RDE観測カテゴリ図 | preserved / transformed / complemented / unresolved / loss / drift risk / next update policy の関係を示す。 | 高 |
+| Figure 2-3 | Chapter 2 | TBD | ΔMの発生点マップ | 会話、Issue、PR、仕様、実装、文書のどこで意味変化が発生するかを示す。 | 中 |
 
 ---
 
