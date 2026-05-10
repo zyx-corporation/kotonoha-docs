@@ -8,8 +8,6 @@ For procedural validation and release-facing checks, use [Acceptance demos](../a
 
 **Japanese:** [../tutorials_ja/README.md](../tutorials_ja/README.md) (all Japanese tutorial pages live under `docs/tutorials_ja/`)
 
-**Japanese:** [../tutorials_ja/README.md](../tutorials_ja/README.md) (all Japanese tutorial pages live under `docs/tutorials_ja/`)
-
 ## Published tutorials
 
 | Tutorial | Description |
