@@ -1,5 +1,7 @@
 # GitHub Organization workflow (short summary)
 
+**Japanese:** [github_organization_workflow_ja.md](github_organization_workflow_ja.md)
+
 This page is a **public, abbreviated** companion to how the **Kotonoha (SLS)** Organization uses **GitHub Projects** and custom fields. It does **not** replace Issue or PR text as the source of completion criteria.
 
 ## Organization Project

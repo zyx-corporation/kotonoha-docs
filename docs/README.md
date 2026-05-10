@@ -15,6 +15,7 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 | [Acceptance demos (Japanese)](acceptance_ja/README.md) | 日本語の受入デモ手順（`docs/acceptance_ja/`）。 |
 | [Git/Issue/PR workflow](git_operation_rules.md) | Organization-wide Issue/branch/PR rules (**Japanese**, this `docs/` file). |
 | [GitHub Organization workflow](github_organization_workflow.md) | Short English summary of Organization **Projects** fields (**Phase**, **Status**, …) and truth order. |
+| [GitHub Organization workflow（日本語）](github_organization_workflow_ja.md) | 上記の日本語版。 |
 
 ## Relationship to the specification
 

@@ -25,7 +25,7 @@ If a legacy view still filters `kotonoha-project`, remove it in the Project UI (
 
 ## Fields (Phase, Status, …)
 
-For a concise description of **Phase** vs milestones and how items are tracked on the Organization board, see **[`github_organization_workflow.md`](github_organization_workflow.md)**.
+For a concise description of **Phase** vs milestones and how items are tracked on the Organization board, see **[`github_organization_workflow.md`](github_organization_workflow.md)** ([Japanese](github_organization_workflow_ja.md)).
 
 ## For contributors
 

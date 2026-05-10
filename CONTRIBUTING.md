@@ -30,7 +30,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 | Tutorials | [`docs/tutorials/`](docs/tutorials/README.md) |
 | Tutorials (Japanese) | [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) |
 | Index | [`docs/README.md`](docs/README.md) |
-| Org Projects — field meanings (Phase, Status, …) | [`docs/github_organization_workflow.md`](docs/github_organization_workflow.md) |
+| Org Projects — field meanings (Phase, Status, …) | [`docs/github_organization_workflow.md`](docs/github_organization_workflow.md)（[`github_organization_workflow_ja.md`](docs/github_organization_workflow_ja.md)） |
 
 ## Reviews
 
