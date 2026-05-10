@@ -1,0 +1,11 @@
+title: Kotonoha Docs
+description: Public non-normative documentation for the Kotonoha ecosystem
+markdown: kramdown
+plugins: []
+exclude:
+  - .gitignore
+  - .github
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
