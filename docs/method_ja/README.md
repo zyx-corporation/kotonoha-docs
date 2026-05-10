@@ -8,18 +8,23 @@
 
 ## Kotonoha Method 本文ドラフト
 
-| 章 | 文書 | 状態 | 説明 |
-| --- | --- | --- | --- |
-| Chapter 0 | [システム・エンジニアリング初学者のための導入](chapter_00_intro_for_beginning_system_engineers.md) | draft / Japanese first | これまで何が問題だったのか、エンジニアリングは何をどう変えるのか、Kotonohaが何を担うのか。 |
-| Chapter 1 | [タスク管理から意味統治へ](chapter_01_task_management_to_semantic_governance.md) | draft / Japanese first | Kotonoha Method が既存PMを意味統治へ拡張する理由。 |
+| 章 | 文書 | HTML | 状態 | 説明 |
+| --- | --- | --- | --- | --- |
+| Chapter 0 | [システム・エンジニアリング初学者のための導入](chapter_00_intro_for_beginning_system_engineers.md) | [HTML](method_site/chapter-00/index.html) | draft / Japanese first | これまで何が問題だったのか、エンジニアリングは何をどう変えるのか、Kotonohaが何を担うのか。 |
+| Chapter 1 | [タスク管理から意味統治へ](chapter_01_task_management_to_semantic_governance.md) | [HTML](method_site/chapter-01/index.html) | draft / Japanese first | Kotonoha Method が既存PMを意味統治へ拡張する理由。 |
 
 ## HTML / JS / SVG プロトタイプ
 
 | 文書 | 説明 |
 | --- | --- |
-| [method_site/index.html](method_site/index.html) | 日本語版Kotonoha Methodの初期HTMLプロトタイプ。 |
+| [method_site/index.html](method_site/index.html) | 日本語版Kotonoha Methodの初期HTMLプロトタイプ。Chapter 0 / 1 のHTML本文へ接続する。 |
+| [method_site/chapter-00/index.html](method_site/chapter-00/index.html) | Chapter 0 のHTML全文ページ。 |
+| [method_site/chapter-01/index.html](method_site/chapter-01/index.html) | Chapter 1 のHTML全文ページ。 |
+| [method_site/figures/index.html](method_site/figures/index.html) | 図表索引。SVG図と印刷/PDF用の静的説明をまとめる。 |
 | [sections/README.md](sections/README.md) | 章をセクションへ分割するための構成案。 |
+| [assets/svg/engineering-transformation-loss.svg](assets/svg/engineering-transformation-loss.svg) | エンジニアリング変換と喪失の図。 |
 | [assets/svg/semantic-transformation-flow.svg](assets/svg/semantic-transformation-flow.svg) | 要望から実装までの意味変化フロー図。 |
+| [assets/svg/task-vs-semantic-completion.svg](assets/svg/task-vs-semantic-completion.svg) | タスク完了と意味完了の違いを示す図。 |
 
 ## 補助文書
 

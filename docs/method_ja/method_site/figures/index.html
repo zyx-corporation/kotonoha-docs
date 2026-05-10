@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kotonoha Method — 図表索引</title>
+  <link rel="stylesheet" href="../site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">Kotonoha Method / Figures / draft / non-normative</p>
+    <h1>図表索引</h1>
+    <p class="lead">HTML / JavaScript / SVG 展開に向けた、図表と静的代替説明の一覧。</p>
+    <nav aria-label="図表ナビゲーション">
+      <a href="../index.html">Method Top</a>
+      <a href="#engineering-transformation">エンジニアリング変換</a>
+      <a href="#semantic-flow">意味変化フロー</a>
+      <a href="#task-vs-semantic">タスク完了と意味完了</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="engineering-transformation" class="card figure-card">
+      <p class="section-label">Figure 0-1</p>
+      <h2>エンジニアリング変換と喪失</h2>
+      <p>Chapter 0 の「エンジニアリングは何を変えるのか」に対応する図である。願望、暗黙知、属人的判断が、構造、明示知、再現可能手順へ変換される一方で、曖昧さ、文脈、例外感覚、判断の痛みが失われうることを示す。</p>
+      <figure>
+        <img src="../../assets/svg/engineering-transformation-loss.svg" alt="願望、暗黙知、属人的判断が、構造、明示知、再現可能手順へ変換される一方で、曖昧さ、文脈、例外感覚が失われうることを示す図。" />
+        <figcaption>図0-1: エンジニアリング変換と喪失。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、エンジニアリングが実装可能性を得るために、曖昧な願望や暗黙知を構造へ変換する一方、その過程で文脈や未解決性が失われうることを示す。喪失そのものは避けられないが、何が失われたかを見えるようにすることがKotonoha Methodの役割である。</p>
+      </div>
+    </section>
+
+    <section id="semantic-flow" class="card figure-card">
+      <p class="section-label">Figure 0-2 / 1-1</p>
+      <h2>要望から実装までの意味変化フロー</h2>
+      <p>Chapter 0 の小さな例、および Chapter 1 の「作業状態と意味状態は違う」に対応する図である。要望がIssue、仕様、実装、文書へ変換されるたびに、意味が保存、変換、補完、喪失されうることを示す。</p>
+      <figure>
+        <img src="../../assets/svg/semantic-transformation-flow.svg" alt="要望がIssue、仕様、実装、文書へ変換される過程で、意味が保存、変換、補完、喪失されうることを示す図。" />
+        <figcaption>図0-2 / 1-1: 要望から実装までの意味変化フロー。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、要望がIssue、仕様、実装、文書へ進むたびに意味が変化しうることを示す。各段階で、元の意図が保存されたのか、実装可能な形へ変換されたのか、新しい補足が加えられたのか、あるいは何かが失われたのかを確認する必要がある。</p>
+      </div>
+    </section>
+
+    <section id="task-vs-semantic" class="card figure-card">
+      <p class="section-label">Figure 1-2</p>
+      <h2>タスク完了と意味完了の違い</h2>
+      <p>Chapter 1 の「タスク完了と意味完了は違う」に対応する図である。実装、テスト、レビュー、Done は作業状態の完了を示すが、意味完了には意図、未解決性、責任、次回更新方針の引き渡しが必要である。</p>
+      <figure>
+        <img src="../../assets/svg/task-vs-semantic-completion.svg" alt="タスク完了が実装、テスト、レビュー、Doneを示す一方で、意味完了は意図、未解決性、責任、次回更新方針の引き渡しを必要とすることを示す図。" />
+        <figcaption>図1-2: タスク完了と意味完了の違い。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、Done が作業状態の完了であっても、意味完了にはまだ確認すべき要素が残ることを示す。意図が保存されたか、未解決性が残されたか、責任の帰結を誰が引き受けるか、次回更新方針が引き渡されたかを確認する必要がある。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
