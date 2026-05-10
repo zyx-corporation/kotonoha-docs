@@ -8,11 +8,25 @@
 
 ## 置くもの／置かないもの（要約）
 
-| 置く | 置かない |
-| --- | --- |
-| 利用・運用のマニュアル、学習用チュートリアル、FAQ、移行メモなど | 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義**（→ `kotonoha-spec`） |
-| 開発**手法**（SLS + RDE を自プロセスにどう当てるか） | [`docs/method/`](docs/method/README.md) | 仕様正本ではない（説明・手順の層）。 |
-| 本リポジトリへの貢献手順（[`CONTRIBUTING.md`](CONTRIBUTING.md)） | 非公開の計画・草案（→ `kotonoha-management`） |
+### 置くもの
+
+- 利用・運用のマニュアル
+- 学習用チュートリアル
+- FAQ、移行メモ、ハウツー
+- 受入デモなど、仕様外の確認手順
+- 開発**手法**の説明
+  - 例: SLS + RDE を自プロセスにどう当てるか
+  - 例: [`docs/method/`](docs/method/README.md)
+  - ただし、これは仕様正本ではなく、説明・手順の層です。
+- 本リポジトリへの貢献手順
+  - [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+### 置かないもの
+
+- 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義**
+  - 仕様の正本は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) に置きます。
+- 非公開の計画・草案
+  - private `kotonoha-management` で管理します。
 
 ## 関連リポジトリ
 
