@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="440" viewBox="0 0 1120 440" role="img" aria-labelledby="title desc">
+  <title id="title">責任再収束フロー</title>
+  <desc id="desc">人間、AI、レビュー、CI、文書化に分散した作業が、承認点、影響範囲、未解決性、監査記録を通じて責任ある公開状態へ再収束する流れを示す図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222" />
+    </marker>
+    <style>
+      .node { fill: #fff; stroke: #222; stroke-width: 2; rx: 14; }
+      .hub { fill: #f7fbf9; stroke: #1f4f46; stroke-width: 3; rx: 18; }
+      .label { font-family: sans-serif; font-size: 18px; font-weight: 700; fill: #111; }
+      .small { font-family: sans-serif; font-size: 13px; fill: #222; }
+      .note { font-family: sans-serif; font-size: 14px; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="560" y="34" text-anchor="middle" class="label">責任は分散しても、帰結は再収束しなければならない</text>
+
+  <rect x="70" y="88" width="170" height="74" class="node" />
+  <text x="155" y="120" text-anchor="middle" class="label">人間</text>
+  <text x="155" y="145" text-anchor="middle" class="small">方針・判断</text>
+
+  <rect x="70" y="194" width="170" height="74" class="node" />
+  <text x="155" y="226" text-anchor="middle" class="label">AI</text>
+  <text x="155" y="251" text-anchor="middle" class="small">草案・補完</text>
+
+  <rect x="70" y="300" width="170" height="74" class="node" />
+  <text x="155" y="332" text-anchor="middle" class="label">CI / Tools</text>
+  <text x="155" y="357" text-anchor="middle" class="small">検査・状態</text>
+
+  <rect x="430" y="150" width="260" height="160" class="hub" />
+  <text x="560" y="186" text-anchor="middle" class="label">再収束点</text>
+  <text x="560" y="218" text-anchor="middle" class="small">承認点</text>
+  <text x="560" y="242" text-anchor="middle" class="small">影響範囲</text>
+  <text x="560" y="266" text-anchor="middle" class="small">未解決性</text>
+  <text x="560" y="290" text-anchor="middle" class="small">監査記録</text>
+
+  <rect x="850" y="150" width="210" height="160" class="node" />
+  <text x="955" y="190" text-anchor="middle" class="label">公開状態</text>
+  <text x="955" y="220" text-anchor="middle" class="small">文書 / 仕様 / 実装</text>
+  <text x="955" y="248" text-anchor="middle" class="small">責任ある成果物</text>
+  <text x="955" y="276" text-anchor="middle" class="small">次回更新へ接続</text>
+
+  <path d="M245 125 C325 130, 350 180, 425 205" class="arrow" />
+  <path d="M245 231 L425 231" class="arrow" />
+  <path d="M245 337 C325 330, 350 280, 425 260" class="arrow" />
+  <path d="M695 230 L845 230" class="arrow" />
+
+  <text x="560" y="406" text-anchor="middle" class="note">印刷用代替説明: この図は、人間・AI・ツールに分散した作業の帰結を、承認点・影響範囲・未解決性・監査記録へ集約し、責任ある公開状態へ接続する必要を示す。</text>
+</svg>

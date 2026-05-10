@@ -15,7 +15,10 @@
       <a href="../index.html">Method Top</a>
       <a href="#engineering-transformation">エンジニアリング変換</a>
       <a href="#semantic-flow">意味変化フロー</a>
+      <a href="#git-lineage">Gitと意味履歴</a>
       <a href="#task-vs-semantic">タスク完了と意味完了</a>
+      <a href="#ai-promotion">AI生成物</a>
+      <a href="#responsibility">責任再収束</a>
     </nav>
   </header>
 
@@ -48,6 +51,20 @@
       </div>
     </section>
 
+    <section id="git-lineage" class="card figure-card">
+      <p class="section-label">Figure 1-3</p>
+      <h2>Git diff と Semantic lineage の違い</h2>
+      <p>Chapter 1 の「Gitは必要だが、意味履歴ではない」に対応する図である。Git diff が文字列やファイルの差分を示す一方で、Semantic lineage は意図、変換、喪失、未解決性、責任を追跡する必要があることを示す。</p>
+      <figure>
+        <img src="../../assets/svg/git-diff-vs-semantic-lineage.svg" alt="Git diff がファイル差分を示す一方で、Semantic lineage は意図、変換、喪失、未解決性、責任を追跡することを示す比較図。" />
+        <figcaption>図1-3: Git diff と Semantic lineage の違い。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、Git diff が変更された文字列やファイルを示す一方、その変更が意図・責任・未解決性に何をしたかは別途記録する必要があることを示す。意味履歴には、元の意図、変換、喪失、未解決性、責任の所在が必要である。</p>
+      </div>
+    </section>
+
     <section id="task-vs-semantic" class="card figure-card">
       <p class="section-label">Figure 1-2</p>
       <h2>タスク完了と意味完了の違い</h2>
@@ -59,6 +76,34 @@
       <div class="text-view">
         <h3>印刷/PDF用の静的説明</h3>
         <p>この図は、Done が作業状態の完了であっても、意味完了にはまだ確認すべき要素が残ることを示す。意図が保存されたか、未解決性が残されたか、責任の帰結を誰が引き受けるか、次回更新方針が引き渡されたかを確認する必要がある。</p>
+      </div>
+    </section>
+
+    <section id="ai-promotion" class="card figure-card">
+      <p class="section-label">Figure 1-4</p>
+      <h2>AI生成物の昇格フロー</h2>
+      <p>Chapter 1 の「AI生成物は進捗ではなく、意味変化を含む入力である」に対応する図である。AI生成物は、生成された時点ではまだ判断ではなく、draft、hypothesis、reviewed、accepted、published という段階を経て、責任ある公開状態へ進む。</p>
+      <figure>
+        <img src="../../assets/svg/ai-output-promotion-flow.svg" alt="AI生成物がドラフト、仮説、レビュー済み、承認済み、公開状態へ進む流れと、各段階で必要な確認を示す図。" />
+        <figcaption>図1-4: AI生成物の昇格フロー。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、AI生成物が生成直後には未確認の草案であり、仮説として読み、RDE観点で確認し、人間が承認して初めて責任ある公開状態へ進むことを示す。生成されたものを即座に判断や仕様として扱ってはならない。</p>
+      </div>
+    </section>
+
+    <section id="responsibility" class="card figure-card">
+      <p class="section-label">Figure 1-5</p>
+      <h2>責任再収束フロー</h2>
+      <p>Chapter 1 の「責任が分散しても、帰結は再収束しなければならない」に対応する図である。人間、AI、CI/Toolsに分散した作業が、承認点、影響範囲、未解決性、監査記録を通じて責任ある公開状態へ再収束する流れを示す。</p>
+      <figure>
+        <img src="../../assets/svg/responsibility-recapture-flow.svg" alt="人間、AI、レビュー、CI、文書化に分散した作業が、承認点、影響範囲、未解決性、監査記録を通じて責任ある公開状態へ再収束する流れを示す図。" />
+        <figcaption>図1-5: 責任再収束フロー。</figcaption>
+      </figure>
+      <div class="text-view">
+        <h3>印刷/PDF用の静的説明</h3>
+        <p>この図は、人間・AI・ツールに分散した作業の帰結を、承認点・影響範囲・未解決性・監査記録へ集約し、責任ある公開状態へ接続する必要を示す。責任の分散は避けられないが、帰結がどこにも戻らない状態は避けなければならない。</p>
       </div>
     </section>
   </main>

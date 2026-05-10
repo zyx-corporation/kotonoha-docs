@@ -21,10 +21,14 @@
 | [method_site/chapter-00/index.html](method_site/chapter-00/index.html) | Chapter 0 のHTML全文ページ。 |
 | [method_site/chapter-01/index.html](method_site/chapter-01/index.html) | Chapter 1 のHTML全文ページ。 |
 | [method_site/figures/index.html](method_site/figures/index.html) | 図表索引。SVG図と印刷/PDF用の静的説明をまとめる。 |
+| [method_site/figures/figure-map.md](method_site/figures/figure-map.md) | 図表と章・セクションの対応表。 |
 | [sections/README.md](sections/README.md) | 章をセクションへ分割するための構成案。 |
 | [assets/svg/engineering-transformation-loss.svg](assets/svg/engineering-transformation-loss.svg) | エンジニアリング変換と喪失の図。 |
 | [assets/svg/semantic-transformation-flow.svg](assets/svg/semantic-transformation-flow.svg) | 要望から実装までの意味変化フロー図。 |
+| [assets/svg/git-diff-vs-semantic-lineage.svg](assets/svg/git-diff-vs-semantic-lineage.svg) | Git diff と Semantic lineage の違いを示す図。 |
 | [assets/svg/task-vs-semantic-completion.svg](assets/svg/task-vs-semantic-completion.svg) | タスク完了と意味完了の違いを示す図。 |
+| [assets/svg/ai-output-promotion-flow.svg](assets/svg/ai-output-promotion-flow.svg) | AI生成物の昇格フロー図。 |
+| [assets/svg/responsibility-recapture-flow.svg](assets/svg/responsibility-recapture-flow.svg) | 責任再収束フロー図。 |
 
 ## 補助文書
 

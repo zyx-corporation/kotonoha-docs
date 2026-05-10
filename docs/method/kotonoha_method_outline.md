@@ -410,7 +410,7 @@ The initial target is practical: make meaning loss, semantic drift, and responsi
 - Add examples from documentation editing, code review, and AI-generated draft review.
 - Prepare issue and PR templates aligned with this method.
 - Add a minimal adoption guide for small teams.
-- Cross-reference `kotonoha-management` concepts without exposing private planning details.
+- Keep internal-only planning artefacts out of this public doc chain; expose ideas at the concept level rather than cloning proprietary planning verbatim.
 - Keep the method clearly non-normative relative to `kotonoha-spec`.
 
 ---

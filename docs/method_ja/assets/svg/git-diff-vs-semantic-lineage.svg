@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="420" viewBox="0 0 1120 420" role="img" aria-labelledby="title desc">
+  <title id="title">Git diff と Semantic lineage の違い</title>
+  <desc id="desc">Git diff がファイル差分を示す一方で、Semantic lineage は意図、変換、喪失、未解決性、責任を追跡することを示す比較図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222" />
+    </marker>
+    <style>
+      .panel { fill: #fff; stroke: #222; stroke-width: 2; rx: 16; }
+      .sem { fill: #f7fbf9; stroke: #1f4f46; stroke-width: 2; rx: 16; }
+      .label { font-family: sans-serif; font-size: 20px; font-weight: 700; fill: #111; }
+      .small { font-family: sans-serif; font-size: 14px; fill: #222; }
+      .mono { font-family: monospace; font-size: 13px; fill: #222; }
+      .note { font-family: sans-serif; font-size: 14px; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="560" y="34" text-anchor="middle" class="label">Git は差分を示す。Semantic lineage は意味の帰結を追う。</text>
+
+  <rect x="60" y="80" width="430" height="250" class="panel" />
+  <text x="275" y="118" text-anchor="middle" class="label">Git diff</text>
+  <text x="100" y="155" class="mono">- AI output is checked by humans.</text>
+  <text x="100" y="185" class="mono">+ AI output is confirmed by humans.</text>
+  <text x="100" y="225" class="small">見えるもの:</text>
+  <text x="130" y="252" class="small">文字列差分 / 行の増減 / ファイル変更</text>
+  <text x="100" y="292" class="small">見えにくいもの:</text>
+  <text x="130" y="318" class="small">「checked」と「confirmed」の責任差</text>
+
+  <rect x="630" y="80" width="430" height="250" class="sem" />
+  <text x="845" y="118" text-anchor="middle" class="label">Semantic lineage</text>
+  <text x="680" y="155" class="small">元の意図: AI出力は仮説であり人間が承認する</text>
+  <text x="680" y="188" class="small">変換: checked → confirmed</text>
+  <text x="680" y="221" class="small">喪失: 承認責任の強さが弱まる可能性</text>
+  <text x="680" y="254" class="small">未解決: 確認と承認の境界定義</text>
+  <text x="680" y="287" class="small">責任: 誰が公開判断として引き受けるか</text>
+
+  <path d="M500 205 L620 205" class="arrow" />
+  <text x="560" y="190" text-anchor="middle" class="small">意味監査へ</text>
+
+  <text x="560" y="382" text-anchor="middle" class="note">印刷用代替説明: Git diff は文字列の変更を示すが、その変更が意図・責任・未解決性に何をしたかは別途記録する必要がある。</text>
+</svg>
