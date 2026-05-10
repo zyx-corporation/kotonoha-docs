@@ -30,6 +30,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 | Tutorials | [`docs/tutorials/`](docs/tutorials/README.md) |
 | Tutorials (Japanese) | [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) |
 | Index | [`docs/README.md`](docs/README.md) |
+| Org Projects — field meanings (Phase, Status, …) | [`docs/github_organization_workflow.md`](docs/github_organization_workflow.md) |
 
 ## Reviews
 
@@ -39,4 +40,4 @@ Maintainers may request alignment with `kotonoha-spec` terminology. If you are u
 
 ## GitHub Projects
 
-See [`docs/github_projects_policy.md`](docs/github_projects_policy.md) for how this repo participates in organization Projects.
+See [`docs/github_projects_policy.md`](docs/github_projects_policy.md) and [`docs/github_organization_workflow.md`](docs/github_organization_workflow.md) for board participation and **Phase / Status** usage.

@@ -23,6 +23,10 @@ These views are configured on the board ([project](https://github.com/orgs/zyx-c
 
 If a legacy view still filters `kotonoha-project`, remove it in the Project UI (API update for views is limited). Configuration uses the REST API `POST /orgs/zyx-corporation/projectsV2/7/views` with header `X-GitHub-Api-Version: 2026-03-10`.
 
+## Fields (Phase, Status, …)
+
+For a concise description of **Phase** vs milestones and how items are tracked on the Organization board, see **[`github_organization_workflow.md`](github_organization_workflow.md)**.
+
 ## For contributors
 
 - Use **GitHub Issues** to propose documentation gaps and **Pull Requests** to submit changes.
