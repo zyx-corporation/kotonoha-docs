@@ -11,11 +11,15 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 | [Manual](manual/README.md) | Reference-style topics (setup, operations, troubleshooting). |
 | [Tutorials](tutorials/README.md) | Guided learning paths and hands-on exercises. |
 | [Tutorials (Japanese)](tutorials_ja/README.md) | 日本語チュートリアル（`docs/tutorials_ja/`）。 |
+| [Acceptance demos](acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. |
+| [Acceptance demos (Japanese)](acceptance_ja/README.md) | 日本語の受入デモ手順（`docs/acceptance_ja/`）。 |
 
 ## Relationship to the specification
 
 - **`kotonoha-spec`** holds normative definitions implementers rely on.
-- **This repository** holds explanatory and procedural material. If there is a conflict, **`kotonoha-spec` wins**; update tutorials here after specification changes when needed.
+- **This repository** holds explanatory and procedural material. If there is a conflict, **`kotonoha-spec` wins**; update tutorials and acceptance demos here after specification changes when needed.
+- **Tutorials** teach workflows and concepts.
+- **Acceptance demos** validate public behavior for a phase; they are not learning tutorials.
 
 ## Contributing
 
