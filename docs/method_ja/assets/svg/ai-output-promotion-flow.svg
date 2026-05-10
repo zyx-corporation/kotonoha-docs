@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="420" viewBox="0 0 1120 420" role="img" aria-labelledby="title desc">
+  <title id="title">AI生成物の昇格フロー</title>
+  <desc id="desc">AI生成物がドラフト、仮説、レビュー済み、承認済み、公開状態へ進む流れと、各段階で必要な確認を示す図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222" />
+    </marker>
+    <style>
+      .box { fill: #fff; stroke: #222; stroke-width: 2; rx: 14; }
+      .accepted { fill: #f7fbf9; stroke: #1f4f46; stroke-width: 3; rx: 14; }
+      .label { font-family: sans-serif; font-size: 17px; font-weight: 700; fill: #111; }
+      .small { font-family: sans-serif; font-size: 13px; fill: #222; }
+      .note { font-family: sans-serif; font-size: 14px; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="560" y="34" text-anchor="middle" class="label">AI生成物は、生成された時点ではまだ判断ではない</text>
+
+  <rect x="45" y="100" width="180" height="88" class="box" />
+  <text x="135" y="132" text-anchor="middle" class="label">Draft</text>
+  <text x="135" y="158" text-anchor="middle" class="small">生成された草案</text>
+  <text x="135" y="176" text-anchor="middle" class="small">未確認</text>
+
+  <rect x="270" y="100" width="180" height="88" class="box" />
+  <text x="360" y="132" text-anchor="middle" class="label">Hypothesis</text>
+  <text x="360" y="158" text-anchor="middle" class="small">仮説として読む</text>
+  <text x="360" y="176" text-anchor="middle" class="small">前提を確認</text>
+
+  <rect x="495" y="100" width="180" height="88" class="box" />
+  <text x="585" y="132" text-anchor="middle" class="label">Reviewed</text>
+  <text x="585" y="158" text-anchor="middle" class="small">RDE観点で確認</text>
+  <text x="585" y="176" text-anchor="middle" class="small">喪失・逸脱を見る</text>
+
+  <rect x="720" y="100" width="180" height="88" class="accepted" />
+  <text x="810" y="132" text-anchor="middle" class="label">Accepted</text>
+  <text x="810" y="158" text-anchor="middle" class="small">人間が承認</text>
+  <text x="810" y="176" text-anchor="middle" class="small">責任を引き受ける</text>
+
+  <rect x="945" y="100" width="150" height="88" class="accepted" />
+  <text x="1020" y="132" text-anchor="middle" class="label">Published</text>
+  <text x="1020" y="158" text-anchor="middle" class="small">公開状態</text>
+  <text x="1020" y="176" text-anchor="middle" class="small">監査可能</text>
+
+  <path d="M230 144 L265 144" class="arrow" />
+  <path d="M455 144 L490 144" class="arrow" />
+  <path d="M680 144 L715 144" class="arrow" />
+  <path d="M905 144 L940 144" class="arrow" />
+
+  <text x="135" y="248" text-anchor="middle" class="small">まだ判断ではない</text>
+  <text x="360" y="248" text-anchor="middle" class="small">仮説として明示</text>
+  <text x="585" y="248" text-anchor="middle" class="small">保存/変換/喪失</text>
+  <text x="810" y="248" text-anchor="middle" class="small">承認点を記録</text>
+  <text x="1020" y="248" text-anchor="middle" class="small">次回更新へ接続</text>
+
+  <text x="560" y="354" text-anchor="middle" class="note">印刷用代替説明: この図は、AI生成物が生成直後には未確認の草案であり、仮説として読み、RDE観点で確認し、人間が承認して初めて責任ある公開状態へ進むことを示す。</text>
+</svg>
