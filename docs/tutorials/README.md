@@ -2,6 +2,8 @@
 
 Step-by-step guides for **learning** Kotonoha-related workflows. Tutorials may simplify details; always cite **`kotonoha-spec`** when readers need exact semantics.
 
+**Japanese:** [../tutorials_ja/README.md](../tutorials_ja/README.md) (all Japanese tutorial pages live under `docs/tutorials_ja/`)
+
 ## Published tutorials
 
 | Tutorial | Description |

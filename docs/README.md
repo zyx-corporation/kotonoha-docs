@@ -10,6 +10,7 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 | [Method Japanese](method_ja/README.md) | 日本語版のMethod文書。 |
 | [Manual](manual/README.md) | Reference-style topics (setup, operations, troubleshooting). |
 | [Tutorials](tutorials/README.md) | Guided learning paths and hands-on exercises. |
+| [Tutorials (Japanese)](tutorials_ja/README.md) | 日本語チュートリアル（`docs/tutorials_ja/`）。 |
 
 ## Relationship to the specification
 
