@@ -14,6 +14,7 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 | [Acceptance demos](acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. |
 | [Acceptance demos (Japanese)](acceptance_ja/README.md) | 日本語の受入デモ手順（`docs/acceptance_ja/`）。 |
 | [Git/Issue/PR workflow](git_operation_rules.md) | Organization-wide Issue/branch/PR rules (**Japanese**, this `docs/` file). |
+| [GitHub Organization workflow](github_organization_workflow.md) | Short English summary of Organization **Projects** fields (**Phase**, **Status**, …) and truth order. |
 
 ## Relationship to the specification
 
