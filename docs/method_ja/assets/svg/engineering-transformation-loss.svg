@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="420" viewBox="0 0 1120 420" role="img" aria-labelledby="title desc">
+  <title id="title">エンジニアリング変換と喪失</title>
+  <desc id="desc">願望、暗黙知、属人的判断がエンジニアリングによって構造、明示知、再現可能手順へ変換される一方で、曖昧さ、文脈、例外感覚が失われうることを示す図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#222" />
+    </marker>
+    <style>
+      .box { fill: #fff; stroke: #222; stroke-width: 2; rx: 14; }
+      .loss { fill: #fafafa; stroke: #555; stroke-width: 2; stroke-dasharray: 6 5; rx: 14; }
+      .label { font-family: sans-serif; font-size: 18px; font-weight: 700; fill: #111; }
+      .small { font-family: sans-serif; font-size: 13px; fill: #222; }
+      .note { font-family: sans-serif; font-size: 14px; fill: #111; }
+      .arrow { stroke: #222; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="560" y="34" text-anchor="middle" class="label">エンジニアリングは曖昧なものを構造へ変換する</text>
+
+  <rect x="60" y="80" width="210" height="82" class="box" />
+  <text x="165" y="112" text-anchor="middle" class="label">願望</text>
+  <text x="165" y="140" text-anchor="middle" class="small">便利にしたい / 安全にしたい</text>
+
+  <rect x="60" y="190" width="210" height="82" class="box" />
+  <text x="165" y="222" text-anchor="middle" class="label">暗黙知</text>
+  <text x="165" y="250" text-anchor="middle" class="small">熟練者の判断 / 現場文脈</text>
+
+  <rect x="60" y="300" width="210" height="82" class="box" />
+  <text x="165" y="332" text-anchor="middle" class="label">属人的判断</text>
+  <text x="165" y="360" text-anchor="middle" class="small">個人に閉じた理解</text>
+
+  <rect x="455" y="80" width="210" height="82" class="box" />
+  <text x="560" y="112" text-anchor="middle" class="label">構造</text>
+  <text x="560" y="140" text-anchor="middle" class="small">画面 / API / データ</text>
+
+  <rect x="455" y="190" width="210" height="82" class="box" />
+  <text x="560" y="222" text-anchor="middle" class="label">明示知</text>
+  <text x="560" y="250" text-anchor="middle" class="small">仕様 / Issue / テスト</text>
+
+  <rect x="455" y="300" width="210" height="82" class="box" />
+  <text x="560" y="332" text-anchor="middle" class="label">再現可能手順</text>
+  <text x="560" y="360" text-anchor="middle" class="small">運用 / レビュー / 修正</text>
+
+  <path d="M275 121 L450 121" class="arrow" />
+  <path d="M275 231 L450 231" class="arrow" />
+  <path d="M275 341 L450 341" class="arrow" />
+
+  <rect x="805" y="120" width="245" height="200" class="loss" />
+  <text x="928" y="154" text-anchor="middle" class="label">変換に伴う喪失</text>
+  <text x="928" y="190" text-anchor="middle" class="small">曖昧さの一部</text>
+  <text x="928" y="220" text-anchor="middle" class="small">文脈の豊かさ</text>
+  <text x="928" y="250" text-anchor="middle" class="small">例外的な感覚</text>
+  <text x="928" y="280" text-anchor="middle" class="small">判断の痛み</text>
+
+  <path d="M670 121 C735 122, 760 150, 800 178" class="arrow" />
+  <path d="M670 231 C735 232, 760 226, 800 226" class="arrow" />
+  <path d="M670 341 C735 340, 760 300, 800 274" class="arrow" />
+
+  <text x="560" y="406" text-anchor="middle" class="note">印刷用代替説明: この図は、エンジニアリングが実装可能性を得るために曖昧な願望や暗黙知を構造へ変換する一方、その過程で文脈や未解決性が失われうることを示す。</text>
+</svg>
