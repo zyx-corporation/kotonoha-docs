@@ -72,6 +72,10 @@ echo $?
 
 Expect **2**.
 
+## Automated script (optional)
+
+The [`kotonoha-cli` repository](https://github.com/zyx-corporation/kotonoha-cli) ships [`scripts/phase2_acceptance_demo.sh`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/scripts/phase2_acceptance_demo.sh) which runs steps **A–E** from the internal acceptance checklist (`version`, round‑trips, exit **2** for invalid JSON). Set `DATABASE_URL` to include **D** (migrate + store), matching CI on `main`.
+
 ---
 
 ## Where this fits
