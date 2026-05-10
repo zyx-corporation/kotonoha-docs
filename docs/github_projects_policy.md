@@ -4,7 +4,24 @@ This repository participates in **zyx-corporation** GitHub **Organization Projec
 
 ## Canonical cross-repository board
 
-Organization **Project [Kotonoha (SLS)](https://github.com/orgs/zyx-corporation/projects/7)** (**#7**) tracks work across the linked repositories above plus [**`kotonoha-project`**](https://github.com/zyx-corporation/kotonoha-project) (private documents). Use Issues and PRs in each repository; add or reference items on the Project for status and priority. The Project README lists the same links for discoverability.
+Organization **Project [Kotonoha (SLS)](https://github.com/orgs/zyx-corporation/projects/7)** (**#7**) tracks work across the linked repositories above plus [**`kotonoha-project`**](https://github.com/zyx-corporation/kotonoha-project) (private documents). Use Issues and PRs in each repository; add or reference items on the Project for status and priority. The Project README on GitHub duplicates repository links and **lists configured views** (per-repo filters, board, open items).
+
+## Project views (#7)
+
+These views are configured on the board ([project](https://github.com/orgs/zyx-corporation/projects/7)):
+
+| View | Layout | Filter / intent |
+| --- | --- | --- |
+| [View 1](https://github.com/orgs/zyx-corporation/projects/7/views/1) | Table | All items (rename to *Overview* in the UI if you prefer). |
+| [Board (Status)](https://github.com/orgs/zyx-corporation/projects/7/views/2) | Board | Kanban by Status. |
+| [kotonoha-spec](https://github.com/orgs/zyx-corporation/projects/7/views/3) | Table | `repo:zyx-corporation/kotonoha-spec` |
+| [kotonoha-core](https://github.com/orgs/zyx-corporation/projects/7/views/4) | Table | `repo:zyx-corporation/kotonoha-core` |
+| [kotonoha-cli](https://github.com/orgs/zyx-corporation/projects/7/views/5) | Table | `repo:zyx-corporation/kotonoha-cli` |
+| [kotonoha-docs](https://github.com/orgs/zyx-corporation/projects/7/views/6) | Table | `repo:zyx-corporation/kotonoha-docs` |
+| [kotonoha-project](https://github.com/orgs/zyx-corporation/projects/7/views/7) | Table | `repo:zyx-corporation/kotonoha-project` |
+| [Open items](https://github.com/orgs/zyx-corporation/projects/7/views/8) | Table | `is:open` |
+
+Configuration uses the REST API `POST /orgs/zyx-corporation/projectsV2/7/views` with header `X-GitHub-Api-Version: 2026-03-10`.
 
 ## For contributors
 
