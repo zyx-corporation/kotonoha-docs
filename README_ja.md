@@ -28,8 +28,7 @@
 
 - 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義**
   - 仕様の正本は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) に置きます。
-- 非公開の計画・草案
-  - private `kotonoha-management` で管理します。
+- 非公開の計画・草案……公開リポジトリでは書かず、提携コントリビューター向けにはメンテナ側のチャネルで個別に案内があります。
 
 ## 関連リポジトリ
 

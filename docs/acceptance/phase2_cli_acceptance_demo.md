@@ -94,6 +94,6 @@ Set `DATABASE_URL` to include **D** (`migrate` + `store`), matching CI on `main`
 
 ## Governance note
 
-Internal governance ties this demo to Phase 2 acceptance criteria in a non-public [`kotonoha-management` document](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/16_phase2_acceptance_demo.md).
+Maintainers correlate this procedural demo with Phase 2 acceptance using material that intentionally stays outside public repositories. The reproducible public spine for this checklist is **`kotonoha-cli`** **[`phase2_acceptance_demo.sh`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/scripts/phase2_acceptance_demo.sh)** (including CI on **`kotonoha-cli` `main`**) plus **`kotonoha-docs`** [Phase 2 CLI walkthrough](https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/tutorials/phase2_cli_walkthrough.md).
 
 For exact command names, schemas, and exit codes, always prefer public normative sources in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) and the CLI definition in [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli).
