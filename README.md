@@ -20,7 +20,7 @@ This repository hosts user-facing and contributor-facing materials such as **man
 ## What does *not* belong here
 
 - **Normative specifications**, schemas, or stability guarantees for implementers → [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
-- **Internal planning, drafts, and non-public decisions** → private [`kotonoha-management`](https://github.com/zyx-corporation/kotonoha-management) (access-controlled).
+- **Internal planning and non-public decisions** → not authored in repositories under this umbrella; collaborator-only workflows handle material that stays off the public web.
 
 When documentation must align behavior across implementations, cite or summarize **`kotonoha-spec`** rather than duplicating normative text here.
 

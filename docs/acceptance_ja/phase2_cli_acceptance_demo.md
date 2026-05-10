@@ -94,6 +94,6 @@ echo $?
 
 ## ガバナンス上の位置づけ
 
-社内運用では、本デモが Phase 2 の受入基準に紐づきます（非公開の [`kotonoha-management` 文書](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/16_phase2_acceptance_demo.md)）。
+メンテナは社内向けのチェックリストで Phase 2 受入の整合も取っているが、その本文は公開リポジトリには複製しない。公開で再現可能な根据は、この手順および **[Phase 2 CLI チュートリアル](https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/tutorials/phase2_cli_walkthrough.md)**、**[`phase2_acceptance_demo.sh`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/scripts/phase2_acceptance_demo.sh)**（CI）を正とすること。
 
 コマンド名、スキーマ、終了コードの厳密さは、常に [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) の公開規範ソースと [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) の CLI 定義を優先してください。
