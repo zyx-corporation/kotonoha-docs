@@ -13,6 +13,7 @@ Welcome to **kotonoha-docs**. These pages support readers and operators without 
 | [Tutorials (Japanese)](tutorials_ja/README.md) | 日本語チュートリアル（`docs/tutorials_ja/`）。 |
 | [Acceptance demos](acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. |
 | [Acceptance demos (Japanese)](acceptance_ja/README.md) | 日本語の受入デモ手順（`docs/acceptance_ja/`）。 |
+| Git / Issue / PR | [git_operation_rules.md](git_operation_rules.md) | Organization-wide Git workflow (Japanese; mirrored from **`kotonoha-management` canonical** [`04_git_operation_rules.md`](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/04_git_operation_rules.md)). |
 
 ## Relationship to the specification
 
