@@ -20,8 +20,11 @@
 | [method_site/index.html](method_site/index.html) | 日本語版Kotonoha Methodの初期HTMLプロトタイプ。Chapter 0 / 1 のHTML本文へ接続する。 |
 | [method_site/chapter-00/index.html](method_site/chapter-00/index.html) | Chapter 0 のHTML全文ページ。 |
 | [method_site/chapter-01/index.html](method_site/chapter-01/index.html) | Chapter 1 のHTML全文ページ。 |
+| [method_site/figures/index.html](method_site/figures/index.html) | 図表索引。SVG図と印刷/PDF用の静的説明をまとめる。 |
 | [sections/README.md](sections/README.md) | 章をセクションへ分割するための構成案。 |
+| [assets/svg/engineering-transformation-loss.svg](assets/svg/engineering-transformation-loss.svg) | エンジニアリング変換と喪失の図。 |
 | [assets/svg/semantic-transformation-flow.svg](assets/svg/semantic-transformation-flow.svg) | 要望から実装までの意味変化フロー図。 |
+| [assets/svg/task-vs-semantic-completion.svg](assets/svg/task-vs-semantic-completion.svg) | タスク完了と意味完了の違いを示す図。 |
 
 ## 補助文書
 
