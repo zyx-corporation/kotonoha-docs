@@ -4,7 +4,7 @@ This repository participates in **zyx-corporation** GitHub **Organization Projec
 
 ## Canonical cross-repository board
 
-Organization **Project [Kotonoha (SLS)](https://github.com/orgs/zyx-corporation/projects/7)** (**#7**) tracks work across the linked repositories above plus [**`kotonoha-project`**](https://github.com/zyx-corporation/kotonoha-project) (private documents). Use Issues and PRs in each repository; add or reference items on the Project for status and priority. The Project README on GitHub duplicates repository links and **lists configured views** (per-repo filters, board, open items).
+Organization **Project [Kotonoha (SLS)](https://github.com/orgs/zyx-corporation/projects/7)** (**#7**) tracks work across the linked repositories above plus [**`kotonoha-management`**](https://github.com/zyx-corporation/kotonoha-management) (private operational documents — formerly `kotonoha-project`). Use Issues and PRs in each repository; add or reference items on the Project for status and priority. The Project README on GitHub duplicates repository links and **lists configured views** (per-repo filters, board, open items).
 
 ## Project views (#7)
 
@@ -18,10 +18,10 @@ These views are configured on the board ([project](https://github.com/orgs/zyx-c
 | [kotonoha-core](https://github.com/orgs/zyx-corporation/projects/7/views/4) | Table | `repo:zyx-corporation/kotonoha-core` |
 | [kotonoha-cli](https://github.com/orgs/zyx-corporation/projects/7/views/5) | Table | `repo:zyx-corporation/kotonoha-cli` |
 | [kotonoha-docs](https://github.com/orgs/zyx-corporation/projects/7/views/6) | Table | `repo:zyx-corporation/kotonoha-docs` |
-| [kotonoha-project](https://github.com/orgs/zyx-corporation/projects/7/views/7) | Table | `repo:zyx-corporation/kotonoha-project` |
+| [kotonoha-management](https://github.com/orgs/zyx-corporation/projects/7/views/10) | Table | `repo:zyx-corporation/kotonoha-management` |
 | [Open items](https://github.com/orgs/zyx-corporation/projects/7/views/8) | Table | `is:open` |
 
-Configuration uses the REST API `POST /orgs/zyx-corporation/projectsV2/7/views` with header `X-GitHub-Api-Version: 2026-03-10`.
+If a legacy view still filters `kotonoha-project`, remove it in the Project UI (API update for views is limited). Configuration uses the REST API `POST /orgs/zyx-corporation/projectsV2/7/views` with header `X-GitHub-Api-Version: 2026-03-10`.
 
 ## For contributors
 
