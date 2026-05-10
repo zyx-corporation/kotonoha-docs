@@ -8,18 +8,28 @@
 
 ## 置くもの／置かないもの（要約）
 
-| 種別 | 場所 | 備考 |
-| --- | --- | --- |
-| 利用・運用のマニュアル | [`docs/manual/`](docs/manual/README.md) | インストール、設定、運用、トラブルシュートなどの参照文書。 |
-| 学習用チュートリアル | [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) | 初学者向けの段階的な学習導線。 |
-| 受入デモ | [`docs/acceptance_ja/`](docs/acceptance_ja/README.md) | 期待コマンド、出力、終了コードを確認する手順。チュートリアルではない。 |
-| 開発手法 | [`docs/method/`](docs/method/README.md) | SLS + RDE を自プロセスにどう当てるか。仕様正本ではない。 |
-| 本リポジトリへの貢献手順 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | 実装リポジトリ向けの貢献手順とは分ける。 |
+### 置くもの
 
-## 置かないもの
+- 利用・運用のマニュアル
+  - 例: [`docs/manual/`](docs/manual/README.md)
+- 学習用チュートリアル
+  - 例: [`docs/tutorials_ja/`](docs/tutorials_ja/README.md)
+- 受入デモなど、仕様外の確認手順
+  - 例: [`docs/acceptance_ja/`](docs/acceptance_ja/README.md)
+- FAQ、移行メモ、ハウツー、補助的な説明
+- 開発**手法**の説明
+  - 例: SLS + RDE を自プロセスにどう当てるか
+  - 例: [`docs/method/`](docs/method/README.md)
+  - ただし、これは仕様正本ではなく、説明・手順の層です。
+- 本リポジトリへの貢献手順
+  - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-- 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義** → [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec)
-- 非公開の計画・草案 → private [`kotonoha-management`](https://github.com/zyx-corporation/kotonoha-management)
+### 置かないもの
+
+- 実装者向けの **規範仕様・スキーマ・安定インターフェースの定義**
+  - 仕様の正本は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) に置きます。
+- 非公開の計画・草案
+  - private `kotonoha-management` で管理します。
 
 ## 関連リポジトリ
 
