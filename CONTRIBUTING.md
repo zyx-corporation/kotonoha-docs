@@ -7,6 +7,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 1. **Do not introduce normative behavior** here. If a change would define how implementations must behave, it belongs in `kotonoha-spec`. This repo may explain, summarize, and link to specifications.
 2. **Prefer clarity over completeness** in tutorials; link out for edge cases.
 3. **English-first** for new documents. For tutorials, keep English under `docs/tutorials/`; place Japanese pages under `docs/tutorials_ja/` with parallel filenames unless a doc set needs its own subtree.
+4. **Git/Issue/branch/PR**: follow **[`docs/git_operation_rules.md`](docs/git_operation_rules.md)** (**no direct edits to `main`**; [canonical in **`kotonoha-management`**](https://github.com/zyx-corporation/kotonoha-management/blob/main/docs/04_git_operation_rules.md); update canon first).
 
 ## Workflow
 
