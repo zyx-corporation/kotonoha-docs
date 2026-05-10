@@ -2,6 +2,10 @@
 
 This repository participates in **zyx-corporation** GitHub **Organization Projects** alongside the public **`kotonoha`** repositories [**`kotonoha-spec`**](https://github.com/zyx-corporation/kotonoha-spec), [**`kotonoha-core`**](https://github.com/zyx-corporation/kotonoha-core), **kotonoha-docs (this repository)**, and [**`kotonoha-cli`**](https://github.com/zyx-corporation/kotonoha-cli).
 
+## Canonical cross-repository board
+
+Organization **Project [Kotonoha (SLS)](https://github.com/orgs/zyx-corporation/projects/7)** (**#7**) tracks work across the linked repositories above plus [**`kotonoha-project`**](https://github.com/zyx-corporation/kotonoha-project) (private documents). Use Issues and PRs in each repository; add or reference items on the Project for status and priority. The Project README lists the same links for discoverability.
+
 ## For contributors
 
 - Use **GitHub Issues** to propose documentation gaps and **Pull Requests** to submit changes.
