@@ -2,7 +2,7 @@
 
 **Public documentation for the Kotonoha ecosystem** that is **not** part of the normative Semantic Lineage System (SLS) specification.
 
-This repository hosts user-facing and contributor-facing materials such as **manuals**, **tutorials**, **how-to guides**, and **supplementary docs**. Stable, review-facing technical specifications belong in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
+This repository hosts user-facing and contributor-facing materials such as **manuals**, **tutorials**, **how-to guides**, **acceptance demos**, and **supplementary docs**. Stable, review-facing technical specifications belong in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
 
 **Japanese:** [README_ja.md](README_ja.md)
 
@@ -12,6 +12,7 @@ This repository hosts user-facing and contributor-facing materials such as **man
 | --- | --- | --- |
 | End-user and operator **manuals** | [`docs/manual/`](docs/manual/README.md) | Task-oriented reference (installation, configuration, operations). |
 | **Tutorials** and learning paths | [`docs/tutorials/`](docs/tutorials/README.md) | Step-by-step guides for newcomers. |
+| **Acceptance demos** | [`docs/acceptance/`](docs/acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. Not tutorials. |
 | **Contribution** workflow for *this docs repo* | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Distinct from implementation contribution guides in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core). |
 | **Method** (SLS + RDE in our own process) | [`docs/method/`](docs/method/README.md) | How we build Kotonoha using semantic-lineage and RDE-style review—*not* the spec. |
 | Other **non-normative** public docs | [`docs/README.md`](docs/README.md) | Glossaries for readers, FAQs, migration notes—without locking API or schema semantics. |
@@ -32,7 +33,7 @@ Public cross-references only.
 | [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) | Canonical **public specifications** for SLS |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS **core implementation** and developer docs tied to code |
 | [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | Official **`kotonoha`** CLI ([definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)) |
-| **kotonoha-docs (this repository)** | **Non-specification** public documentation (manuals, tutorials, guides) |
+| **kotonoha-docs (this repository)** | **Non-specification** public documentation (manuals, tutorials, acceptance demos, guides) |
 
 ## Language policy
 

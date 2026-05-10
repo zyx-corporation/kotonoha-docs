@@ -6,7 +6,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 
 1. **Do not introduce normative behavior** here. If a change would define how implementations must behave, it belongs in `kotonoha-spec`. This repo may explain, summarize, and link to specifications.
 2. **Prefer clarity over completeness** in tutorials; link out for edge cases.
-3. **English-first** for new documents; add `*_ja.md` for Japanese translations aligned with the English source.
+3. **English-first** for new documents. For tutorials, keep English under `docs/tutorials/`; place Japanese pages under `docs/tutorials_ja/` with parallel filenames unless a doc set needs its own subtree.
 
 ## Workflow
 
@@ -27,6 +27,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 | Development **method** (SLS + RDE in practice) | [`docs/method/`](docs/method/README.md) |
 | Manual-style reference | [`docs/manual/`](docs/manual/README.md) |
 | Tutorials | [`docs/tutorials/`](docs/tutorials/README.md) |
+| Tutorials (Japanese) | [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) |
 | Index | [`docs/README.md`](docs/README.md) |
 
 ## Reviews
