@@ -2,6 +2,8 @@
 
 This tutorial is a **hands-on acceptance-style demo** for the Phase 2 minimum surface of the [`kotonoha`](https://github.com/zyx-corporation/kotonoha-cli) CLI and [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core). It does not replace normative definitions in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
 
+**Japanese:** [../tutorials_ja/phase2_cli_walkthrough.md](../tutorials_ja/phase2_cli_walkthrough.md)
+
 **Prerequisites:** Rust toolchain, optional PostgreSQL 16+ if you run persistence steps.
 
 ## 1. Build or install the CLI
