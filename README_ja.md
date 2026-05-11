@@ -19,6 +19,12 @@
 
 **English:** [en/README.md](en/README.md)
 
+## レンダリングと図表
+
+本リポジトリの図は、原則として SVG で記述します。標準の公開経路は、Markdown から SVG を参照し、[`tools/render_docs.py`](tools/render_docs.py) で静的 HTML に変換する方式です。レイアウト、インタラクション、印刷/PDF制御が必要な場合は、HTML 直書きも許容します。
+
+SVG-first の図表方針とレンダリング手順は [`docs/rendering_policy.md`](docs/rendering_policy.md) を参照してください。
+
 ## 置くもの／置かないもの（要約）
 
 ### 置くもの
