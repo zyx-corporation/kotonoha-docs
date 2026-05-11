@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kotone 概念図</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #374151;
+      --bg: #ffffff;
+      --kotone-border: #9ca3af;
+      --kmcs-fill: #eef5ff;
+      --kmcs-stroke: #2563eb;
+      --bus-fill: #dbeafe;
+      --bus-stroke: #1d4ed8;
+      --kotonoha-fill: #ecfdf3;
+      --kotonoha-stroke: #15803d;
+      --slm-fill: #f4efff;
+      --slm-stroke: #7c3aed;
+      --db-fill: #fff8e6;
+      --db-stroke: #d97706;
+      --sensor-fill: #ecfeff;
+      --sensor-stroke: #0891b2;
+      --audio-fill: #fff1f2;
+      --audio-stroke: #e11d48;
+      --comm-fill: #eff6ff;
+      --comm-stroke: #0284c7;
+      --edge-fill: #fff7ed;
+      --edge-stroke: #ea580c;
+      --ha-fill: #f0fdf4;
+      --ha-stroke: #16a34a;
+      --io-fill: #f9fafb;
+      --io-stroke: #4b5563;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: .02em;
+    }
+    .subtitle {
+      margin: 0 0 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .figure-wrap {
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      overflow-x: auto;
+      background: linear-gradient(#ffffff, #fbfdff);
+    }
+    svg {
+      width: 100%;
+      min-width: 860px;
+      height: auto;
+      display: block;
+    }
+    .title { font-size: 34px; font-weight: 800; fill: var(--ink); }
+    .label { font-size: 21px; font-weight: 800; fill: var(--ink); }
+    .sub { font-size: 13px; font-weight: 600; fill: var(--muted); }
+    .small { font-size: 12px; font-weight: 600; fill: var(--muted); }
+    .list { font-size: 13px; font-weight: 600; fill: var(--ink); }
+    .box { rx: 18; ry: 18; stroke-width: 2.5; }
+    .outer-box { rx: 28; ry: 28; stroke-width: 3; }
+    .arrow-bi {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 2.4;
+      marker-start: url(#arrowStart);
+      marker-end: url(#arrow);
+    }
+    .bus-line {
+      fill: none;
+      stroke: var(--bus-stroke);
+      stroke-width: 2.2;
+      stroke-dasharray: 6 5;
+    }
+    .caption {
+      margin-top: 18px;
+      color: #374151;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    code {
+      background: #f3f4f6;
+      padding: .08em .35em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Kotone 概念図</h1>
+    <p class="subtitle">
+      KMCS 上に <strong>Kotonoha / SLM / データベース / Sensor入力処理 / Audio I/O / 通信機能 / Home Assistant</strong> を併置し、
+      各モジュールは <strong>KMCS Bus</strong> を介して必要に応じて相互接続される構成
+    </p>
+
+    <div class="figure-wrap">
+      <svg viewBox="0 0 940 1520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="svgTitle svgDesc">
+        <title id="svgTitle">Kotone concept diagram</title>
+        <desc id="svgDesc">
+          Vertical concept diagram of Kotone. KMCS contains Kotonoha, SLM, database, sensor input processing,
+          audio I/O, communication, and Home Assistant. These modules are connected through a KMCS Bus rather than
+          direct point-to-point links. Home Assistant and Audio I/O are placed on the left side, while the database
+          is placed on the right side. External Sensor I/O devices and Audio I/O devices are drawn separately.
+        </desc>
+
+        <defs>
+          <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+            <path d="M2,2 L10,6 L2,10 Z" fill="#374151" />
+          </marker>
+          <marker id="arrowStart" markerWidth="12" markerHeight="12" refX="2" refY="6" orient="auto" markerUnits="strokeWidth">
+            <path d="M10,2 L2,6 L10,10 Z" fill="#374151" />
+          </marker>
+          <filter id="softShadow" x="-15%" y="-15%" width="130%" height="140%">
+            <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.10" />
+          </filter>
+        </defs>
+
+        <rect x="160" y="60" width="620" height="1310" class="outer-box" fill="#ffffff" stroke="var(--kotone-border)" />
+        <text x="470" y="110" text-anchor="middle" class="title">Kotone</text>
+
+        <rect x="250" y="155" width="440" height="1010" class="outer-box" fill="var(--kmcs-fill)" stroke="var(--kmcs-stroke)" filter="url(#softShadow)" />
+        <text x="470" y="205" text-anchor="middle" class="title">KMCS</text>
+        <text x="470" y="230" text-anchor="middle" class="sub">Kotone Modular Container System / 実行・統合基盤</text>
+
+        <rect x="422" y="280" width="96" height="640" rx="26" fill="var(--bus-fill)" stroke="var(--bus-stroke)" stroke-width="2.6" />
+        <text x="470" y="555" text-anchor="middle" class="label" style="font-size:18px;">KMCS</text>
+        <text x="470" y="582" text-anchor="middle" class="label" style="font-size:18px;">Bus</text>
+        <text x="470" y="611" text-anchor="middle" class="small">Event / IPC</text>
+        <text x="470" y="633" text-anchor="middle" class="small">Message</text>
+
+        <rect x="285" y="285" width="115" height="92" class="box" fill="var(--kotonoha-fill)" stroke="var(--kotonoha-stroke)" />
+        <text x="342.5" y="324" text-anchor="middle" class="label" style="font-size:18px;">Kotonoha</text>
+        <text x="342.5" y="348" text-anchor="middle" class="sub">意味・監査</text>
+        <path d="M400 331 H422" class="bus-line" />
+
+        <rect x="285" y="435" width="115" height="92" class="box" fill="var(--ha-fill)" stroke="var(--ha-stroke)" />
+        <text x="342.5" y="470" text-anchor="middle" class="label" style="font-size:16px;">Home</text>
+        <text x="342.5" y="492" text-anchor="middle" class="label" style="font-size:16px;">Assistant</text>
+        <text x="342.5" y="512" text-anchor="middle" class="sub">Sensor I/O FE</text>
+        <path d="M400 481 H422" class="bus-line" />
+
+        <rect x="285" y="585" width="115" height="100" class="box" fill="var(--audio-fill)" stroke="var(--audio-stroke)" />
+        <text x="342.5" y="624" text-anchor="middle" class="label" style="font-size:18px;">Audio I/O</text>
+        <text x="342.5" y="650" text-anchor="middle" class="sub">音声入出力</text>
+        <path d="M400 635 H422" class="bus-line" />
+
+        <rect x="540" y="285" width="115" height="92" class="box" fill="var(--slm-fill)" stroke="var(--slm-stroke)" />
+        <text x="597.5" y="324" text-anchor="middle" class="label">SLM</text>
+        <text x="597.5" y="348" text-anchor="middle" class="sub">ローカル推論</text>
+        <path d="M518 331 H540" class="bus-line" />
+
+        <rect x="540" y="435" width="115" height="92" class="box" fill="var(--db-fill)" stroke="var(--db-stroke)" />
+        <text x="597.5" y="472" text-anchor="middle" class="label" style="font-size:17px;">データベース</text>
+        <text x="597.5" y="497" text-anchor="middle" class="sub">状態・履歴</text>
+        <path d="M518 481 H540" class="bus-line" />
+
+        <rect x="540" y="585" width="115" height="100" class="box" fill="var(--sensor-fill)" stroke="var(--sensor-stroke)" />
+        <text x="597.5" y="622" text-anchor="middle" class="label" style="font-size:16px;">Sensor</text>
+        <text x="597.5" y="644" text-anchor="middle" class="label" style="font-size:16px;">入力処理</text>
+        <text x="597.5" y="667" text-anchor="middle" class="sub">観測・前処理</text>
+        <path d="M518 635 H540" class="bus-line" />
+
+        <rect x="412" y="770" width="116" height="100" class="box" fill="var(--comm-fill)" stroke="var(--comm-stroke)" />
+        <text x="470" y="809" text-anchor="middle" class="label" style="font-size:18px;">通信機能</text>
+        <text x="470" y="835" text-anchor="middle" class="sub">API・同期</text>
+        <path d="M470 770 V720" class="bus-line" />
+
+        <rect x="20" y="430" width="160" height="175" class="box" fill="var(--io-fill)" stroke="var(--io-stroke)" />
+        <text x="100" y="465" text-anchor="middle" class="label" style="font-size:17px;">Sensor I/O</text>
+        <text x="100" y="488" text-anchor="middle" class="sub">Devices</text>
+        <text x="42" y="525" class="list">• 赤外線カメラ</text>
+        <text x="42" y="554" class="list">• 環境センサー</text>
+        <text x="42" y="583" class="list">• 各種IoT機器</text>
+
+        <rect x="20" y="650" width="160" height="160" class="box" fill="var(--io-fill)" stroke="var(--io-stroke)" />
+        <text x="100" y="685" text-anchor="middle" class="label" style="font-size:17px;">Audio I/O</text>
+        <text x="100" y="708" text-anchor="middle" class="sub">Devices</text>
+        <text x="42" y="745" class="list">• マイク</text>
+        <text x="42" y="774" class="list">• スピーカー</text>
+        <text x="42" y="803" class="list">• 音声周辺機器</text>
+
+        <path d="M180 520 H230 V481 H285" class="arrow-bi" />
+        <path d="M180 570 H230 V635 H540" class="arrow-bi" />
+        <path d="M180 730 H230 V635 H285" class="arrow-bi" />
+
+        <g transform="translate(700 760)">
+          <path d="M35 55 C35 36, 49 22, 68 22 C72 9, 84 0, 98 0 C115 0, 130 12, 134 28 C151 29, 165 43, 165 60 C165 79, 150 94, 131 94 H50 C25 94, 5 74, 5 49 C5 28, 20 11, 41 8" fill="#ffffff" stroke="#4b5563" stroke-width="2.8" />
+          <circle cx="86" cy="55" r="18" fill="none" stroke="#4b5563" stroke-width="2.4" />
+          <path d="M68 55H104 M86 37C78 47 78 63 86 73 M86 37C94 47 94 63 86 73 M86 37V73" fill="none" stroke="#4b5563" stroke-width="1.8" />
+          <text x="86" y="118" text-anchor="middle" class="small">外部ネットワーク</text>
+          <text x="86" y="136" text-anchor="middle" class="small">/ クラウドサービス</text>
+        </g>
+        <path d="M528 820 H700" class="arrow-bi" />
+
+        <rect x="305" y="1215" width="330" height="82" class="box" fill="var(--edge-fill)" stroke="var(--edge-stroke)" filter="url(#softShadow)" />
+        <text x="470" y="1253" text-anchor="middle" class="label" style="font-size:20px;">エッジプロセッサ</text>
+        <text x="470" y="1278" text-anchor="middle" class="sub">Jetson / Hailo / Coral など</text>
+        <path d="M470 1165 V1215" class="arrow-bi" />
+
+        <text x="470" y="1410" text-anchor="middle" class="sub">
+          KMCS 内部の各モジュールは Bus を介して必要時に相互接続される
+        </text>
+      </svg>
+    </div>
+
+    <p class="caption">
+      この版では、<code>Home Assistant</code> と <code>Audio I/O</code> を左側へ、<code>データベース</code> を右側へ移動しました。
+      外部の <code>Sensor I/O Devices</code> は <code>Home Assistant</code> および <code>Sensor入力処理</code> と接続し、
+      外部の <code>Audio I/O Devices</code> は <code>Audio I/O</code> モジュールと接続しています。
+      KMCS 内部は point-to-point 接続ではなく、<code>KMCS Bus</code> を介する構造です。
+    </p>
+  </main>
+</body>
+</html>
