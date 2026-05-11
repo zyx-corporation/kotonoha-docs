@@ -2,20 +2,35 @@
 
 Welcome to **kotonoha-docs**. These pages support readers and operators without replacing the canonical specification in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
 
-## Sections
+## Current preferred language roots
 
-| Section | Purpose |
+Reader-facing documentation now uses repository-root language areas:
+
+| Language | Preferred root |
 | --- | --- |
-| [Method](method/README.md) | How Kotonoha development applies **SLS + RDE** in practice (non-normative). |
-| [Method Japanese](method_ja/README.md) | 日本語版のMethod文書。 |
-| [Manual](manual/README.md) | Reference-style topics (setup, operations, troubleshooting). |
-| [Tutorials](tutorials/README.md) | Guided learning paths and hands-on exercises. |
-| [Tutorials (Japanese)](tutorials_ja/README.md) | 日本語チュートリアル（`docs/tutorials_ja/`）。 |
-| [Acceptance demos](acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. |
-| [Acceptance demos (Japanese)](acceptance_ja/README.md) | 日本語の受入デモ手順（`docs/acceptance_ja/`）。 |
+| English | [`../en/`](../en/README.md) |
+| Japanese | [`../ja/`](../ja/README.md) |
+
+The historical `docs/` directory remains available as a compatibility and transition area. New reader-facing documents should prefer `en/` and `ja/` unless they are repository tooling, governance, or transitional notes.
+
+## Migrated sections
+
+| Legacy section | Preferred English location | Preferred Japanese location |
+| --- | --- | --- |
+| [`method/`](method/README.md) / [`method_ja/`](method_ja/README.md) | [`../en/method/`](../en/method/README.md) | [`../ja/method/`](../ja/method/README.md) |
+| [`tutorials/`](tutorials/README.md) / [`tutorials_ja/`](tutorials_ja/README.md) | [`../en/tutorials/`](../en/tutorials/README.md) | [`../ja/tutorials/`](../ja/tutorials/README.md) |
+| [`acceptance/`](acceptance/README.md) / [`acceptance_ja/`](acceptance_ja/README.md) | [`../en/acceptance/`](../en/acceptance/README.md) | [`../ja/acceptance/`](../ja/acceptance/README.md) |
+| [`manual/`](manual/README.md) | [`../en/manual/`](../en/manual/README.md) | [`../ja/manual/`](../ja/manual/README.md) |
+
+## Repository governance and tooling documents
+
+| Document | Purpose |
+| --- | --- |
+| [Rendering policy](rendering_policy.md) | SVG-first rendering and HTML publication workflow. |
 | [Git/Issue/PR workflow](git_operation_rules.md) | Organization-wide Issue/branch/PR rules (**Japanese**, this `docs/` file). |
-| [GitHub Organization workflow](github_organization_workflow.md) | Short English summary of Organization **Projects** fields (**Phase**, **Status**, …) and truth order. |
+| [GitHub Organization workflow](github_organization_workflow.md) | Short English summary of Organization **Projects** fields and truth order. |
 | [GitHub Organization workflow（日本語）](github_organization_workflow_ja.md) | 上記の日本語版。 |
+| [GitHub Projects policy](github_projects_policy.md) | Organization project-board usage policy. |
 
 ## Relationship to the specification
 
