@@ -2,20 +2,33 @@
 
 **Public documentation for the Kotonoha ecosystem** that is **not** part of the normative Semantic Lineage System (SLS) specification.
 
-This repository hosts user-facing and contributor-facing materials such as **manuals**, **tutorials**, **how-to guides**, **acceptance demos**, and **supplementary docs**. Stable, review-facing technical specifications belong in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
+This repository hosts user-facing and contributor-facing materials such as **concept explanations**, **manuals**, **tutorials**, **how-to guides**, **acceptance demos**, and **supplementary docs**. Stable, review-facing technical specifications belong in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec).
 
-**Japanese:** [README_ja.md](README_ja.md)
+## Language roots
+
+Reader-facing documentation is organized under repository-root language areas:
+
+| Language | Area | Notes |
+| --- | --- | --- |
+| English | [`en/`](en/README.md) | English documentation area. |
+| Japanese | [`ja/`](ja/README.md) | 日本語ドキュメント領域。 |
+
+The English and Japanese areas should normally use the same structure and contain translation pairs or equivalent companion documents.
+
+Historical material under [`docs/`](docs/README.md) remains available during migration. New conceptual and explanatory documents should prefer `en/` and `ja/`.
+
+**Japanese:** [ja/README.md](ja/README.md)
 
 ## What belongs here
 
-| Kind | Typical location | Notes |
-| --- | --- | --- |
-| End-user and operator **manuals** | [`docs/manual/`](docs/manual/README.md) | Task-oriented reference (installation, configuration, operations). |
-| **Tutorials** and learning paths | [`docs/tutorials/`](docs/tutorials/README.md) | Step-by-step guides for newcomers. |
-| **Acceptance demos** | [`docs/acceptance/`](docs/acceptance/README.md) | Procedural validation checks with expected commands, outputs, and exit codes. Not tutorials. |
-| **Contribution** workflow for *this docs repo* | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Distinct from implementation contribution guides in [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core). |
-| **Method** (SLS + RDE in our own process) | [`docs/method/`](docs/method/README.md) | How we build Kotonoha using semantic-lineage and RDE-style review—*not* the spec. |
-| Other **non-normative** public docs | [`docs/README.md`](docs/README.md) | Glossaries for readers, FAQs, migration notes—without locking API or schema semantics. |
+| Kind | Preferred location | Transitional source | Notes |
+| --- | --- | --- | --- |
+| Conceptual explanations | `en/concepts/`, `ja/concepts/` | To be added | Reader-facing explanations of SLS, semantic lineage, ΔM, RDE, memory layer, and related concepts. |
+| End-user and operator **manuals** | [`en/manual/`](en/manual/README.md), [`ja/manual/`](ja/manual/README.md) | [`docs/manual/`](docs/manual/README.md) | Task-oriented reference. |
+| **Tutorials** and learning paths | [`en/tutorials/`](en/tutorials/README.md), [`ja/tutorials/`](ja/tutorials/README.md) | [`docs/tutorials/`](docs/tutorials/README.md), [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) | Step-by-step guides for newcomers. |
+| **Acceptance demos** | [`en/acceptance/`](en/acceptance/README.md), [`ja/acceptance/`](ja/acceptance/README.md) | [`docs/acceptance/`](docs/acceptance/README.md), [`docs/acceptance_ja/`](docs/acceptance_ja/README.md) | Procedural validation checks; not tutorials. |
+| **Method** | [`en/method/`](en/method/README.md), [`ja/method/`](ja/method/README.md) | [`docs/method/`](docs/method/README.md), [`docs/method_ja/`](docs/method_ja/README.md) | How we build Kotonoha using SLS and RDE-style review; not the spec. |
+| Contribution workflow for this docs repo | [`CONTRIBUTING.md`](CONTRIBUTING.md) | — | Distinct from implementation contribution guides. |
 
 ## What does *not* belong here
 
@@ -33,11 +46,16 @@ Public cross-references only.
 | [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) | Canonical **public specifications** for SLS |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS **core implementation** and developer docs tied to code |
 | [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | Official **`kotonoha`** CLI ([definition](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)) |
-| **kotonoha-docs (this repository)** | **Non-specification** public documentation (manuals, tutorials, acceptance demos, guides) |
+| **kotonoha-docs (this repository)** | **Non-specification** public documentation (manuals, tutorials, acceptance demos, guides, conceptual explanations) |
 
 ## Language policy
 
-**English is the default** for files in this repository. Japanese or other translations may be added alongside the English source. When you add a translation, keep English primary and use the `*_ja.md` suffix for Japanese files (for example, `README.md` / `README_ja.md`).
+The repository-root language areas are:
+
+- `en/` for English.
+- `ja/` for Japanese.
+
+Both areas should normally have the same structure. When one language leads temporarily, the corresponding location in the other language should link to the available source or state that translation is pending.
 
 ## License
 
@@ -46,5 +64,7 @@ Unless otherwise stated in a specific file, repository content is licensed under
 ## Links
 
 - Repository: https://github.com/zyx-corporation/kotonoha-docs
-- Documentation index: [`docs/README.md`](docs/README.md)
+- English docs: [`en/`](en/README.md)
+- Japanese docs: [`ja/`](ja/README.md)
+- Transitional documentation index: [`docs/README.md`](docs/README.md)
 - GitHub Projects (organization workflow): [`docs/github_projects_policy.md`](docs/github_projects_policy.md)
