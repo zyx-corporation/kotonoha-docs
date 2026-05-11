@@ -1,0 +1,98 @@
+/* Kotonoha documentation default stylesheet.
+ * This CSS is intentionally small and dependency-free so generated HTML can be
+ * published through static hosting with minimal build assumptions.
+ */
+
+:root {
+  --kt-bg: #fbfaf7;
+  --kt-text: #1f2933;
+  --kt-muted: #5f6b7a;
+  --kt-line: #d8dee8;
+  --kt-panel: #ffffff;
+  --kt-accent: #2f5f8f;
+  --kt-code-bg: #f1f5f9;
+}
+
+html {
+  background: var(--kt-bg);
+  color: var(--kt-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+body {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+main {
+  background: var(--kt-panel);
+  border: 1px solid var(--kt-line);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+h1 {
+  border-bottom: 1px solid var(--kt-line);
+  padding-bottom: 0.6rem;
+}
+
+p,
+li {
+  color: var(--kt-text);
+}
+
+a {
+  color: var(--kt-accent);
+}
+
+code {
+  background: var(--kt-code-bg);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.3rem;
+}
+
+pre {
+  background: var(--kt-code-bg);
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+figure.kt-figure {
+  border: 1px solid var(--kt-line);
+  border-radius: 16px;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #fff;
+}
+
+figure.kt-figure img,
+figure.kt-figure object {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+figure.kt-figure figcaption {
+  color: var(--kt-muted);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.kt-note {
+  border-left: 4px solid var(--kt-accent);
+  background: #eef6ff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
