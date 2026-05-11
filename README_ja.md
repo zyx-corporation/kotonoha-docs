@@ -2,24 +2,39 @@
 
 **Semantic Lineage System（SLS）の仕様に含まれない**、利用者・コミュニティ向けの**公開ドキュメント**を置くリポジトリです。
 
-仕様の正本・規範的な定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。本リポジトリは **マニュアル**、**チュートリアル**、**ハウツー**、**受入デモ**、**補助的な説明**など、normative ではない公開文書を対象とします。
+仕様の正本・規範的な定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。本リポジトリは **概念説明**、**マニュアル**、**チュートリアル**、**ハウツー**、**受入デモ**、**補助的な説明**など、normative ではない公開文書を対象とします。
 
-**English:** [README.md](README.md)
+## 言語ルート
+
+読者向けドキュメントは、リポジトリ直下の言語別領域に配置します。
+
+| 言語 | 領域 | 備考 |
+| --- | --- | --- |
+| English | [`en/`](en/README.md) | 英語ドキュメント領域 |
+| Japanese | [`ja/`](ja/README.md) | 日本語ドキュメント領域 |
+
+英語版と日本語版は、原則として同じ構造と同じ内容の翻訳・対応文書を持つようにします。
+
+既存の [`docs/`](docs/README.md) は移行互換のため当面残します。新規の概念説明・補助説明は `en/` と `ja/` を優先します。
+
+**English:** [en/README.md](en/README.md)
 
 ## 置くもの／置かないもの（要約）
 
 ### 置くもの
 
+- 概念説明
+  - 例: SLS、semantic lineage、ΔM、RDE、memory layer、auditability などの説明
+  - 今後 `en/concepts/`, `ja/concepts/` に配置予定
 - 利用・運用のマニュアル
-  - 例: [`docs/manual/`](docs/manual/README.md)
+  - 例: [`en/manual/`](en/manual/README.md), [`ja/manual/`](ja/manual/README.md)
 - 学習用チュートリアル
-  - 例: [`docs/tutorials_ja/`](docs/tutorials_ja/README.md)
+  - 例: [`en/tutorials/`](en/tutorials/README.md), [`ja/tutorials/`](ja/tutorials/README.md)
 - 受入デモなど、仕様外の確認手順
-  - 例: [`docs/acceptance_ja/`](docs/acceptance_ja/README.md)
+  - 例: [`en/acceptance/`](en/acceptance/README.md), [`ja/acceptance/`](ja/acceptance/README.md)
 - FAQ、移行メモ、ハウツー、補助的な説明
 - 開発**手法**の説明
-  - 例: SLS + RDE を自プロセスにどう当てるか
-  - 例: [`docs/method/`](docs/method/README.md)
+  - 例: [`en/method/`](en/method/README.md), [`ja/method/`](ja/method/README.md)
   - ただし、これは仕様正本ではなく、説明・手順の層です。
 - 本リポジトリへの貢献手順
   - [`CONTRIBUTING.md`](CONTRIBUTING.md)
@@ -37,11 +52,16 @@
 | [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) | SLS の **公開仕様**（正本） |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS **コア実装** とコードに紐づく開発者向け文書 |
 | [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | 公式 **`kotonoha`** CLI（[`CLI 定義`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)） |
-| **kotonoha-docs（本リポジトリ）** | **仕様外**の公開ドキュメント（マニュアル・チュートリアル・受入デモ等） |
+| **kotonoha-docs（本リポジトリ）** | **仕様外**の公開ドキュメント（マニュアル・チュートリアル・受入デモ・概念説明等） |
 
 ## 言語方針
 
-原則 **英語** を正とします。日本語版は英語の横に `*_ja.md` で追加します。
+リポジトリ直下の言語別領域は以下です。
+
+- `en/`: 英語
+- `ja/`: 日本語
+
+両領域は、原則として同じ構造を持つようにします。一方の言語が先行する場合は、対応するもう一方の場所に、既存文書へのリンクまたは翻訳待ちである旨を示します。
 
 ## ライセンス
 
