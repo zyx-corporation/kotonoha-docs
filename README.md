@@ -19,6 +19,12 @@ Historical material under [`docs/`](docs/README.md) remains available during mig
 
 **Japanese:** [ja/README.md](ja/README.md)
 
+## Rendering and figures
+
+Figures in this repository should generally be written as SVG. The default publication path is Markdown plus SVG references rendered to static HTML by [`tools/render_docs.py`](tools/render_docs.py). Direct HTML authoring is also allowed when layout, interaction, or print/PDF control requires it.
+
+See [`docs/rendering_policy.md`](docs/rendering_policy.md) for the SVG-first figure policy and rendering workflow.
+
 ## What belongs here
 
 | Kind | Preferred location | Transitional source | Notes |
@@ -67,4 +73,5 @@ Unless otherwise stated in a specific file, repository content is licensed under
 - English docs: [`en/`](en/README.md)
 - Japanese docs: [`ja/`](ja/README.md)
 - Transitional documentation index: [`docs/README.md`](docs/README.md)
+- Rendering policy: [`docs/rendering_policy.md`](docs/rendering_policy.md)
 - GitHub Projects (organization workflow): [`docs/github_projects_policy.md`](docs/github_projects_policy.md)
