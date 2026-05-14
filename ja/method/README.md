@@ -10,6 +10,7 @@
 | --- | --- |
 | [kotonoha_method_outline.md](kotonoha_method_outline.md) | Kotonoha Method の章立て案。 |
 | [sls_rde_development_method.md](sls_rde_development_method.md) | Kotonoha を進化させる際の実践とレビュー観点。 |
+| [rde_review_quick_guide.md](rde_review_quick_guide.md) | RDE／レビュー運用の短文要約（非規範）。 |
 | [`../../docs/method_ja/method_site/index.html`](../../docs/method_ja/method_site/index.html) | 日本語版 Kotonoha Method の HTML プロトタイプ。 |
 
 ## 配置メモ

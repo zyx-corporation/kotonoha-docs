@@ -10,6 +10,7 @@ Japanese counterpart: [`../../ja/method/README.md`](../../ja/method/README.md)
 | --- | --- |
 | [kotonoha_method_outline.md](kotonoha_method_outline.md) | Draft chapter structure for Kotonoha Method. |
 | [sls_rde_development_method.md](sls_rde_development_method.md) | Practices and review lens for evolving Kotonoha. |
+| [rde_review_quick_guide.md](rde_review_quick_guide.md) | Short summary of RDE / review tracing expectations (non-normative). |
 
 ## Placement note
 
