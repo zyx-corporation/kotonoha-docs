@@ -14,6 +14,7 @@ Japanese counterpart: [`../ja/README.md`](../ja/README.md)
 | [Manual](manual/README.md) | Reference-style usage and operation topics | Mirrors `docs/manual/` |
 | [Tutorials](tutorials/README.md) | Learning-oriented step-by-step guides | Mirrors `docs/tutorials/` |
 | [Acceptance demos](acceptance/README.md) | Validation-oriented public behavior checks | Mirrors `docs/acceptance/` |
+| [Paper](../docs/paper/README.md) | Academic papers and preprints (non-normative) | Canonical: `docs/paper/` |
 
 ## Placement rule
 

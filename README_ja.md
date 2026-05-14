@@ -42,6 +42,8 @@ SVG-first の図表方針とレンダリング手順は [`docs/rendering_policy.
 - 開発**手法**の説明
   - 例: [`en/method/`](en/method/README.md), [`ja/method/`](ja/method/README.md)
   - ただし、これは仕様正本ではなく、説明・手順の層です。
+- **論文**（査読付き・プレプリント等）
+  - 配置: [`docs/paper/README.md`](docs/paper/README.md)（PDF 等の正本パス。normative ではない）
 - 本リポジトリへの貢献手順
   - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
