@@ -8,6 +8,12 @@ This directory holds **peer-reviewed papers, preprints, and other long-form acad
 
 Tracking issue for introducing this section: [kotonoha-docs#31](https://github.com/zyx-corporation/kotonoha-docs/issues/31).
 
+## Contents
+
+| File | Description |
+| --- | --- |
+| [`rde_position_paper_v0_6_3_submission_cleanup.tex`](rde_position_paper_v0_6_3_submission_cleanup.tex) | LaTeX source (`ltjsarticle`; build with your local LuaLaTeX toolchain). |
+
 ---
 
 ## 日本語（要約）

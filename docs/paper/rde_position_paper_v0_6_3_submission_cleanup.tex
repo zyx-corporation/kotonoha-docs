@@ -1,0 +1,1400 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  % \usepackage{unicode-math} % disabled for faster LuaLaTeX
+  % \defaultfontfeatures{Scale=MatchLowercase}
+  % \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% \usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=25mm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% section numbering enabled
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{japanese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+% selnolig disabled: fontspec is not loaded in this LuaLaTeX template
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={生成AI時代における意味変化の監査構造: Resonant Deviation Evaluator},
+  pdfauthor={Tomoyuki Kano},
+  pdflang={ja},
+  hidelinks,
+  pdfcreator={LaTeX}}
+
+\title{生成AI時代における意味変化の監査構造：\\Resonant Deviation Evaluator\\\large A Conceptual Framework for Auditing Semantic Change in the Age of Generative AI}
+\author{Tomoyuki Kano\\ZYX Corp.\\\texttt{tomyuk@zyxcorp.jp}}
+\date{Version 0.6.3\\May 14, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+本論文は、生成AIシステムが生成・要約・翻訳・補筆・仕様化・意思決定支援を行う際に生じる「意味変化」を監査対象として定式化し、その評価枠組みとして
+Resonant Deviation
+Evaluator（RDE）を提案する理論的枠組み提案論文である。従来のLLM評価は、正確性、安全性、嗜好適合性、方針遵守、意味的類似度を中心としてきた。しかし、生成AIの実用上の危険は、明示的な誤答や有害出力に限られない。元の文脈に含まれていた意図、留保、不確実性、価値対立、責任所在、制度的含意が、自然な出力の中で変形・縮退・逸脱することがある。本論文では、この変化を
+ΔM
+として捉え、RDEを、生成前後の意味状態を比較し、保存された要素、許可された変換、推論的補完、未解決差分、疑わしい逸脱、重大な歪曲へ分類する評価構造として定義する。RDEは、Diff、Policy
+Filter、Safety Filter、LLM-as-a-judge
+の単なる変種ではなく、意味変化の許容性を、文脈・関係履歴・制度的制約との共鳴に基づいて裁定する層である。本論文は、RDEの理論的定義、分類体系、最小アーキテクチャ、事例分析、pilot
+study
+design、実証に向けた実装計画を示し、生成AI時代における意味変化監査の必要性と検証可能性を論じる。
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} Resonant Deviation Evaluator; semantic drift; generative AI evaluation; AI auditing; semantic lineage; LLM-as-a-judge; accountability.
+
+\section{序論}\label{introduction}
+
+生成AIは、文章を生成するだけではない。要約し、翻訳し、言い換え、補筆し、仕様書へ変換し、判断を補助し、時には人間の意図を制度や実装へ橋渡しする。その過程で、生成AIは元の文脈を単に保存するのではなく、しばしば変形する。
+
+この変形は、必ずしも明白な誤りとして現れるわけではない。むしろ多くの場合、それは自然で、流暢で、実用的に見える出力の中に現れる。元の主張が持っていた留保が消える。仮説が事実のように書かれる。制度的責任の所在が曖昧になる。複数の価値の衝突が、単一の合理性へ整理される。設計思想が、実装上の便宜へ縮退する。
+
+生成AIの危険は、誤答だけではない。意味を、気づかれないほど自然に変えてしまうことである。
+
+既存のLLM評価は、正確性、事実性、安全性、嗜好適合、方針遵守、意味的類似度といった観点を発展させてきた。これらは重要である。しかし、それらは必ずしも「生成前後で何が意味として変わったのか」「その変化は許容可能なのか」「どの変化が危険な逸脱なのか」を十分に扱わない。
+
+本論文は、この欠けた評価視点を Resonant Deviation
+Evaluator（RDE）として提案する。RDEは、LLM出力に点数をつける追加指標ではない。生成によって生じた意味変化が、元の文脈を保存しているのか、許容された変換なのか、妥当な補完なのか、あるいは危険な逸脱なのかを監査するための概念的・構造的な枠組みである。
+
+本稿の第一の目的は、生成AIにおける意味変化の許容性を評価対象として定式化し、その理論的枠組みとしてRDEを提示することである。pilot
+study
+designおよび実装計画は、RDEを直ちに完成した評価器として示すためではなく、この枠組みを検証可能な研究プログラムへ接続するために提示する。
+
+なお、本稿で「監査」と呼ぶ行為は、財務監査のような単一基準による適合性判断を指すものではない。RDEにおける監査とは、意味変化を特定の評価軸に沿って明示化し、その変化がどのような前提・文脈・価値判断に基づいて許容または問題視されうるかを、争点化可能な形で記述するプロセスである。
+
+本論文の中心命題は、次の通りである。
+
+生成AIの評価には、正誤・安全性・方針遵守とは別に、意味変化 ΔM
+の許容性を明示化し、比較可能にし、争点化可能にする監査プロトコルが必要である。その枠組みを
+RDE と呼ぶ。
+
+\section{関連研究と研究上の空白}\label{related-work-and-research-gap}
+
+RDEは、LLM評価、事実性評価、意味的類似度評価、自然言語推論、AI安全性、LLM-as-a-judge、AI監査、provenance
+/ data lineage
+の研究と接続する。しかし、本稿の焦点は、これらの既存手法が直接の主対象としてこなかった「生成前後の意味変化の許容性」にある。
+
+自動テキスト評価では、BLEUのようなn-gram一致に基づく指標から、BERTScoreのように文脈化埋め込みを用いて候補文と参照文の意味的近さを測る指標へ発展してきた\cite{papineni2002,zhang2020}。これらの手法は、生成文が参照文にどの程度近いかを測るうえで有用である。しかし、表現上は近い出力であっても、「可能性がある」が「である」に変わるような主張強度の変化、責任主体の移動、制度的含意の消失を十分に扱うとは限らない。
+
+事実性評価の研究では、生成文を細かなatomic
+factsへ分解し、それぞれが信頼できる知識源に支持されるかを測るFActScoreのような手法が提案されている\cite{min2023}。また、TruthfulQAはモデルが人間の誤信を模倣してしまう傾向を評価するためのベンチマークとして提示された\cite{lin2022}。これらは生成AIの事実性や真実性を評価するうえで重要である。しかし、RDEが問題にする逸脱は、常に事実誤認として現れるわけではない。留保の消失、仮説の断定化、価値対立の単純化、責任構造の変化は、事実性とは別の評価軸を必要とする。
+
+自然言語推論（Natural Language Inference;
+NLI）は、ある文が別の文を含意するか、矛盾するか、中立であるかを扱う。Recognising
+Textual
+Entailmentの系譜は、sourceとoutputの論理的関係を評価するうえで重要である\cite{dagan2006}。しかし、NLIのentailment / contradiction /
+neutralという分類だけでは、制度的責任の移動、設計思想の縮退、価値構造の単純化といった変化を十分に記述できない。
+
+AI安全性とalignment研究では、RLHFやConstitutional
+AIのように、モデル出力を人間またはAIフィードバックによって調整する方法が発展してきた\cite{ouyang2022,bai2022}。これらは有害性の低減や有用性との両立に関する重要な成果である。一方で、RDEは出力が安全かどうかだけではなく、生成によって元の意味がどのように変化したかを評価対象とする。
+
+LLM-as-a-judgeの研究は、強力なLLMが人間評価に近い判断を行いうることを示している\cite{zheng2023}。しかし、汎用的なLLM
+judgeは、評価基準を明示しない限り、意味変化のどの側面を見ているのかが不透明になりやすい。RDEは、LLMを評価器として用いる可能性を否定しないが、その判断をPreserved,
+Authorized Transformation, Inferred Extension, Unresolved Gap,
+Suspicious Drift, Critical Distortionという明示的taxonomyへ拘束する。
+
+AI auditingやModel Cards、Datasheets for Datasets、W3C
+PROVなどのprovenance研究は、モデル・データ・システムの透明性と説明責任を高める\cite{raji2020,mitchell2019,gebru2021,w3cprov2013}。しかし、それらが主に扱うのは、モデルやデータや操作の来歴である。RDEが扱うのは、生成物が元の意味をどのように保存・変換・逸脱したかという意味来歴である。
+
+以上より、本稿の研究上の空白は次のように定式化できる。既存の生成AI評価は、出力の正確性・安全性・類似性・方針遵守・来歴管理を評価する手法を発展させてきた。しかし、生成前後に生じる意味変化
+ΔM
+の許容性を、文脈・タスク意図・関係履歴・制度的制約に照らして分類する評価層は、まだ十分に明確化されていない。本稿は、この空白に対してRDEを提案する。
+
+\section{研究課題と貢献}\label{research-questions-and-contributions}
+
+本稿は、以下の研究課題を扱う。
+
+RQ1: 既存のLLM評価は、生成前後に生じる意味変化をどの範囲まで扱えるか。
+
+RQ2: 生成AIによる意味変化 ΔM
+は、どのような失敗モードとして分類できるか。
+
+RQ3:
+意味変化の許容性を監査するためには、どのような最小評価構造が必要か。
+
+RQ4: RDEは、実験可能な評価パイプラインとしてどのように設計できるか。
+
+本稿の貢献は三つである。
+
+第一に、生成AI評価における未整理の問題として、意味変化 ΔM
+を定義する。これは、出力が単に正しいか、安全か、元文に似ているかではなく、元の文脈に含まれていた意図、留保、不確実性、価値対立、責任所在、制度的含意がどのように変化したかを問う問題である。
+
+第二に、意味変化を分類するためのRDE
+taxonomyを提案する。RDEは、生成前後の差分を Preserved, Authorized
+Transformation, Inferred Extension, Unresolved Gap, Suspicious Drift,
+Critical Distortion に分類し、変化の有無ではなく変化の許容性を評価する。
+
+第三に、RDEを検証可能な評価パイプラインとして実装するための参照アーキテクチャと実験計画を示す。これにより、RDEを単なる思想的概念ではなく、注釈データ、比較対象、評価指標、GitHub上の実験用scaffoldへ接続可能な研究プログラムとして位置づける。
+
+本稿は、RDEが既存評価を置き換えると主張するものではない。むしろ、RDEは既存評価が主対象としてこなかった意味変化の許容性を扱う補完的評価層である。
+
+\section{既存評価手法との比較}\label{comparison-with-existing-evaluation-methods}
+
+RDEは、既存評価手法を置き換えるものではない。むしろ、既存手法が主対象としてこなかった意味変化の許容性を補完的に扱う。本稿における差分は、以下のように整理できる。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Evaluation Method
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+主に検出するもの
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+限界
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RDEが補うもの
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Semantic Similarity / BERTScore & 入力と出力の意味的・表現的近さ &
+近い表現でも主張強度や責任構造が変化しうる &
+主張強度、責任主体、制度的含意の変化 \\
+Factuality Evaluation / FActScore & 事実整合性、事実精度 &
+事実誤認ではない留保消失や仮説の断定化を捉えにくい &
+不確実性、留保、仮説性の保存状態 \\
+Natural Language Inference & entailment, contradiction, neutral &
+含意関係では価値構造や制度的責任を十分に扱えない &
+価値対立、責任、文脈親和性の変化 \\
+Safety / Toxicity Classifier & 有害性、危険表現、禁止内容 &
+無害に見える意味逸脱を検出しにくい & 自然な文章に潜む意味の漂流 \\
+Policy Filter & 方針違反、許可・禁止 &
+元の意図や意味の保存を評価するとは限らない &
+方針遵守とは別の意味変化監査 \\
+Generic LLM-as-a-Judge & 汎用的な品質判断 &
+評価基準が曖昧な場合、逸脱検出が不安定 & 明示的taxonomyに基づくΔM分類 \\
+Provenance / Data Lineage & データや操作の由来 &
+意味の変形履歴を直接扱わない & 意味来歴と変換許容性の評価 \\
+\end{longtable}
+
+この比較から、RDEの位置づけは明確になる。RDEは、表現類似度、事実性、安全性、方針遵守、来歴管理を否定しない。むしろ、それらを前提としたうえで、生成前後の意味変化が許容可能かどうかを問う追加の監査層である。
+
+本節では、既存評価手法との個別比較を通じて、RDEが扱う評価対象の差異を示した。しかし、ここから直ちに「各手法を組み合わせればRDEは不要ではないか」という反論が生じる。次節では、この反論に応答し、RDEが単なるmetric aggregationではなく、複数の検出結果を意味変化の許容性判断へ接続する裁定プロトコルであることを論じる。
+
+\section{なぜ単純な指標統合では不十分なのか}\label{why-metric-aggregation-is-not-sufficient}
+
+本章では、既存手法を組み合わせればRDEは不要ではないか、という反論に直接応答する。たとえば、BERTScoreで意味的近さを測り、FActScoreで事実性を確認し、NLIで含意関係を判定し、Safety
+Filterで有害性を検出し、さらにLLM-as-a-judgeで総合評価を行えば十分ではないか、という見方である。
+
+本稿の立場では、このような組み合わせは有用だが、それだけではΔMの許容性判断にはならない。理由は三つある。
+
+第一に、各手法は異なる局所的対象を測るが、それらの結果をどの文脈で、どのタスク意図に照らして、どの程度許容するかを決める裁定層を持たない。意味的に近く、事実誤認がなく、安全方針にも違反しない出力であっても、元の留保を消し、責任主体を移動させ、制度的含意を弱める場合がある。
+
+第二に、ΔMの評価は、変化の有無ではなく変化の許容性を問う。要約、翻訳、平易化、仕様書化はいずれも意味を変える。したがって必要なのは、差分を検出するだけでなく、その差分がタスク目的に照らしてAuthorized
+Transformationなのか、Suspicious Driftなのか、Critical
+Distortionなのかを分類することである。
+
+第三に、RDEは評価者の主観を消去する装置ではない。むしろ、評価者がどの軸に基づいて意味逸脱を判断したのかを、label、risk
+flags、criticality、explanation、annotation
+procedureとして明示化する。これにより、判断は比較・反証・再注釈可能になる。RDEの科学的価値は、完全な客観性を主張することではなく、意味変化の判断を構造化された検討対象へ移す点にある。
+
+したがって、RDEは既存評価器の単純な合成ではなく、複数の検出結果と文脈情報を、意味変化の許容性判断へ接続するための監査プロトコルである。
+
+ここでいう「評価層」または「欠けた層」とは、既存評価器の上に単純に積み重ねるソフトウェア部品を意味しない。それは、生成結果を評価する際に、正確性・安全性・類似性とは異なる問い、すなわち意味変化の許容性を明示的に問うための評価視点である。RDEは実装可能なパイプラインを持ちうるが、その本質は特定のソフトウェア部品ではなく、source、output、task、risk
+context、institutional constraints を明示し、判断を構造化する点にある。
+
+\section{問題定義：意味ドリフトと意味的逸脱}\label{problem-definition-meaning-drift-and-semantic-deviation}
+
+本論文では、生成前後で生じる意味状態の変化を ΔM と呼ぶ。ΔM
+は、単なる文字列差分ではない。語句の削除や追加だけではなく、主張の強度、留保、不確実性、価値判断、責任所在、制度的含意、設計思想、関係履歴における意味の変化を含む。
+
+ただし、本稿ではΔMを完全な形而上学的対象として扱うのではなく、実験可能性を確保するために操作的に定義する。本稿におけるΔMとは、source
+と output の間で観測される、少なくとも以下の評価軸上の変化である。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ΔM Axis
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+日本語名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+変化の例
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Claim Strength & 主張強度 & 可能性・仮説・推測が断定へ変化する \\
+Uncertainty & 不確実性 & 留保、条件、限界、未確定性が削除される \\
+Intent & 意図 & 元の問い・目的・設計思想が変化する \\
+Responsibility & 責任主体 &
+判断主体や責任所在が人間・組織・制度からAIへ移動する \\
+Value Structure & 価値構造 &
+複数の価値対立が単一の合理性へ単純化される \\
+Institutional Implication & 制度的含意 &
+法的・組織的・運用上の含意が変化または消失する \\
+Context Affinity & 文脈親和性 &
+出力が元文脈から逸脱する、または別文脈へ接続される \\
+\end{longtable}
+
+この操作的定義により、RDEは抽象的な意味論ではなく、観測可能な変化軸に基づく評価対象となる。
+
+本稿でこの7軸を採用する理由は、二つの制約の交差にある。第一に、既存評価手法が扱いにくい意味変化を、注釈者が比較・説明・再検討できる粒度に分解する必要がある。第二に、その分解は、生成AIの実用タスクで反復的に問題化する変化、すなわち主張の様式、認識的不確実性、行為意図、責任主体、価値構造、制度的含意、文脈接続に接地していなければならない。したがって、これらの七軸は意味論の完全な網羅ではなく、監査可能性と実務上の反復性を両立させるための初期操作軸である。理論的根拠と関連研究との対応は、第\ref{theoretical-rationale-for-seven-axes}節および\ref{appendix-b-seven-axis-rationale}で詳述する。pilot studyでは、軸の冗長性、不足、相互依存、再定義の必要性を検証する。
+
+たとえば、主張強度と不確実性は密接に関連する。責任主体と制度的含意も多くの場合に連動する。したがって、これらの軸は完全に独立した特徴量ではない。RDEにおける軸設定は、厳密な直交基底ではなく、意味変化を注釈・比較・議論可能にするための実用的な観測次元である。
+
+たとえば、次の変化は ΔM として扱われる。
+
+\begin{itemize}
+\tightlist
+\item
+  条件付き主張が断定へ変わる。
+\item
+  仮説が実証済み事実のように提示される。
+\item
+  不確実性や留保が削除される。
+\item
+  価値対立が単一の結論へ単純化される。
+\item
+  責任主体が人間・組織・制度からAI判断へ移動する。
+\item
+  比喩的洞察が実証的主張のように書かれる。
+\item
+  実装上の便宜が理論的主張へすり替わる。
+\item
+  意味履歴の管理が、単なるログ管理へ縮退する。
+\end{itemize}
+
+このような変化は、必ずしも「誤り」として扱えるわけではない。要約では一部の情報を削除する必要がある。翻訳では言語間の対応により表現が変わる。仕様書化では抽象的議論を実装可能な形に変換しなければならない。したがって、問題は「変化したかどうか」ではなく、「その変化は許容可能かどうか」である。
+
+RDEは、ΔMを、文脈・タスク意図・関係履歴・制度的制約に照らして評価する。
+
+\section{RDEの枠組み}\label{rde-framework}
+
+RDEは、生成系・エージェント系が生む意味変化 ΔM
+を、元の文脈・意図・関係履歴・制度的制約との共鳴状態に照らして評価し、許容可能な変換と危険な逸脱を分類する評価構造である。
+
+本稿における「共鳴（resonant）」は、sourceとoutputの意味的同一性を意味しない。むしろ、変形後のoutputが、sourceの意図、主張強度、不確実性、責任主体、価値構造、制度的含意、文脈親和性に関して、当該taskとrisk contextにおいて許容可能な変化範囲に留まっている状態を指す。したがって、「共鳴」は単一の比喩的性質ではなく、七軸上の逸脱が重大化していないこととして操作的に評価される。
+
+この定義は、共鳴を単一の数式や固定的な本質概念へ還元するものではない。「保持されるべき特徴」は、抽象的な直観ではなく、七軸上で観測可能な意味関係として扱われる。すなわち、RDEが評価するのは「変わっていないか」ではなく、「変わりながらも、sourceの意味構造となお応答関係を保っているか」である。ある変化が共鳴しているかどうかは、taskとrisk contextに依存する。したがって、RDEの分類作業は、sourceとoutputの差分を、タスク目的とリスク文脈に照らして共鳴・許容変換・逸脱のいずれとして扱うべきかを判断する実践である。
+
+RDEは、以下のものではない。
+
+RDEは Diff
+そのものではない。Diffは差分を見るためのレンズであり、差分の意味的許容性を裁定するものではない。
+
+RDEは Policy Filter そのものではない。Policy
+Filterは規則違反や禁止事項を扱うが、元の意図や文脈が保存されているかを十分に扱うとは限らない。
+
+RDEは Safety Filter そのものではない。Safety
+Filterは危険出力を止めるが、自然で安全に見える意味逸脱を検出するための構造ではない。
+
+RDEは LLM-as-a-judge
+の単なる別名ではない。LLMを評価器として用いることはありうるが、RDEの本質は、意味変化を分類する構造化された評価枠組みにある。
+
+RDEは正誤判定器でもない。RDEが問うのは、出力が単に正しいかどうかではなく、生成によって元の意味がどのように変化し、その変化がどの程度許容可能かである。
+
+形式的には、RDEを次のような関数として表すことができる。
+
+\begin{equation}
+RDE(M_0, M_1, C, T, P, R) \rightarrow D
+\end{equation}
+
+ここで、\(M_0\) は生成前の意味状態、\(M_1\) は生成後の意味状態、C
+は文脈、T はタスク意図、P は方針・制度的制約、R は関係履歴、D
+は逸脱分類と説明である。
+
+この形式化は、ΔMを完全に数理化するものではない。むしろ、RDEが文のみを孤立して評価するのではなく、文脈・タスク・制度・関係性に対して評価することを示すための最小形式である。
+
+\section{逸脱分類体系}\label{deviation-taxonomy}
+
+RDEは、生成前後の意味変化を以下のカテゴリに分類する。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+日本語名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Preserved & 保存 &
+元の意味、意図、留保、責任構造が十分に保存されている \\
+Authorized Transformation & 許可された変換 &
+タスク目的に沿った変換であり、意味変化が許容可能である \\
+Inferred Extension & 推論的補完 &
+元文脈から妥当に推論可能な補完であるが、明示的根拠との区別が必要である \\
+Unresolved Gap & 未解決差分 &
+出力では扱われなかった、または評価不能な差分が残っている \\
+Suspicious Drift & 疑わしい逸脱 &
+主張強度、不確実性、責任、価値判断などに不当な変化が疑われる \\
+Critical Distortion & 重大な歪曲 &
+元の意味・意図・責任構造・制度的含意を重大に歪めている \\
+\end{longtable}
+
+この分類において重要なのは、すべての変化を悪としないことである。生成AIは変換のために使われる。要約も翻訳も仕様化も、意味をある程度変える。したがってRDEは、変化の有無ではなく、変化の許容性を問う。
+
+本稿では、RDE分類を単なる印象評価ではなく、以下の境界基準に基づく一次分類として扱う。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+境界基準
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Preserved &
+主要な意図、主張強度、不確実性、責任構造が実質的に保存されている \\
+Authorized Transformation &
+タスク目的により正当化され、重要な留保や責任構造を破壊しない変化である \\
+Inferred Extension &
+元文脈から推論可能だが、元文に明示された主張とは区別すべき補完である \\
+Unresolved Gap &
+出力では処理されなかった、または分類不能な意味差分が残っている \\
+Suspicious Drift &
+主張強度、不確実性、責任、価値構造、制度的含意のいずれかに危険な方向の変化が疑われる \\
+Critical Distortion &
+元の意味、責任構造、制度的含意、または設計思想を実質的に反転・消去・破壊している \\
+\end{longtable}
+
+Suspicious Drift と Critical Distortion
+の境界は、重大度と不可逆性によって区別する。Suspicious Drift
+は、人間レビューや再生成を必要とする警告カテゴリである。Critical
+Distortion
+は、元文脈の中心的意味を破壊しており、通常はそのまま採用してはならない重大カテゴリである。
+
+また、実験上は primary label に加え、risk flags と criticality
+を併用する。これにより、単一ラベルでは表しきれない複合的な意味変化を記録できる。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"primary\_label"}\FunctionTok{:} \StringTok{"Suspicious Drift"}\FunctionTok{,}
+  \DataTypeTok{"risk\_flags"}\FunctionTok{:} \OtherTok{[}\StringTok{"claim\_strength\_inflation"}\OtherTok{,} \StringTok{"uncertainty\_loss"}\OtherTok{]}\FunctionTok{,}
+  \DataTypeTok{"criticality"}\FunctionTok{:} \StringTok{"medium"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Preserved は、元の意味が十分に保存されている場合である。Authorized
+Transformation
+は、タスク目的に照らして正当な変換である。たとえば、読者向けに平易化する、長文を短くする、抽象概念を実装可能な要件へ分解する、といった操作が含まれる。
+
+本稿における「タスク目的」とは、原則として入力インタフェース上で明示的に与えられたユーザー指示またはシステム上のタスク定義を指す。ただし、明示的指示が不十分な場合、または指示と文脈が矛盾する場合には、評価者がrisk
+contextに照らしてタスク意図を再構成する必要が生じうる。この再構成は、RDEの外部で暗黙に行われるべきではない。再構成されたタスク意図は、注釈・評価結果の一部として明示されるべきであり、その再構成過程自体もRDEにおける監査対象となりうる。特にcritical
+RDEでは、何をsourceとし、どのタスク目的を採用するかが、分析結果を左右する重要な論点となる。
+
+Inferred Extension
+は、元文脈から妥当に推論できる補完である。しかし、これは常に危うさを持つ。なぜなら、推論は元文に明示されていないからである。そのため、補完は補完として明示されるべきであり、元文の主張に偽装されてはならない。
+
+Unresolved Gap
+は、出力で処理されなかった差分である。これは必ずしも失敗ではないが、後続の人間レビューや再生成の対象になる。
+
+Suspicious Drift
+は、意味が危険な方向に漂流している可能性を示す。たとえば、留保が消えた、批判が断定化した、価値対立が見えなくなった、責任主体が曖昧化した場合である。
+
+Critical Distortion
+は、元の意味を重大に歪めた場合である。仮説を事実化する、制度的責任を消去する、理論的主張を実装都合に置換する、元の思想的射程を狭める、といった変化が含まれる。
+
+\section{評価軸}\label{evaluation-axes}
+
+RDEの評価は、単一スコアに還元されるべきではない。意味変化は多面的であり、単一の数値は重要な差異を隠してしまう。本稿で採用する七軸は、意味変化の空間を完全に分解するための閉じた分類体系ではない。これらは、実務上、注釈上、制度上の判断単位として扱いやすい観測次元である。したがって、軸間の経験的な相関や重複は、理論上の欠陥ではなく、扱いやすさを優先した設計上のトレードオフとして位置づけられる。軸の追加、統合、再定義は、今後のpilot studyや実装経験に基づいて改訂されることを前提としている。RDEでは、ΔMの中核的観測次元として以下の七軸を用いる。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4800}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Axis
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+日本語名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+問い
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Claim Strength & 主張強度 & 可能性、仮説、推測、提案が断定や確定事項へ変化していないか。 \\
+Uncertainty & 不確実性 & 留保、条件、例外、限界、反証可能性、未確定性が保存されているか。 \\
+Intent & 意図 & 元の問い、目的、発話行為、設計思想、要求の方向性が保存されているか。 \\
+Responsibility & 責任主体 & 判断主体、発話主体、実行責任、説明責任の所在が追跡可能か。 \\
+Value Structure & 価値構造 & 複数の価値、利害、規範的緊張、評価軸が単一の結論へ過度に単純化されていないか。 \\
+Institutional Implication & 制度的含意 & 法的、組織的、運用上、統治上の含意が変化・消失・不当に強化されていないか。 \\
+Context Affinity & 文脈親和性 & 出力は元文脈の役割、読者、制度的位置、使用目的に適切に接続しているか。 \\
+\end{longtable}
+
+可逆性（reversibility）は、ΔMの中核七軸そのものではなく、監査記録のメタデータとして扱う。すなわち、意味変化を説明できるか、どの軸で変化が生じたかを追跡できるか、必要に応じて元の意味状態へ戻れるかは、RDEの運用上重要である。しかしそれは、意味変化の内容を構成する一次軸ではなく、RDEログやSemantic Lineage Systemにおける追跡可能性の問題である。
+
+\subsection{七軸選択の理論的根拠}\label{theoretical-rationale-for-seven-axes}
+
+本稿で採用する七軸は、意味変化の完全な分類体系として提示されるものではない。これらは、生成AIによる要約、翻訳、平易化、仕様化、意思決定支援において反復的に問題化する意味変化を観測するための、初期的かつ実用的な設計仮説である。
+
+ただし、この七軸は恣意的な列挙ではない。語用論、議論理論、認識的モダリティ研究、評価言語論、責任論、制度的談話分析、翻訳品質評価、provenance研究、近年のNLG評価研究は、それぞれ異なる語彙で、命題内容だけでは捉えられない意味の層を扱ってきた。RDEの七軸は、これらの研究伝統が個別に明らかにしてきた層を、生成AI出力の意味変化監査に向けて再構成したものである。
+
+Claim StrengthとIntentは、AustinおよびSearleの発話行為論が示したillocutionary force、すなわち発話が何を「している」のかという層に支えられる\cite{austin1962,searle1969}。Uncertaintyは、Toulminのqualifierおよびrebuttal、Hylandらのhedging、PalmerやCoatesのmodality研究により、単なる文体ではなく知識主張の構造として扱われてきた\cite{toulmin1958,hyland1998,palmer2001,coates1983}。Value Structureは、Martin and WhiteのAppraisal Theoryが扱う評価的意味、態度、価値づけの層に対応する\cite{martinwhite2005}。Responsibilityは、Floridiらのdistributed responsibility、責任ギャップ論、およびW3C PROVにおけるattributionやagencyの記録可能性と接続する\cite{floridi2016,w3cprov2013}。Institutional ImplicationとContext Affinityは、Nissenbaumのcontextual integrity、Faircloughやvan Dijkの制度的談話分析、recontextualizationの議論に基づき、意味が制度的文脈を移動する際に変質しうることを扱う\cite{nissenbaum2009,fairclough1992,vandijk2008}。
+
+この整理により、RDEは既存のfactuality evaluationやsemantic similarity evaluationを置き換えるものではなく、それらが主に扱ってきた命題的・事実的な層の外側にある、発話力、責任、価値、制度、文脈の変化を可視化する枠組みとして位置づけられる。たとえば、すべてのatomic factが保存されていても、「起こりうる」が「起こる」に変わればClaim Strengthが変化する。専門家の留保付き助言が実行指示へ変換されればIntentとResponsibilityが変化する。制度文書の例外条件が削除されればInstitutional ImplicationとContext Affinityが変化する。
+
+したがって、七軸は証明済みの最終分類ではなく、既存研究に基づいて正当化可能な観測次元である。七軸の選択は、「これ以外の軸が存在しない」という積極的主張ではなく、「少なくともこれらの軸は、生成AIの実用タスクにおいて反復的に問題化する」という消極的かつ経験的な正当化に基づく。たとえば、時間的視点、証拠タイプ、因果構造、対象範囲、数量的精度などは、領域によって重要な追加軸となりうる。本稿では、これらを中核七軸に含めるのではなく、domain-specific extensionまたはrisk flagとして扱う。軸間の独立性、冗長性、欠落、注釈者間一致、自動化可能性は、pilot studyで検証されるべき経験的課題として残る。特にClaim StrengthとUncertainty、ResponsibilityとInstitutional Implication、Value StructureとContext Affinityは相互依存しうるため、RDEはこれらを厳密な直交基底ではなく、意味変化を争点化可能にするための分析レンズとして用いる。
+
+\section{参照アーキテクチャ}\label{reference-architecture}
+
+RDEの最小アーキテクチャは、GeneratorとEvaluatorを分離することから始まる。生成器は出力を作る。評価器は、その出力によって何が意味として変化したかを評価する。この分離がなければ、生成器自身が自らの逸脱を自然化し、正当化してしまう危険がある。
+
+基本的なパイプラインは以下の通りである。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Source Context
+\item
+  Generator
+\item
+  Candidate Output
+\item
+  Structural / Semantic Diff
+\item
+  RDE
+\item
+  Deviation Classification and Explanation
+\item
+  Policy, Human Review, or Revision Loop
+\end{enumerate}
+
+RDEを構成する参照実装は、次の5つのモジュールからなる。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Module
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Source Analyzer &
+元文書から意図、主張、留保、不確実性、責任主体、価値対立を抽出する \\
+Output Analyzer & 生成出力から同じ構造を抽出する \\
+Semantic Diff Engine & SourceとOutputの構造差分を抽出する \\
+RDE Classifier & 差分をRDEカテゴリに分類する \\
+Explanation Generator & 判定理由と修正候補を生成する \\
+\end{longtable}
+
+この構造は、本番実装を意味するものではない。むしろ、RDEの分類体系を検証し、既存評価手法と比較するための実験用参照パイプラインである。
+
+\section{事例分析}\label{illustrative-cases}
+
+本節の事例は、RDE taxonomy の適用方法を示すための簡略例である。各事例では、注釈ガイドに合わせて primary label を一つ示しつつ、保存された要素、risk flags、criticality note を併記する。これにより、単一ラベルによる手続き的一貫性と、意味変化が持つ多面性の双方を保持する。
+
+\subsection{要約における留保の消失}\label{ux8981ux7d04ux306bux304aux3051ux308bux7559ux4fddux306eux6d88ux5931}
+
+Source:
+
+「この政策は、短期的には効果がある可能性があるが、長期的影響は不明である。」
+
+Output:
+
+「この政策は効果的である。」
+
+この出力は、元文の方向性を部分的には保存している。しかし、「短期的には」「可能性がある」「長期的影響は不明」という留保が削除されている。その結果、仮説的・限定的な主張が、一般的・断定的な主張へ変化している。
+
+RDE分類例:
+
+\begin{itemize}
+\tightlist
+\item
+  Primary label: Suspicious Drift
+\item
+  Preserved elements: 政策効果に関する主題
+\item
+  Risk flags: uncertainty\_loss, claim\_strength\_inflation, condition\_removal
+\item
+  Criticality note: 長期的有効性まで含意する文脈では、Critical Distortion candidate として再評価されうる。
+\end{itemize}
+
+\subsection{設計文書における理論の縮退}\label{ux8a2dux8a08ux6587ux66f8ux306bux304aux3051ux308bux7406ux8ad6ux306eux7e2eux9000}
+
+Source:
+
+「本システムは、意味変化 ΔM
+を履歴として保持し、生成された文書が元の意図・価値・設計思想をどのように変換したかを監査可能にする。」
+
+Output:
+
+「本システムは、文書の変更履歴をログとして保存する。」
+
+この出力は、履歴を保存するという点では元文と接続している。しかし、元文の中心は単なる変更履歴ではなく、意味変化の監査である。出力は、意味履歴を操作ログへ縮退させている。
+
+RDE分類例:
+
+\begin{itemize}
+\tightlist
+\item
+  Primary label: Suspicious Drift
+\item
+  Preserved elements: 履歴保存という表面的要素
+\item
+  Risk flags: theoretical\_reduction, purpose\_loss, semantic\_audit\_erasure
+\item
+  Criticality note: システムの理論的目的が失われ、単なるログ管理として設計・運用される場合には、Critical Distortion と判定されうる。
+\end{itemize}
+
+\subsection{制度文書における責任主体の移動}\label{ux5236ux5ea6ux6587ux66f8ux306bux304aux3051ux308bux8cacux4efbux4e3bux4f53ux306eux79fbux52d5}
+
+Source:
+
+「AIの出力は、組織の責任あるプロセスの中で検討され、人間の判断と制度的承認を経て実行されるべきである。」
+
+Output:
+
+「AIは、適切な判断を行い、実行すべき対応を決定する。」
+
+この出力では、責任主体が組織・人間・制度的承認からAIへ移動している。これは単なる言い換えではない。責任構造そのものの変化である。
+
+RDE分類例:
+
+\begin{itemize}
+\tightlist
+\item
+  Primary label: Critical Distortion
+\item
+  Preserved elements: AIが意思決定支援に関与する点
+\item
+  Risk flags: responsibility\_shift, institutional\_approval\_loss, agency\_misattribution
+\item
+  Criticality note: AIを支援主体ではなく決定主体として記述するため、責任構造が移動している。低リスク文脈では Suspicious Drift に留まる可能性もあるが、制度文書・運用規程・法務文書では Critical Distortion として扱うべきである。
+\end{itemize}
+
+\section{パイロット研究設計}\label{pilot-study-design}
+
+本論文は、RDEを完成した評価器として提示するものではない。また、本稿の現段階ではpilot
+studyの実施結果を報告しない。したがって、本節の目的は、RDEの有効性を実証済みのものとして示すことではなく、RDE
+taxonomyを検証可能な研究設計へ接続することである。RDEが科学的な研究対象であるためには、概念提案に留まらず、検証可能な実験設計を伴う必要がある。本節では、論文投稿時点で実施可能な小規模pilot
+studyを設計する。
+
+Pilot
+studyの目的は、RDEが既存評価を置き換えることを示すことではない。目的は、既存評価が主対象としてこなかった意味変化を、RDE
+taxonomyが観測・分類できるかを確認することである。
+
+対象タスクは、要約、リライト、仕様書変換の3種類とする。初期規模は30件とし、各タスクにつき10件のsource-output
+pairを作成する。各サンプルには、source、task、risk\_context、output、human\_annotation、risk\_flags、notes、baseline\_scoresを含める。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+N
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+主な観察対象
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Summarization & 10 & 留保消失、不確実性の削除、主張強度の上昇 \\
+Rewriting & 10 & 意図変化、仮説の断定化、価値構造の単純化 \\
+Specification Conversion & 10 &
+設計思想の縮退、責任主体の移動、制度的含意の消失 \\
+\end{longtable}
+
+人間注釈では、各source-output pairに対して primary label
+を1つ付与する。ラベルは Preserved, Authorized Transformation, Inferred
+Extension, Unresolved Gap, Suspicious Drift, Critical Distortion
+の6種類とする。加えて、claim\_strength\_inflation、uncertainty\_loss、responsibility\_shift、value\_simplification、institutional\_implication\_lossなどのrisk
+flagsを付与する。
+
+比較対象として、semantic similarity / BERTScore、natural language
+inference、factuality evaluation、generic
+LLM-as-a-judgeを用いる。評価指標は、人間注釈との一致率、Suspicious
+DriftおよびCritical Distortionの検出率、過剰検出率、risk
+flagsの妥当性、説明品質とする。
+
+注釈者は可能であれば2名以上とし、分類の一致率を確認する。初期段階で単独注釈から開始する場合は、pilot
+annotationとして位置づけ、性能主張ではなく分類体系の妥当性検討を主目的とする。
+
+本pilot
+studyは、実施された場合でもRDEの有効性を最終的に証明するものではない。本pilot
+studyから得るべき初期知見は、成功か失敗かの二値判定ではなく、RDEの改善サイクルに資する以下の4点である。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+初期知見
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+内容
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Category Usability & RDEの6カテゴリが実際のsource-output
+pairに適用可能か、どのカテゴリで注釈者の判断が分かれやすいか \\
+Axis Redundancy / Gaps &
+7つのΔM軸のうち頻繁に使われるもの、ほとんど使われないもの、不足している軸は何か \\
+Difference from Baselines &
+BERTScoreやNLIなどの既存手法とRDE分類がどの程度異なる分布を示すか。特に高類似度にもかかわらずSuspicious
+Driftとなるケースの特徴 \\
+Annotator Disagreement Patterns &
+注釈者間の不一致がどのカテゴリ・軸・risk flagsに集中するか \\
+\end{longtable}
+
+これらの結果に基づき、RDE taxonomy、risk
+flags、注釈ガイド、実装上の判定手順を改訂する。本稿に実験結果を含めない場合、その貢献は枠組み、操作的定義、taxonomy、注釈手続き、検証可能な実験設計の提示に限定される。
+
+\section{実装計画}\label{implementation-plan}
+
+\subsection{リポジトリ上のマイルストーンと現在の実装状況}
+
+公開リポジトリは、完成済みのRDEエンジンではなく、段階的な評価スキャフォールドとして構成される。初期公開版として実装されるMilestone 1は、決定論的なヒューリスティック分類器を用いる。その目的は、JSONLスキーマ、RDEラベル分類体系、risk flagスキーマ、コマンドライン・パイプライン、dry-run用サンプルを検証することである。この段階を、完全なRDE評価器の実装、あるいはRDEが経験的に検証済みであることの証拠として解釈してはならない。
+
+Milestone 2では、同一の注釈ガイドと出力スキーマをsource-outputペアへ適用する、プロンプトベースのRDE評価器を導入する。この段階の目的は、プロンプトベースのRDE判断を、人間注釈およびMilestone 1のヒューリスティック出力と比較することである。その後のマイルストーンでは、semantic similarity、natural language inference、factuality evaluation、汎用的なLLM-as-a-judgeなどのbaseline比較に加え、複数注釈者によるannotation-reliability分析を追加する。
+
+この段階的設計は、カテゴリ錯誤を防ぐためのものである。すなわち、ヒューリスティック・スキャフォールドは再現性とスキーマ検証のための層であり、プロンプトベース評価器がRDE的判断の近似を目指す最初の評価器である。いずれも、本番環境で用いるproduction-grade RDE engineとは区別される。
+
+
+RDEを実証可能な枠組みとするため、本論文では、実験用参照実装を提案する。これは本番用のRDE
+Coreではなく、RDE分類体系の妥当性を検証し、既存評価手法と比較するための軽量な
+evaluation scaffold である。
+
+初期実装は、PythonベースのCLIパイプラインとして構築できる。入力はJSONL形式のsource-outputペアとし、出力はRDE分類、評価軸、説明、必要に応じた修正提案を含むJSONまたはCSVとする。
+
+入力例:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"sample{-}001"}\FunctionTok{,}
+  \DataTypeTok{"task"}\FunctionTok{:} \StringTok{"summarization"}\FunctionTok{,}
+  \DataTypeTok{"risk\_context"}\FunctionTok{:} \StringTok{"policy\_discussion"}\FunctionTok{,}
+  \DataTypeTok{"source"}\FunctionTok{:} \StringTok{"This policy may reduce user protection under specific conditions."}\FunctionTok{,}
+  \DataTypeTok{"output"}\FunctionTok{:} \StringTok{"This policy reduces user protection."}\FunctionTok{,}
+  \DataTypeTok{"expected\_label"}\FunctionTok{:} \StringTok{"Suspicious Drift"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+出力例:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"sample{-}001"}\FunctionTok{,}
+  \DataTypeTok{"rde\_label"}\FunctionTok{:} \StringTok{"Suspicious Drift"}\FunctionTok{,}
+  \DataTypeTok{"axes"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"claim\_strength"}\FunctionTok{:} \StringTok{"increased"}\FunctionTok{,}
+    \DataTypeTok{"uncertainty\_preservation"}\FunctionTok{:} \StringTok{"lost"}\FunctionTok{,}
+    \DataTypeTok{"intent\_preservation"}\FunctionTok{:} \StringTok{"partial"}\FunctionTok{,}
+    \DataTypeTok{"responsibility\_traceability"}\FunctionTok{:} \StringTok{"unchanged"}
+  \FunctionTok{\},}
+  \DataTypeTok{"explanation"}\FunctionTok{:} \StringTok{"The generated output removes the conditional phrase and strengthens a possibility claim into a categorical claim."}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+最小リポジトリ構成は以下を想定する。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rde{-}eval{-}scaffold/}
+\NormalTok{  README.md}
+\NormalTok{  LICENSE}
+\NormalTok{  pyproject.toml}
+\NormalTok{  docs/}
+\NormalTok{    concept.md}
+\NormalTok{    annotation\_guide.md}
+\NormalTok{    experiment\_plan.md}
+\NormalTok{  data/}
+\NormalTok{    samples.jsonl}
+\NormalTok{    README.md}
+\NormalTok{  rde\_eval/}
+\NormalTok{    \_\_init\_\_.py}
+\NormalTok{    schema.py}
+\NormalTok{    analyzers.py}
+\NormalTok{    diff.py}
+\NormalTok{    classifier.py}
+\NormalTok{    prompts.py}
+\NormalTok{    evaluator.py}
+\NormalTok{  scripts/}
+\NormalTok{    run\_eval.py}
+\NormalTok{    export\_results.py}
+\NormalTok{  tests/}
+\NormalTok{    test\_schema.py}
+\NormalTok{    test\_classifier.py}
+\NormalTok{  results/}
+\NormalTok{    .gitkeep}
+\end{Highlighting}
+\end{Shaded}
+
+初期実装では、以下の機能を優先する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  JSONLサンプルを読み込む。
+\item
+  source と output をRDE分類器へ渡す。
+\item
+  expected\_label または human\_annotation と比較する。
+\item
+  結果をJSON/CSVに出力する。
+\item
+  簡単な集計を行う。
+\end{enumerate}
+
+RDE分類器は、初期段階ではプロンプトベースでよい。ただし、プロンプトはブラックボックス化せず、分類定義、タスク意図、リスク文脈、評価軸、出力JSONスキーマを明示した形で公開する。
+
+本実装は、RDEの完全実装ではない。RDEを実験可能な概念として示し、ポジションペーパーからフルペーパーへ展開するための足場である。
+
+\section{GitHub公開とライセンス}\label{github-publication-and-licensing}
+
+実験用実装は、GitHubで公開することが望ましい。ただし、公開するものは完成したRDE本体ではなく、RDE評価実験のための参照スキャフォールドとして位置づけるべきである。
+
+推奨されるリポジトリ名は \texttt{rde-eval-scaffold}
+である。この名称は、完成品のRDE
+Engineではなく、評価実験用の足場であることを明確に示す。
+
+ライセンスについては、コードには Apache License 2.0
+を採用することが妥当である。Apache-2.0
+は、研究用途、商用利用、再配布、派生実装を許容しつつ、特許ライセンス条項を含むため、RDEのように将来的な実装・商用展開・研究利用の双方がありうるプロジェクトに適している。
+
+一方で、論文・注釈ガイド・概念文書・サンプルデータについては、コードとは別に扱ってもよい。推奨構成は以下である。
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+対象 & 推奨ライセンス \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Code & Apache-2.0 \\
+Documentation & CC BY 4.0 または CC BY-SA 4.0 \\
+Sample Dataset & CC BY 4.0 \\
+Paper Draft & CC BY 4.0 または投稿先規定に従う \\
+\end{longtable}
+
+ただし、初期公開では複雑にしすぎず、コード中心のリポジトリとしてApache-2.0を採用し、文書類にはREADME内で別途ライセンス方針を明記する方法もある。
+
+\section{考察}\label{discussion}
+
+RDEは、生成AI評価における欠けた層を補うための提案である。従来の評価は、出力が正しいか、安全か、方針に違反していないか、元入力に似ているかを問う。しかし、生成AIの社会的利用が進むほど、重要になるのは、出力が元の意味をどのように変えたかである。
+
+RDEは、AIガバナンス、Human-AI
+Interaction、知識管理、研究支援、仕様書変換、エージェントOS、Semantic
+Lineage
+Systemなどに応用できる。特に、生成AIが人間の意図を代行・変換・制度化する場面では、意味変化の監査は不可欠になる。
+
+RDEの強みは、すべての変化を禁止しない点にある。生成AIは変化を行うための技術である。問題は変化そのものではなく、どの変化が許容され、どの変化が危険な逸脱なのかを区別できないことにある。
+
+RDEはまた、責任再収束の基盤にもなりうる。生成AIを用いる組織では、責任がモデル、プロンプト、利用者、運用者、制度、データ、後続判断へ分散する。その分散した責任を、出力の意味変化を通じて追跡可能にすることが、RDEの重要な役割である。
+
+RDEが記録するprimary label、risk
+flags、criticality、explanationは、単発の評価結果ではなく、意味変化の来歴（semantic
+lineage）の一部として蓄積可能である。同一のsourceに対して複数の出力を比較したり、同一の出力に対する複数評価者の判断を蓄積したりすることで、意味変化のパターン、評価の不安定性、文脈依存性を事後的に分析できる。この視点では、RDEは静的な分類器ではなく、意味変化の監査可能性を支えるデータ構造でもある。
+
+\subsection{技術的RDEと批判的RDE}\label{technical-rde-and-critical-rde}
+
+RDEには、少なくとも二つの適用モードがある。
+
+第一は、technical
+RDEである。これは、本稿が主対象とする適用モードであり、source-output
+pairが比較的明確に区別可能な生成AIタスクを扱う。要約、翻訳、リライト、仕様書変換、研究支援、制度文書のドラフト生成などがこれに含まれる。この場合、source、output、task、risk
+contextを明示し、ΔMを操作的に評価しやすい。
+
+第二は、critical
+RDEである。これは、政治的言説、報道、政策説明、交渉合意の公的表象、企業広報のように、sourceが単一の入力文ではなく、複数の文書・発言・制度的背景・利害関係から構成される事例を扱う。この場合、source
+contextの構成手続き、評価者の立場性、制度的権力関係を明示する必要がある。critical
+RDEは本稿の直接の実証対象ではないが、RDEの基礎分類はその前提となる。
+
+この区別は、RDEが単なる技術的評価器に閉じないために重要である。technical
+RDEでは、生成AI出力の品質管理と監査可能性が中心となる。critical
+RDEでは、意味変化が誰にとって問題となるのか、どのsource
+contextが採用されるのか、評価者の権威がどこから来るのかが中心的論点となる。
+
+\subsection{適用可能性とコスト}\label{applicability-and-cost}
+
+RDEは、すべての生成出力に対するデフォルト評価手法として設計されたものではない。RDEは比較的重い評価枠組みであり、6カテゴリ、複数のΔM軸、risk
+flags、criticality、explanationを必要とする。そのため、適用場面を限定する必要がある。
+
+RDEは、少なくとも以下の条件のいずれかを満たす場面に適している。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  出力が高いステークス状況で使用される場合。たとえば、医療、法律、公共政策、安全クリティカルシステムなどである。
+\item
+  出力が人間の意図を制度的決定へ変換する仲介的役割を担う場合。
+\item
+  sourceに重要な留保、不確実性、価値対立、責任構造が含まれる場合。
+\item
+  意味変化の監査が事後的な説明責任の要件となっている場合。
+\end{enumerate}
+
+低リスクの日常的生成、創作支援、単純な文体変換などでは、RDEの全項目を適用する必要はない。RDEは、意味変化が重大な帰結を持つ場面において、判断根拠を構造化するための監査プロトコルとして用いるべきである。
+
+\section{限界}\label{limitations}
+
+本論文は、RDEの基礎枠組みとpilot study
+designを提示する理論的提案論文であり、完成した評価器の性能を主張するものではない。現段階では、30件規模のpilot
+studyを設計しているが、その実施結果、定量評価、注釈者間一致、既存手法との実測比較は本稿には含まれない。したがって、本稿の貢献は、RDEの有効性を実証することではなく、意味変化監査を検証可能な研究対象として定式化することにある。
+
+したがって、いくつかの限界がある。
+
+第一に、ΔMの厳密な数理定義は未完成である。本論文では、ΔMを構造化された意味変化として扱うが、その形式化にはさらなる研究が必要である。
+
+第二に、RDE分類は文脈依存である。同じ出力であっても、要約、翻訳、仕様書化、法務文書、思想文、医療文書では許容性が異なる。そのため、RDEは文のみではなく、タスク意図とリスク文脈を入力として必要とする。
+
+第三に、人間注釈のばらつきが避けられない。意味逸脱の判断には、文化的背景、専門知識、制度理解、価値判断が関与する。したがって、RDEの実証には注釈ガイドと注釈者間一致の評価が必要である。
+
+第四に、LLMをRDE分類器として用いる場合、評価器自身が意味逸脱を見逃す可能性がある。このため、GeneratorとEvaluatorの分離、複数評価器の比較、人間レビューとの接続が重要となる。
+
+第五に、RDEはSafety FilterやPolicy
+Filterを置き換えるものではない。RDEは意味変化の監査プロトコルであり、安全性・法令遵守・運用ポリシーとは相補的に用いられるべきである。
+
+第六に、RDEは「元の意味」が完全に固定されているとは仮定しない。source
+meaningは、タスク、文脈、制度的制約、関係者の合意に応じて構成される作業仮説である。したがって、RDEは意味をめぐる解釈の揺れを消去するものではない。むしろ、その揺れがどの軸で、どの程度、どのような判断理由に基づいて生じているかを明示する。RDEは解釈の多様性そのものを消去するのではなく、それを外部化し、構造的に記録する。
+
+この限界は、特にcritical
+RDE、すなわち政治言説、報道、政策説明、企業広報、制度的合意など、sourceが単一文書として与えられない領域で顕著になる。この場合、何をsourceとして採用するか自体が、別の解釈や制度的判断を前提とするため、source確定が無限後退する可能性がある。RDEはこの問題を、真のsourceを発見する手続きとしてではなく、参照基準を明示的に宣言する手続きとして扱うべきである。
+
+この意味で、RDEにはGAAP（Generally Accepted Accounting Principles;
+一般に公正妥当と認められた会計原則）的な「参照基準の合意的停止」が必要となる。本稿では、この手続きをinstitutional reference anchoringと呼ぶ。たとえば、USDA統計、査読済み研究、学術的合意、政府統計、裁判記録、報道機関による一次報道などを、当該分析における参照sourceとして明示的に宣言し、そこからのΔMを測定する。この停止点は絶対的真理を保証するものではない。むしろ、どの参照基準からどのような意味変化を測定したのかを開示し、再分析・異議申し立て・複数source比較を可能にするための制度的手続きである。
+
+第七に、RDEは許容性を客観的に一意決定するアルゴリズムではない。RDEが提供するのは、変化が生じた軸の特定、その変化の方向と重大度の記述、当該文脈における典型的な許容範囲との比較情報である。許容性の最終判断は、タスクの責任者、制度的ガバナンス、または合意されたレビュープロセスに委ねられる。
+
+第八に、RDEは評価者の権力性を消去しない。意味変化の評価には、常に立場、価値、制度的権限が関与する。RDEの目的は、これらを隠すことではなく、判断根拠を明示し、異議申し立て、再注釈、複数視点評価を可能にすることである。さらに、RDE自体が制度的捕獲の対象となる可能性がある。 国家、企業、プラットフォーム、専門家共同体が、どのΔMを逸脱と見なすかを固定化する場合、RDEは意味変化の監査装置ではなく、特定の制度的解釈を自然化する装置へ変質しうる。
+
+第九に、LLMベース分類器はRDEそのものではない。初期実装におけるLLM分類器は、RDE
+taxonomyを適用する一つの実装候補である。RDEの本質はモデル種別ではなく、source-output-context-task-riskを明示し、label、risk
+flags、criticality、explanationとして判断を構造化する点にある。したがって、LLM分類器は人間注釈、ルールベース検出器、外部評価器との比較対象として扱われるべきであり、単独の最終判定者ではない。
+
+第十に、RDEは自己適用可能性の問題を避けられない。RDE taxonomy、risk
+flags、criticality、annotation
+guide、分類境界そのものも、後続研究、運用文脈、制度的要請、評価共同体の変化によって意味変化を受ける。さらに、taxonomyだけでなく、注釈者集団の判断慣行、ラベル適用閾値、合意形成手順からなるannotation regimeそのものも drift しうる。したがって、RDEはRDE自身の意味の歪曲を監査する自己適用テスト、すなわちself-referential
+auditに耐えなければならない。
+
+この自己適用テストでは、RDEの分類体系や注釈ガイドが改訂された際に、何が保存され、何が許可された変換として変更され、何が推論的に補完され、何が未解決のまま残り、どこに疑わしい逸脱や重大な歪曲が生じたかを記録する必要がある。たとえば、Suspicious
+Driftの定義が拡張された場合、その拡張が実験上の曖昧性を解消するためのAuthorized
+Transformationなのか、評価者の価値判断を過度に埋め込むSuspicious
+Driftなのかを検討しなければならない。RDEが意味変化の監査構造であるならば、その監査構造自身の意味変化もまた監査対象となる。
+
+第十一に、本稿は探索的なpilot study
+designを提示する段階にあり、p値、効果量、事前登録された成功閾値に基づく検証済み性能を主張しない。これらの統計的検証基準は、30件規模のpilot
+studyを超え、十分なサンプル数、複数注釈者、ベースライン実測比較を含む後続研究で設定されるべきである。
+
+第十二に、付録Cで示す言語的手がかりは、言語、領域、ジャンル、文化的文脈に依存する。これらは決定規則ではなく、注釈支援のための初期仮説であり、RDEを汎用的な自動判定器へ還元することを意図するものではない。手がかりが存在しても必ず逸脱が生じるとは限らず、逆に手がかりが明示されていなくても逸脱は起こりうる。したがって、これらの手がかりは、task、risk context、source、outputを照合するためのred flagsとして扱われるべきである。
+
+\section{結論}\label{conclusion}
+
+生成AI時代に必要なのは、出力評価だけではない。生成によって意味がどのように変わったかを監査する層である。
+
+RDEは、生成AIの出力が元の文脈を保存しているのか、許可された変換を行っているのか、妥当な補完をしているのか、あるいは疑わしい逸脱や重大な歪曲を生んでいるのかを分類するための評価構造である。
+
+本論文は、RDEを、Diff、Policy Filter、Safety
+Filter、LLM-as-a-judgeとは異なる、意味変化の裁定層として位置づけた。また、ΔM、逸脱分類、評価軸、参照アーキテクチャ、事例分析、実験計画、実装スキャフォールドを提示した。
+
+RDEは、完成された万能評価器ではない。むしろ、生成AIが人間の意図、制度、知識、責任を変形する時代において、その変形を見えるようにするための最小構造である。
+
+意味は、生成されるだけではない。意味は変わる。だからこそ、私たちは、その変化を監査しなければならない。
+
+\section*{利益相反}
+著者はZYX Corp株式会社の取締役であり、常勤役員である。著者は同社のストックオプションを保有している。また、本研究に関連する特許出願を将来的に予定する可能性がある。
+
+\section*{生成AIの使用}
+著者は、草稿作成支援、構成編集、翻訳支援、整合性確認のために大規模言語モデルを使用した。ただし、本稿の概念的枠組み、最終的な論旨、改訂判断、および原稿に対する責任は著者に帰属する。
+
+\section*{データおよびコードの利用可能性}
+本稿は、理論的枠組みおよびpilot study designを提示するものであり、本版では完了済みの実証データセットを報告しない。現時点のリポジトリには、パイプライン検証のための最小限のdry-runサンプルのみが含まれる。計画中のpilot datasetは、30件のsource-outputペアから構成される。再現可能な評価スキャフォールドとして、公開参照リポジトリ `zyx-corporation/rde-eval-scaffold` を作成済みである。現在のリポジトリ状態は、Milestone 1、すなわちスキーマ、taxonomy、JSONLパイプライン、dry-run検証のための決定論的ヒューリスティック・スキャフォールドとして理解されるべきである。これはproduction RDE engineではなく、RDEの経験的妥当性を示すものでもない。Milestone 2では、同一のスキーマと注釈ガイドを用いるプロンプトベースRDE評価器を導入し、その後のマイルストーンではbaseline比較およびannotation-reliability分析を追加する。
+
+\section*{参考文献}\label{references}
+
+本稿は理論的枠組み提案とpilot study designの段階であり、以下は初期参考文献である。今後の投稿先要件に応じて、BibTeXまたはBibLaTeXによる整形を行う。
+
+\begin{thebibliography}{99}
+
+\bibitem{austin1962}
+Austin, J. L. (1962). \textit{How to Do Things with Words}. Oxford University Press.
+
+\bibitem{bai2022}
+Bai, Y., et al. (2022). Constitutional AI: Harmlessness from AI Feedback.
+
+\bibitem{bender2021}
+Bender, E. M., Gebru, T., McMillan-Major, A., and Mitchell, S. (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?
+
+\bibitem{biber1999}
+Biber, D., Johansson, S., Leech, G., Conrad, S., and Finegan, E. (1999). \textit{Longman Grammar of Spoken and Written English}. Longman.
+
+\bibitem{bommasani2021}
+Bommasani, R., et al. (2021). On the Opportunities and Risks of Foundation Models.
+
+\bibitem{brown2020}
+Brown, T. B., et al. (2020). Language Models are Few-Shot Learners.
+
+\bibitem{coates1983}
+Coates, J. (1983). \textit{The Semantics of the Modal Auxiliaries}. Croom Helm.
+
+\bibitem{dagan2006}
+Dagan, I., Glickman, O., and Magnini, B. (2006). The PASCAL Recognising Textual Entailment Challenge.
+
+\bibitem{derrida1967}
+Derrida, J. (1967). \textit{De la grammatologie}. Minuit.
+
+\bibitem{fabbri2021}
+Fabbri, A. R., Kryscinski, W., McCann, B., Xiong, C., Socher, R., and Radev, D. (2021). SummEval: Re-evaluating Summarization Evaluation.
+
+\bibitem{fairclough1992}
+Fairclough, N. (1992). \textit{Discourse and Social Change}. Polity Press.
+
+\bibitem{floridi2016}
+Floridi, L. (2016). Faultless Responsibility: On the Nature and Allocation of Moral Responsibility for Distributed Moral Actions.
+
+\bibitem{gebru2021}
+Gebru, T., et al. (2021). Datasheets for Datasets.
+
+\bibitem{hyland1998}
+Hyland, K. (1998). \textit{Hedging in Scientific Research Articles}. John Benjamins.
+
+\bibitem{ji2023}
+Ji, Z., et al. (2023). Survey of Hallucination in Natural Language Generation.
+
+\bibitem{lin2022}
+Lin, S., Hilton, J., and Evans, O. (2022). TruthfulQA: Measuring How Models Mimic Human Falsehoods.
+
+\bibitem{lommel2014}
+Lommel, A., Burchardt, A., and Uszkoreit, H. (2014). Multidimensional Quality Metrics (MQM): A Framework for Declaring and Describing Translation Quality Metrics.
+
+\bibitem{martinwhite2005}
+Martin, J. R., and White, P. R. R. (2005). \textit{The Language of Evaluation: Appraisal in English}. Palgrave Macmillan.
+
+\bibitem{maynez2020}
+Maynez, J., Narayan, S., Bohnet, B., and McDonald, R. (2020). On Faithfulness and Factuality in Abstractive Summarization.
+
+\bibitem{min2023}
+Min, S., et al. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation.
+
+\bibitem{mitchell2019}
+Mitchell, M., et al. (2019). Model Cards for Model Reporting.
+
+\bibitem{nissenbaum2009}
+Nissenbaum, H. (2009). \textit{Privacy in Context: Technology, Policy, and the Integrity of Social Life}. Stanford University Press.
+
+\bibitem{ouyang2022}
+Ouyang, L., et al. (2022). Training Language Models to Follow Instructions with Human Feedback.
+
+\bibitem{palmer2001}
+Palmer, F. R. (2001). \textit{Mood and Modality}. 2nd ed. Cambridge University Press.
+
+\bibitem{papineni2002}
+Papineni, K., Roukos, S., Ward, T., and Zhu, W. J. (2002). BLEU: A Method for Automatic Evaluation of Machine Translation.
+
+\bibitem{raji2020}
+Raji, I. D., et al. (2020). Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing.
+
+\bibitem{searle1969}
+Searle, J. R. (1969). \textit{Speech Acts}. Cambridge University Press.
+
+\bibitem{toulmin1958}
+Toulmin, S. E. (1958). \textit{The Uses of Argument}. Cambridge University Press.
+
+\bibitem{vandijk2008}
+van Dijk, T. A. (2008). \textit{Discourse and Context}. Cambridge University Press.
+
+\bibitem{w3cprov2013}
+W3C PROV Working Group. (2013). PROV-O: The PROV Ontology.
+
+\bibitem{zhang2020}
+Zhang, T., Kishore, V., Wu, F., Weinberger, K. Q., and Artzi, Y. (2020). BERTScore: Evaluating Text Generation with BERT.
+
+\bibitem{zheng2023}
+Zheng, L., et al. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena.
+
+\end{thebibliography}
+
+\appendix
+\section{RDE注釈ガイド案}\label{appendix-a-rde-annotation-guide}
+
+\subsection{A.1 目的}\label{a.1-ux76eeux7684}
+
+本ガイドは、RDEのpilot studyにおいて、source-output
+pairをどのように注釈するかを定義するためのものである。目的は、生成出力がsourceの意味を保存しているのか、タスク目的に沿って正当に変換しているのか、妥当に補完しているのか、未解決の差分を残しているのか、あるいは疑わしい逸脱・重大な歪曲を生じさせているのかを、可能な限り一貫した手順で判断することである。
+
+RDE注釈は、正誤判定そのものではない。注釈者は、出力がsourceからどのような意味変化
+ΔM
+を生じさせているかを、タスク目的、リスク文脈、制度的含意に照らして記録する。
+
+\subsection{A.2 注釈単位}\label{a.2-ux6ce8ux91c8ux5358ux4f4d}
+
+各注釈単位は、以下の要素から構成される。
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Field & 説明 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{source} & 元文または元文脈 \\
+\texttt{task} & 要約、リライト、仕様書変換など、意図された変換タスク \\
+\texttt{risk\_context} & 政策、法務、医療、設計、研究などのリスク文脈 \\
+\texttt{output} & 評価対象となる生成出力 \\
+\end{longtable}
+
+注釈者は、\texttt{output}を単独で評価してはならない。必ず、\texttt{source}、\texttt{task}、\texttt{risk\_context}との関係において評価する。同じsource-output
+pairであっても、タスク目的やリスク文脈が異なれば、RDE分類が変わる可能性がある。
+
+\subsection{A.3 主ラベル}\label{a.3-primary-label}
+
+各サンプルには、以下の6カテゴリからprimary labelを1つ付与する。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Label
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+日本語名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+使用基準
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Preserved} & 保存 &
+元の意図、主張強度、不確実性、責任構造、制度的含意が実質的に保存されている場合 \\
+\texttt{Authorized\ Transformation} & 許可された変換 &
+出力がsourceを変化させているが、その変化がtaskによって正当化され、重要な意味を損なっていない場合 \\
+\texttt{Inferred\ Extension} & 推論的補完 &
+sourceに明示されていない内容が追加されているが、sourceから妥当に推論可能であり、補完として区別できる場合 \\
+\texttt{Unresolved\ Gap} & 未解決差分 &
+重要な意味差分が未処理のまま残っている、または注釈者が十分な確信をもって分類できない場合 \\
+\texttt{Suspicious\ Drift} & 疑わしい逸脱 &
+主張強度、不確実性、責任主体、価値構造、制度的含意、文脈親和性のいずれかに、問題となりうる変化が生じている場合 \\
+\texttt{Critical\ Distortion} & 重大な歪曲 &
+sourceの中心的意味、責任構造、制度的含意、設計思想を実質的に反転・消去・破壊しており、そのまま利用すべきでない場合 \\
+\end{longtable}
+
+\subsection{A.4 リスクフラグ}\label{a.4-risk-flags}
+
+primary labelに加えて、必要に応じて複数のrisk flagsを付与する。risk
+flagsは、どの軸で意味変化が生じたかを記録するための補助ラベルである。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Risk Flag
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+日本語名
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+意味
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{claim\_strength\_inflation} & 主張強度の上昇 &
+可能性、仮説、条件付き主張が、より強い断定表現へ変化している \\
+\texttt{uncertainty\_loss} & 不確実性の喪失 &
+条件、留保、限界、不明点、未確定性が削除または弱められている \\
+\texttt{responsibility\_shift} & 責任主体の移動 &
+判断・承認・実行・説明責任の主体が、人間、組織、制度からAIまたは別主体へ移動している \\
+\texttt{value\_simplification} & 価値構造の単純化 &
+複数の価値、利害、対立が、単一の価値や結論へ単純化されている \\
+\texttt{institutional\_implication\_loss} & 制度的含意の喪失 &
+法的、組織的、運用上、ガバナンス上の含意が消えている、または弱められている \\
+\texttt{context\_drift} & 文脈逸脱 &
+outputがsourceとは異なる文脈へ接続され、元の問いや目的からずれている \\
+\texttt{theoretical\_reduction} & 理論的縮退 &
+理論的・設計思想的な主張が、単なる技術的・運用的記述へ縮退している \\
+\end{longtable}
+
+\subsection{A.5 注釈手順}\label{a.5-ux6ce8ux91c8ux624bux9806}
+
+注釈者は、原則として以下の順序で判断する。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{task}を確認する。要約、翻訳、仕様書変換、リライトなど、どのような変換が求められているかを把握する。
+\item
+  \texttt{risk\_context}を確認する。低リスクの文体変換か、高ステークスな政策・法務・医療・制度文書かによって許容範囲は変わる。
+\item
+  sourceの中心的な意図、主張、留保、不確実性、責任主体、価値構造、制度的含意を確認する。
+\item
+  outputがsourceのどの要素を保存し、どの要素を変換し、どの要素を削除または追加したかを確認する。
+\item
+  主張強度が上がっていないかを確認する。特に「可能性がある」「かもしれない」「条件付きである」が「である」「必ず」「明らかに」へ変化していないかを見る。
+\item
+  不確実性や留保が保存されているかを確認する。
+\item
+  責任主体が変化していないかを確認する。誰が判断し、誰が承認し、誰が責任を負う構造になっているかを見る。
+\item
+  価値対立や複数視点が単純化されていないかを確認する。
+\item
+  制度的・法的・組織的・運用上の含意が失われていないかを確認する。
+\item
+  primary labelを1つ付与する。
+\item
+  該当するrisk flagsを付与する。
+\item
+  判断理由を短く記述する。
+\end{enumerate}
+
+\subsection{A.6 境界規則}\label{a.6-ux5883ux754cux898fux5247}
+
+\texttt{Preserved}は、sourceの中心的意味が実質的に保持されている場合に用いる。表現の変更があっても、意図、主張強度、不確実性、責任構造が保存されていれば、このカテゴリを選択できる。
+
+\texttt{Authorized\ Transformation}は、変化があるが、その変化がtaskによって正当化される場合に用いる。たとえば、平易化や短縮のために一部の詳細を省くことは許容されうる。ただし、重要な留保や責任構造を削除している場合は、このカテゴリを選んではならない。
+
+\texttt{Inferred\ Extension}は、sourceに明示されていない補足があるが、その補足がsourceから妥当に推論可能な場合に用いる。ただし、推論がsourceの主張として偽装されている場合や、結論を変えている場合は、\texttt{Suspicious\ Drift}または\texttt{Critical\ Distortion}を検討する。
+
+\texttt{Unresolved\ Gap}は、注釈者が十分な確信をもって分類できない場合、またはoutputが重要な論点を未処理のまま残しているが、明確な歪曲とは言えない場合に用いる。
+
+\texttt{Suspicious\ Drift}は、outputが修正や人間レビューを経れば利用可能かもしれないが、意味上のリスクを含む場合に用いる。典型例は、留保の削除、仮説の断定化、価値対立の単純化、責任主体の曖昧化である。
+
+\texttt{Critical\ Distortion}は、outputをそのまま利用すべきでない場合に用いる。sourceの中心的意味、責任構造、制度的含意、設計思想が実質的に反転・消去・破壊されている場合が該当する。
+
+\subsection{A.7 重大性}\label{a.7-criticality}
+
+必要に応じて、criticalityを以下の3段階で付与する。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Criticality
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+意味
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{low} & 重大な意味逸脱は確認されない、または影響が小さい \\
+\texttt{medium} & 人間レビューまたは修正が必要な意味変化がある \\
+\texttt{high} &
+そのまま利用すると重大な誤解、責任移動、制度的歪曲を生む可能性がある \\
+\end{longtable}
+
+\subsection{A.8
+出力スキーマ}\label{a.8-ux51faux529bux30b9ux30adux30fcux30de}
+
+注釈結果は、以下のようなJSON形式で記録する。JSONキー、primary
+label、risk
+flags、criticalityは実装スキーマとの互換性を保つため英語表記を用いる。一方、\texttt{explanation}は日本語で記述してよい。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"sample{-}001"}\FunctionTok{,}
+  \DataTypeTok{"primary\_label"}\FunctionTok{:} \StringTok{"Suspicious Drift"}\FunctionTok{,}
+  \DataTypeTok{"risk\_flags"}\FunctionTok{:} \OtherTok{[}\StringTok{"claim\_strength\_inflation"}\OtherTok{,} \StringTok{"uncertainty\_loss"}\OtherTok{]}\FunctionTok{,}
+  \DataTypeTok{"criticality"}\FunctionTok{:} \StringTok{"medium"}\FunctionTok{,}
+  \DataTypeTok{"explanation"}\FunctionTok{:} \StringTok{"条件付きの可能性表現が削除され、断定的な主張へ変化している。"}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{A.9
+注釈上の注意}\label{a.9-ux6ce8ux91c8ux4e0aux306eux6ce8ux610f}
+
+RDE注釈は、注釈者の価値判断を完全に排除するものではない。重要なのは、判断を隠すことではなく、どの軸に基づいて、どのような理由で分類したのかを明示することである。
+
+判断に迷う場合は、無理に\texttt{Preserved}や\texttt{Critical\ Distortion}へ寄せず、\texttt{Unresolved\ Gap}または\texttt{Suspicious\ Drift}を用いる。また、迷った理由を\texttt{explanation}に記録する。
+
+RDEのpilot
+studyでは、注釈者間の不一致そのものも重要な知見である。不一致は失敗ではなく、カテゴリ境界、ΔM軸、risk
+flags、注釈手順を改善するための情報として扱う。
+
+
+\section{七軸と理論的伝統の対応表}\label{appendix-b-seven-axis-rationale}
+
+本付録は、本文で述べた七軸選択の理論的根拠を簡略に整理する。ここでの対応は、七軸の完全な証明ではなく、各軸が既存研究上のどの問題意識と接続するかを示す設計上の根拠である。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ΔM軸
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+主な理論的伝統
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RDEにおける含意
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Claim Strength & Toulminの議論モデル、hedging研究、epistemic modality、Appraisal Theory & qualifier、booster、modal表現の変化を、単なる文体差ではなく主張強度の変化として扱う。 \\
+Uncertainty & Toulminのrebuttal、Hylandのhedging、evidentiality、PROVにおけるuncertain provenance & 留保、例外、条件、根拠の不確かさの消失を、事実性とは別の意味変化として扱う。 \\
+Intent & Austin/Searleの発話行為論、deontic modality、van Dijkのcontext model & 推奨、命令、約束、説明、警告などの発話行為の変化を、意図の変化として扱う。 \\
+Responsibility & Floridiの分散責任論、responsibility gap、Searleのfelicity conditions、W3C PROV & 発話主体、判断主体、実行主体、説明責任の移動や曖昧化を記録する。 \\
+Value Structure & Martin and WhiteのAppraisal Theory、評価言語論、価値葛藤の分析 & 競合する価値、評価、規範的緊張が単一の合理性に縮約される変化を検出する。 \\
+Institutional Implication & Faircloughのrecontextualization、Bernsteinのpedagogic recontextualization、Nissenbaumのcontextual integrity & 法、組織、教育、医療、行政などの制度的文脈をまたぐ意味変化を、単なる言い換えではなく制度的含意の変化として扱う。 \\
+Context Affinity & Nissenbaumのcontextual integrity、van Dijkのcontext model、Linellのrecontextualization、W3C PROV & 出力が元文脈の読者、役割、目的、制度的位置とどの程度接続しているかを評価する。 \\
+\end{longtable}
+
+MQM、DQF、LQM、SummEval、FActScore、FAVA、RAGAS、LLM-as-a-judge型評価などの近年の評価研究は、単一スコアではなく、分解された次元、重大度、エラー型、rubricに基づく評価の必要性を示している\cite{lommel2014,fabbri2021,min2023,zheng2023}。RDEはこの流れを受け継ぎつつ、命題的事実性だけでは扱いにくい語用論的、評価的、責任的、制度的な意味変化を対象化する。
+
+同時に、七軸は固定的な最終分類ではない。軸の重複、注釈困難性、ドメイン依存性、制度的捕獲のリスクは残る。時間的視点、証拠タイプ、因果構造などの追加候補は、対象領域ごとの拡張軸またはrisk flagとして扱われうる。したがって、本付録の対応表は、RDEの七軸を確定的に証明するものではなく、pilot studyに先立つ設計根拠として位置づけられる。
+
+
+\section{七軸の初期的言語手がかり}\label{appendix-c-linguistic-cues}
+
+本付録は、RDEの実装および注釈作業を支援するために、七軸ごとの初期的な言語的手がかりを例示する。これらは決定規則ではない。手がかりの存在は必ずしも逸脱を意味せず、手がかりが存在しなくても逸脱は起こりうる。ここで示す項目は、注釈者や実装者が確認すべきred flagsであり、最終判断はsource、output、task、risk context、制度的制約を照合して行われる。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2700}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+軸
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+代表的な手がかり（red flags）
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+疑われる変化
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+典型的不一致例
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Claim Strength & \texttt{may}, \texttt{might}, \texttt{could}, \texttt{suggest}, 「可能性がある」「示唆する」の削除、または \texttt{must}, \texttt{will}, \texttt{clearly}, 「明らかに」「必ず」の追加 & 仮説、可能性、推測の断定化 & 「効果がある可能性がある」から「効果がある」への変化 \\
+Uncertainty & \texttt{except}, \texttt{unless}, \texttt{under certain conditions}, \texttt{limited evidence}, 「ただし」「条件付きで」「限定的な証拠」の削除 & 条件、例外、限界、未確定性の消失 & 「短期的には効果がある可能性があるが、長期的影響は不明」から「効果がある」への変化 \\
+Intent & \texttt{should}, \texttt{recommend}, \texttt{consider}, 「検討すべき」「推奨される」が、\texttt{must}, \texttt{require}, \texttt{implement}, 「実施しなければならない」へ変化する & 助言、提案、検討事項の命令化または要件化 & 「導入を検討すべき」から「導入しなければならない」への変化 \\
+Responsibility & \texttt{according to X}, \texttt{the author argues}, \texttt{the committee recommends}, 「Xによれば」「著者は主張する」「委員会は推奨する」の削除 & 判断主体、発話主体、責任主体の消失または移動 & 「委員会は慎重な導入を推奨する」から「慎重な導入が必要である」への変化 \\
+Value Structure & \texttt{on the one hand}, \texttt{however}, \texttt{trade-off}, \texttt{balance}, 「一方で」「ただし」「トレードオフ」「均衡」の削除 & 価値葛藤、対立、緊張関係の単純化 & 「効率と公平性のトレードオフがある」から「効率的である」への変化 \\
+Institutional Implication & \texttt{policy}, \texttt{compliance}, \texttt{legal}, \texttt{obligation}, \texttt{eligibility}, \texttt{procedure}, 「方針」「遵守」「法的」「義務」「適格性」「手続」の削除または弱化 & 制度的効力、義務、権限、手続的含意の変化 & 「法的拘束力を持つ」から「推奨される」への変化 \\
+Context Affinity & 対象読者、用途、専門領域、制度文脈、参照source、適用範囲を示す語の消失 & 元文脈からの切断、読者・用途・制度的位置の不一致 & 専門家向け説明が一般読者向けに書き換えられた際に、必要な留保や制度的条件も消失する変化 \\
+\end{longtable}
+
+これらの手がかりは、主として英語および日本語の説明文・制度文書・研究支援文書を想定した初期例である。他言語、専門分野、文化的文脈、ジャンルごとに、異なる手がかりが必要となる可能性が高い。したがって、付録CはRDEの固定的な実装仕様ではなく、pilot studyおよび初期実装における注釈支援表として位置づけられる。
+
+\end{document}
