@@ -22,6 +22,10 @@ The historical `docs/` directory remains available as a compatibility and transi
 | [`acceptance/`](acceptance/README.md) / [`acceptance_ja/`](acceptance_ja/README.md) | [`../en/acceptance/`](../en/acceptance/README.md) | [`../ja/acceptance/`](../ja/acceptance/README.md) |
 | [`manual/`](manual/README.md) | [`../en/manual/`](../en/manual/README.md) | [`../ja/manual/`](../ja/manual/README.md) |
 
+## Paper (academic)
+
+Long-form academic material (papers, preprints) that should ship with this repo lives under **[`paper/`](paper/README.md)**. It is intentionally under `docs/paper/` rather than `en/` / `ja/` so PDFs and LaTeX trees have a single canonical path; language-specific landing pages link here.
+
 ## Repository governance and tooling documents
 
 | Document | Purpose |

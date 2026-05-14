@@ -34,6 +34,7 @@ See [`docs/rendering_policy.md`](docs/rendering_policy.md) for the SVG-first fig
 | **Tutorials** and learning paths | [`en/tutorials/`](en/tutorials/README.md), [`ja/tutorials/`](ja/tutorials/README.md) | [`docs/tutorials/`](docs/tutorials/README.md), [`docs/tutorials_ja/`](docs/tutorials_ja/README.md) | Step-by-step guides for newcomers. |
 | **Acceptance demos** | [`en/acceptance/`](en/acceptance/README.md), [`ja/acceptance/`](ja/acceptance/README.md) | [`docs/acceptance/`](docs/acceptance/README.md), [`docs/acceptance_ja/`](docs/acceptance_ja/README.md) | Procedural validation checks; not tutorials. |
 | **Method** | [`en/method/`](en/method/README.md), [`ja/method/`](ja/method/README.md) | [`docs/method/`](docs/method/README.md), [`docs/method_ja/`](docs/method_ja/README.md) | How we build Kotonoha using SLS and RDE-style review; not the spec. |
+| **Paper** (academic / preprints) | — | [`docs/paper/`](docs/paper/README.md) | Canonical path for PDFs and long-form academic artifacts; not a substitute for `kotonoha-spec`. |
 | Contribution workflow for this docs repo | [`CONTRIBUTING.md`](CONTRIBUTING.md) | — | Distinct from implementation contribution guides. |
 
 ## What does *not* belong here
