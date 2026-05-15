@@ -8,18 +8,14 @@ Japanese counterpart: [`../ja/README.md`](../ja/README.md)
 
 ## Sections
 
-| Section | Purpose | Current source during migration |
-| --- | --- | --- |
-| [Method](method/README.md) | How the project applies SLS + RDE in its own work | Mirrors `docs/method/` |
-| [Manual](manual/README.md) | Reference-style usage and operation topics | Mirrors `docs/manual/` |
-| [Tutorials](tutorials/README.md) | Learning-oriented step-by-step guides | Mirrors `docs/tutorials/` |
-| [Acceptance demos](acceptance/README.md) | Validation-oriented public behavior checks | Mirrors `docs/acceptance/` |
-| [Paper](../docs/paper/README.md) | Academic papers and preprints (non-normative) | Canonical: `docs/paper/` |
+| Section | Purpose |
+| --- | --- |
+| [Method](method/README.md) | How the project applies SLS + RDE in its own work |
+| [Manual](manual/README.md) | Reference-style usage and operation topics |
+| [Tutorials](tutorials/README.md) | Learning-oriented step-by-step guides |
+| [Acceptance demos](acceptance/README.md) | Validation-oriented public behavior checks |
+| [Paper reference material](../ja/paper/README.md) | Academic papers and preprints as non-normative reference material |
 
 ## Placement rule
 
 Conceptual and explanatory documents should normally live under this repository. When exact semantics, conformance, schemas, or versioning rules are needed, link to [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) instead of duplicating normative text.
-
-## Migration note
-
-The historical `docs/` directory remains available during migration. New reader-facing English documents should prefer the `en/` tree and keep the corresponding Japanese location under `ja/` aligned where possible.
