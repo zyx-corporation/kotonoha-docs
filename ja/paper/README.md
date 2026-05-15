@@ -2,7 +2,12 @@
 
 このディレクトリは、Kotonoha / SLS に関連する査読付き論文、プレプリント、その他の学術的な長文成果物を管理する日本語ドキュメント領域です。
 
-- 本領域の文書は、実装者向けの規範本文ではありません。正本となる技術定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。
+本領域の文書は、実装者向けの規範本文ではなく、背景理解・研究文脈・設計思想を補助するための参考資料です。正本となる技術定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。
+
+## 取り扱い方針
+
+- 論文・プレプリント・長文原稿は、規範仕様ではなく参考資料として扱います。
+- `kotonoha-spec` にある技術定義を正本とします。
 - PDF、LaTeXソース、長文原稿などを追加するときは、ライセンスと由来を同じ変更、または文書 front matter に明記してください。
 - 大きなバイナリや投稿用成果物を追加する場合は、Issue 起点で追加してください。
 
@@ -10,7 +15,7 @@
 
 | File | Description |
 | --- | --- |
-| RDE position paper v0.6.3 | LaTeX source (`ltjsarticle`)。本文ソースは大きいため、破損防止のためファイル本体の移動は別PRで扱う。 |
+| RDE position paper v0.6.3 | RDE の背景理解・研究文脈・設計思想を補助する参考資料。LaTeX source (`ltjsarticle`) は大きいため、必要に応じて安全な方法で別途配置する。 |
 
 ## Notes
 
