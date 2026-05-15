@@ -35,7 +35,7 @@ Thank you for helping improve public documentation for the Kotonoha ecosystem. T
 
 ## Reviews
 
-Substantive edits may be discussed using the **SLS + RDE review lens** described in [`docs/method/sls_rde_development_method.md`](docs/method/sls_rde_development_method.md) (loss, deviation risk, next steps—not only correctness).
+Substantive edits may be discussed using the **SLS + RDE review lens** described in [`docs/method/sls_rde_development_method.md`](docs/method/sls_rde_development_method.md) (loss, deviation risk, next steps—not only correctness). For a **short public summary** of when to widen review and what to record on Issues/PRs (aligned with Phase 3 W-1), see [`en/method/rde_review_quick_guide.md`](en/method/rde_review_quick_guide.md) (Japanese: [`ja/method/rde_review_quick_guide.md`](ja/method/rde_review_quick_guide.md)).
 
 Maintainers may request alignment with `kotonoha-spec` terminology. If you are unsure whether content is specification-level, ask in the Issue before investing in a large rewrite.
 
