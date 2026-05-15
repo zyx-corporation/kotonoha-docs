@@ -10,7 +10,7 @@
 
 | File | Description |
 | --- | --- |
-| `rde_position_paper_v0_6_3_submission_cleanup.tex` | RDE position paper v0.6.3 の LaTeX ソース。`ltjsarticle` 前提。 |
+| RDE position paper v0.6.3 | LaTeX source (`ltjsarticle`)。本文ソースは大きいため、破損防止のためファイル本体の移動は別PRで扱う。 |
 
 ## Notes
 
