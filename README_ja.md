@@ -2,7 +2,7 @@
 
 **Semantic Lineage System（SLS）の仕様に含まれない**、利用者・コミュニティ向けの**公開ドキュメント**を置くリポジトリです。
 
-仕様の正本・規範的な定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。本リポジトリは **概念説明**、**マニュアル**、**チュートリアル**、**ハウツー**、**受入デモ**、**補助的な説明**など、normative ではない公開文書を対象とします。
+仕様の正本・規範的な定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。本リポジトリは **概念説明**、**マニュアル**、**チュートリアル**、**ハウツー**、**受入デモ**、**参考論文**、**補助的な説明**など、normative ではない公開文書を対象とします。
 
 ## 言語ルート
 
@@ -15,7 +15,7 @@
 
 英語版と日本語版は、原則として同じ構造と同じ内容の翻訳・対応文書を持つようにします。
 
-既存の [`docs/`](docs/README.md) は移行互換のため当面残します。新規の概念説明・補助説明は `en/` と `ja/` を優先します。
+既存の [`docs/`](docs/README.md) は必要に応じて履歴・補助資料として参照できますが、新規の概念説明・補助説明は `en/` と `ja/` を優先します。
 
 **English:** [en/README.md](en/README.md)
 
@@ -42,8 +42,9 @@ SVG-first の図表方針とレンダリング手順は [`docs/rendering_policy.
 - 開発**手法**の説明
   - 例: [`en/method/`](en/method/README.md), [`ja/method/`](ja/method/README.md)
   - ただし、これは仕様正本ではなく、説明・手順の層です。
-- **論文**（査読付き・プレプリント等）
-  - 配置: [`docs/paper/README.md`](docs/paper/README.md)（PDF 等の正本パス。normative ではない）
+- **参考論文・プレプリント**
+  - 配置: [`ja/paper/README.md`](ja/paper/README.md)
+  - 背景理解・研究文脈・設計思想を補助する参考資料であり、normative ではありません。
 - 本リポジトリへの貢献手順
   - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
@@ -60,7 +61,7 @@ SVG-first の図表方針とレンダリング手順は [`docs/rendering_policy.
 | [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) | SLS の **公開仕様**（正本） |
 | [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) | OSS **コア実装** とコードに紐づく開発者向け文書 |
 | [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) | 公式 **`kotonoha`** CLI（[`CLI 定義`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)） |
-| **kotonoha-docs（本リポジトリ）** | **仕様外**の公開ドキュメント（マニュアル・チュートリアル・受入デモ・概念説明等） |
+| **kotonoha-docs（本リポジトリ）** | **仕様外**の公開ドキュメント（マニュアル・チュートリアル・受入デモ・概念説明・参考論文等） |
 
 ## 言語方針
 
