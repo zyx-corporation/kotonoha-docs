@@ -8,6 +8,7 @@ Japanese documents are separated under [`docs/method_ja/`](../method_ja/README.m
 | --- | --- | --- |
 | [Kotonoha Method — draft outline](kotonoha_method_outline.md) | English (primary) | Draft chapter structure for Kotonoha Method as the institutional implementation of SLS. |
 | [SLS + RDE development method](sls_rde_development_method.md) | English (primary) | Practices, review lens, and workflow habits used when evolving Kotonoha. |
+| [RDE / review quick guide](../en/method/rde_review_quick_guide.md) | English (primary); [日本語](../ja/method/rde_review_quick_guide.md) | Short non-normative summary of review triggers and minimum trace (Phase 3 W-1); preferred language-root copy under `en/` / `ja/`. |
 | [License notice](LICENSE.md) | English | CC BY-NC-ND 4.0 notice for Method documents. |
 | [Japanese method documents](../method_ja/README.md) | Japanese | 日本語版のMethod文書。 |
 
