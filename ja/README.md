@@ -10,6 +10,7 @@
 
 | セクション | 目的 |
 | --- | --- |
+| [Concepts](concepts/README.md) | Kotonoha / SLS / RDE の構想・概念説明（非規範） |
 | [Method](method/README.md) | プロジェクト自身が SLS + RDE をどう適用するか |
 | [Manual](manual/README.md) | 利用・運用の参照文書 |
 | [Tutorials](tutorials/README.md) | 学習向けの段階的ガイド |
