@@ -15,6 +15,7 @@
 
 | File | Description |
 | --- | --- |
+| [`kotonoha_concept.tex`](kotonoha_concept.tex) / [`kotonoha_concept.pdf`](kotonoha_concept.pdf) | Kotonoha 構想の長文原稿（非規範・参考）。Markdown 要約は [`../concepts/kotonoha_concept_overview.md`](../concepts/kotonoha_concept_overview.md)。 |
 | RDE position paper v0.6.3 | RDE の背景理解・研究文脈・設計思想を補助する参考資料。LaTeX source (`ltjsarticle`) は大きいため、必要に応じて安全な方法で別途配置する。 |
 
 ## Notes

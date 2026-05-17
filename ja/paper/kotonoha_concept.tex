@@ -1,0 +1,917 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=24mm]{geometry}
+\usepackage{luatexja}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.misc,fit,calc}
+\usepackage[most]{tcolorbox}
+\usepackage{fvextra}
+\usepackage{titlesec}
+\usepackage{tocloft}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  urlcolor=blue!45!black,
+  pdftitle={Kotonoha構想：意味履歴を管理するSemantic Lineage System},
+  pdfauthor={Tomoyuki Kano}
+}
+
+\definecolor{kotoblue}{HTML}{263D5C}
+\definecolor{kotolight}{HTML}{F4F7FB}
+\definecolor{kotogray}{HTML}{555555}
+\definecolor{kotored}{HTML}{8A2D2D}
+
+\titleformat{\section}{\Large\bfseries\color{kotoblue}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries\color{kotoblue}}{\thesubsection}{0.8em}{}
+\setlist[itemize]{leftmargin=2em,itemsep=0.2em}
+\setlist[enumerate]{leftmargin=2em,itemsep=0.2em}
+
+\newtcolorbox{notebox}{
+  colback=kotolight,
+  colframe=kotoblue!45,
+  arc=2mm,
+  boxrule=0.5pt,
+  left=2mm,right=2mm,top=1mm,bottom=1mm
+}
+\newtcolorbox{codebox}{
+  colback=black!2,
+  colframe=black!25,
+  arc=1mm,
+  boxrule=0.3pt,
+  left=1mm,right=1mm,top=1mm,bottom=1mm
+}
+\newcommand{\code}[1]{\texttt{#1}}
+\newenvironment{CodeBlock}{\VerbatimEnvironment\begin{codebox}\begin{Verbatim}[fontsize=\small,breaklines=true,breakanywhere=true]}{\end{Verbatim}\end{codebox}}
+
+\tikzset{
+  nodebox/.style={rounded corners, draw=kotoblue!65, fill=kotolight, align=center, inner sep=4pt, minimum height=8mm, font=\small},
+  smallbox/.style={rounded corners, draw=kotoblue!50, fill=white, align=center, inner sep=3pt, minimum height=7mm, font=\scriptsize},
+  arrow/.style={-{Latex[length=2mm]}, thick, draw=kotoblue!75},
+  dashedarrow/.style={-{Latex[length=2mm]}, thick, dashed, draw=kotogray}
+}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{20mm}
+{\Huge\bfseries Kotonoha構想\par}
+\vspace{4mm}
+{\Large 意味履歴を管理するSemantic Lineage System\par}
+\vspace{16mm}
+\begin{notebox}
+\centering
+Kotonohaとは、Gitなどの内容履歴を物理的アンカーとして用いながら、文書・議論・設計・実装における意味状態と意味変化 $\Delta M$ を記録し、RDEによって監査可能にするSemantic Lineage Systemである。
+\end{notebox}
+\vfill
+\begin{tabular}{rl}
+作成日 & 2026-05-17T00:00:00+09:00 \\
+更新日 & 2026-05-17T00:00:00+09:00 \\
+Author & Tomoyuki Kano \textless tomyuk@zyxcorp.jp\textgreater \\
+Status & draft \\
+Document Type & concept\_note \\
+\end{tabular}
+\vspace*{10mm}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\section{中心命題}
+
+Kotonohaは、文書・議論・設計・実装の変更履歴ではなく、その背後にある\textbf{意味変化 $\Delta M$}と知的関係の系譜を記録・評価・再利用するためのSemantic Lineage Systemである。
+
+Gitが「文字列とファイルの履歴」を扱うなら、Kotonohaは「意味状態と意味変化の履歴」を扱う。
+
+したがって、Kotonohaの本質は、特定のエディタ、ノートアプリ、AIコーディングツールではない。それらを横断して、何が保存され、何が変換され、何が補完され、何が逸脱したのかを記録する基盤である。
+
+\begin{notebox}
+\textbf{最短定義}\par
+Kotonohaとは、Gitなどの内容履歴を物理的アンカーとして用いながら、文書・議論・設計・実装における意味状態と意味変化 $\Delta M$ を記録し、RDEによって監査可能にするSemantic Lineage Systemである。
+\end{notebox}
+
+\section{背景：Gitだけでは意味の履歴を扱えない}
+
+現代の知的作業では、Git、Obsidian、Cursor、ChatGPT app、Claude Code、NotebookLMなどが組み合わされる。
+
+それぞれは強力である。Gitは差分を保存する。Obsidianは知識のリンクを扱う。Cursor / VSCodeは実装作業を支援する。ChatGPT appは構想・批評・仕様化を支援する。Claude Codeはコードベース単位の実装作業を担える。NotebookLMは資料読解・要約・構造化に強い。
+
+しかし、これらを組み合わせても、なお欠けているものがある。それは、\textbf{意味がどのように変わったかの履歴}である。
+
+たとえば、文章が書き換えられたとき、Gitは行差分を示せる。しかし、次のような問いには直接答えられない。
+
+\begin{CodeBlock}
+- この変更で主張の射程は広がったのか
+- 仮説が断定に変わっていないか
+- 元の思想は保存されたのか
+- 未解決点が消されていないか
+- AIによる補完は正当な発展なのか、逸脱なのか
+- 実装上の都合が理論的主張へすり替わっていないか
+\end{CodeBlock}
+
+Kotonohaは、この欠落を埋めるための基盤である。
+
+\section{基本定義}
+
+Kotonohaは、以下の主要オブジェクトを扱う。
+
+\begin{description}[style=nextline,leftmargin=3em]
+\item[MeaningState] ある時点における意味状態。
+\item[MeaningDelta] 意味状態間の変化 $\Delta M$。
+\item[RDEAssessment] 意味変化に対するRDE評価。
+\item[SourceContext] 参照元・議論・資料・会話・Issue。
+\item[ClaimGraph] 主張・概念・根拠・依存関係。
+\item[UnresolvedGap] 未解決点・判断保留・追加検証事項。
+\item[ReviewDecision] 人間または制度的判断。
+\item[AgentRun] AIエージェントによる作業単位。
+\end{description}
+
+Kotonohaが扱うのは、単なるファイルではなく、\textbf{意味を帯びた作業単位}である。
+
+\section{基本データモデル}
+
+Kotonohaの中心線は次の通りである。
+
+\begin{CodeBlock}
+SourceContext
+  → MeaningState
+  → MeaningDelta / ΔM
+  → RDEAssessment
+  → ReviewDecision
+  → New MeaningState
+\end{CodeBlock}
+
+この構造により、ある資料・会話・Issue・Git差分から意味状態が抽出され、その意味状態が改稿・生成・実装・レビューを通じて変化し、その変化がRDEにより評価され、人間または制度的判断によって採用・保留・差し戻しされる。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=12mm and 10mm]
+  \node[nodebox] (A) {SourceContext};
+  \node[nodebox, right=of A] (B) {MeaningState};
+  \node[nodebox, right=of B] (C) {MeaningDelta\\$\Delta M$};
+  \node[nodebox, right=of C] (D) {RDEAssessment};
+  \node[nodebox, right=of D] (E) {ReviewDecision};
+  \node[nodebox, below=of E] (F) {New\\MeaningState};
+  \node[smallbox, above=of B] (G) {ClaimGraph};
+  \node[smallbox, below=of C] (H) {UnresolvedGap};
+  \node[smallbox, above=of C] (I) {AgentRun};
+
+  \draw[arrow] (A) -- (B);
+  \draw[arrow] (B) -- (C);
+  \draw[arrow] (C) -- (D);
+  \draw[arrow] (D) -- (E);
+  \draw[arrow] (E) -- (F);
+  \draw[arrow] (G) -- (B);
+  \draw[dashedarrow] (G) to[bend left=20] (F);
+  \draw[arrow] (H) -- (C);
+  \draw[dashedarrow] (H) -- (D);
+  \draw[arrow] (I) -- (C);
+  \draw[dashedarrow] (I) -- (D);
+\end{tikzpicture}
+\caption{Kotonohaの基本データモデル}
+\end{figure}
+
+この図は、Kotonohaが単なる保存庫ではなく、\textbf{意味状態が変化し、その変化が評価され、再び意味状態として定着する循環システム}であることを示している。
+
+\section{Document Objectとの相互作用}
+
+Kotonohaでは、文書を単なるファイルではなく、知的作業の対象としての\textbf{Document Object}として扱う。
+
+Document Objectには、論文草稿、仕様書、note記事、設計メモ、Issue下書き、実験記録などが含まれる。
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[node distance=10mm and 10mm]
+  \node[nodebox] (C) {Document\\Object};
+  \node[smallbox, above left=of C] (A) {Human};
+  \node[smallbox, above right=of C] (B) {AgentRun};
+  \node[nodebox, below=of C] (D) {Document\\Version};
+  \node[smallbox, below left=of D] (E) {Git Commit};
+  \node[smallbox, below=of D] (F) {SourceContext};
+  \node[nodebox, below right=of D] (G) {MeaningState};
+  \node[nodebox, right=of G] (H) {MeaningDelta};
+  \node[nodebox, right=of H] (I) {RDEAssessment};
+  \node[nodebox, above=of I] (J) {ReviewDecision};
+  \node[nodebox, above=of J] (M) {Next\\MeaningState};
+  \node[smallbox, below=of I] (K) {UnresolvedGap};
+  \node[smallbox, below=of G] (L) {ClaimGraph};
+
+  \draw[arrow] (A) -- (C);
+  \draw[arrow] (B) -- (C);
+  \draw[arrow] (C) -- (D);
+  \draw[arrow] (D) -- (E);
+  \draw[arrow] (D) -- (F);
+  \draw[arrow] (D) -- (G);
+  \draw[arrow] (F) -- (G);
+  \draw[arrow] (L) -- (G);
+  \draw[arrow] (G) -- (H);
+  \draw[dashedarrow] (B) to[bend left=15] (H);
+  \draw[dashedarrow] (A) to[bend right=15] (H);
+  \draw[arrow] (H) -- (I);
+  \draw[arrow] (K) -- (I);
+  \draw[dashedarrow] (L) -- (I);
+  \draw[arrow] (I) -- (J);
+  \draw[arrow] (J) -- (M);
+  \draw[dashedarrow] (J) to[bend left=35] (C);
+  \draw[dashedarrow] (M) to[bend left=45] (C);
+\end{tikzpicture}
+\caption{Document Objectを中心とする相互作用}
+\end{figure}
+
+この図の要点は、文書の物理的変更と意味的変更を分けることである。
+
+\begin{CodeBlock}
+Document Object
+  ↓
+Document Version / Git Commit
+  = 物理的・文字列的な履歴
+
+MeaningState / MeaningDelta / RDEAssessment
+  = 意味的・評価的な履歴
+\end{CodeBlock}
+
+Gitは文書の版を固定し、Kotonohaはその版が何を意味していたかを記録する。
+
+\section{Gitとの関係}
+
+KotonohaはGitを置き換えない。むしろ、Gitを物理的・文字列的な履歴のアンカーとして使う。
+
+\begin{CodeBlock}
+Git
+  = content lineage
+  = ファイル・文字列・commit・branch・tag・mergeの履歴
+
+Kotonoha DB
+  = semantic lineage
+  = 意味状態・意味変化・評価・未解決点・判断履歴の履歴
+\end{CodeBlock}
+
+Gitのcommit hashは、Kotonoha DBにとって固定点になる。
+
+\begin{CodeBlock}
+Git commit / diff / file path / line range
+        ↓
+Kotonoha MeaningDelta / RDEAssessment / ReviewDecision
+\end{CodeBlock}
+
+一文で言えば、\textbf{Gitは文字列の時間軸を持ち、Kotonohaは意味の時間軸を持つ。}
+
+\section{Kotonoha Core}
+
+Kotonohaの本体は、特定のUIではなくCoreである。
+
+\begin{CodeBlock}
+Kotonoha Core
+  ├─ Semantic Lineage DB
+  ├─ Git / Content Adapter
+  ├─ MeaningDelta Engine
+  ├─ RDE Engine
+  ├─ Claim / Source Manager
+  ├─ AgentRun Logger
+  ├─ Workflow / Review Engine
+  └─ MCP Gateway
+\end{CodeBlock}
+
+Coreは、エディタ非依存、クライアント非依存である。
+
+Obsidian、Cursor、VSCode、ChatGPT app、Claude Code、NotebookLMは、すべてKotonoha Coreに接続される外部クライアントまたはエージェントである。
+
+\section{最小CoreのDB方針}
+
+Kotonohaの最小CoreにおけるDBは、PostgreSQLを前提とする。
+
+SQLiteはローカル単体の試作には便利だが、Kotonohaでは最初から以下が重要になる。
+
+\begin{CodeBlock}
+- 複数文書・複数commit間の意味履歴
+- JSONBによる柔軟なRDE記録
+- full-text search
+- pgvector等による将来の意味検索
+- transactionによる監査記録の一貫性
+- GitHub / VSCode / ChatGPT app / Claude Code 等からの接続
+- 将来のチーム利用
+\end{CodeBlock}
+
+したがって、正式な最小Coreは次のように置く。
+
+\begin{CodeBlock}
+Kotonoha Core v0.1
+  ├─ PostgreSQL
+  ├─ DB migration
+  ├─ Git Adapter
+  ├─ Document Object Registry
+  ├─ MeaningState schema
+  ├─ MeaningDelta schema
+  ├─ RDEAssessment schema
+  ├─ ReviewDecision schema
+  ├─ AgentRun schema 最小版
+  └─ CLI
+\end{CodeBlock}
+
+PostgreSQLはPhase 1から採用し、将来的にチーム運用・Web Console・権限管理へ拡張する。
+
+\section{RDEとの関係}
+
+KotonohaはRDEを内包する。
+
+RDE（Resonant Deviation Evaluator）は、生成物や改稿結果が元の意味状態からどう変化したかを評価する層である。
+
+RDEは、単なる品質評価器ではない。評価対象は、次のような差異である。
+
+\begin{description}[style=nextline,leftmargin=4em]
+\item[preserved] 保存された要素。
+\item[authorized transformation] 許可された変換。
+\item[inferred extension] 補完・推論された拡張。
+\item[unresolved gap] 未解決のまま残した要素。
+\item[suspicious drift] 疑わしい逸脱。
+\item[critical distortion] 重大な歪曲。
+\end{description}
+
+Kotonohaは、RDEが評価するための対象、履歴、文脈、再審可能性を保持する土台である。
+
+言い換えると、\textbf{RDEが意味変化を裁定するなら、Kotonohaは意味変化を記憶する。}
+
+\section{クライアント群の位置づけ}
+
+Kotonohaは、特定のアプリケーションに閉じない。
+
+\subsection{ChatGPT app}
+
+ChatGPT appは、構想整理、論文・設計思想、RDE差異検証、仕様生成に向く。
+
+\begin{CodeBlock}
+ChatGPT app
+  → Meaning Design
+  → RDE Discussion
+  → Spec Draft
+  → Kotonoha DBへ記録
+\end{CodeBlock}
+
+ChatGPT appは、意味設計・意味評価ワークベンチとして位置づけられる。
+
+\subsection{Cursor / VSCode}
+
+Cursor / VSCodeは、実装、文書編集、リポジトリ内作業、Git diffとの接続に向く。
+
+\begin{CodeBlock}
+Cursor / VSCode
+  → File Edit
+  → Git Diff
+  → MeaningDelta Registration
+  → RDE Panel
+\end{CodeBlock}
+
+Cursorは必須要件ではなく、VSCode系クライアントの一つである。
+
+\subsection{Claude Code}
+
+Claude Codeは、コードベース読解、実装修正、テスト修正、PR単位の作業代行に向く。
+
+\begin{CodeBlock}
+Kotonoha Spec
+  → Claude Code AgentRun
+  → Patch / Test Result
+  → Git Diff
+  → RDE Assessment
+  → Human Review
+\end{CodeBlock}
+
+Claude Codeは、Kotonohaの実装系エージェントとして有望である。ただし、Kotonoha Coreの意味履歴とRDE監査に従属する作業実行器として扱うべきである。
+
+\subsection{NotebookLM}
+
+NotebookLMは、資料読解、要約、FAQ、Mind Map、Audio Overviewなどに向く。
+
+\begin{CodeBlock}
+Source Set
+  → NotebookLM Interpretation
+  → Derived Artifact
+  → MeaningDelta
+  → RDE Assessment
+\end{CodeBlock}
+
+NotebookLMの出力は正解ではなく、Kotonoha上では意味変換$\Delta M$の候補として扱われる。
+
+\subsection{Obsidian}
+
+Obsidianは、知識ノート、草稿、リンク構造、個人研究環境に向く。
+
+ただし、KotonohaはObsidian pluginに閉じない。ObsidianはKotonoha Consoleの一候補である。
+
+\section{MCP接続}
+
+KotonohaはMCP接続によって、外部エージェント・外部知識処理器と接続できる。
+
+ただし、MCPは「何でも自由につなぐ線」ではなく、capability制御された接続層として扱う。
+
+\begin{CodeBlock}
+Kotonoha MCP Gateway
+  ├─ read_source_set
+  ├─ export_context_pack
+  ├─ register_derived_artifact
+  ├─ create_meaning_delta
+  ├─ run_rde_assessment
+  ├─ attach_human_review
+  └─ export_report
+\end{CodeBlock}
+
+NotebookLM、ChatGPT app、Claude Code、Cursorなどは、MCPまたは専用adapterを通じてKotonoha Coreに接続される。
+
+重要なのは、外部ツールの出力を正解と見なさないことである。それらはすべて、Kotonoha上では意味変換$\Delta M$の候補として扱われ、RDEと人間レビューの対象になる。
+
+\section{Kotonoha Minimal UI}
+
+VSCode pluginは、Obsidian/Cursorの代替ではなく、Kotonohaの最小基本UIになり得る。
+
+最小UIの目的は、編集そのものではない。
+
+\begin{CodeBlock}
+Diffを見るUIではない。
+Diffに意味を与えるUIである。
+\end{CodeBlock}
+
+または、次のように言える。
+
+\begin{CodeBlock}
+編集するためのUIではない。
+編集が何を変えたのかを記録するUIである。
+\end{CodeBlock}
+
+Kotonoha Minimal UI v0.1は、次を扱う。
+
+\begin{CodeBlock}
+Kotonoha Minimal UI
+  ├─ Current Context
+  │    ├─ repo
+  │    ├─ branch
+  │    ├─ file
+  │    ├─ selection
+  │    └─ git diff
+  ├─ MeaningDelta Form
+  │    ├─ intended change
+  │    ├─ preserved elements
+  │    ├─ transformed elements
+  │    ├─ inferred extensions
+  │    ├─ unresolved gaps
+  │    └─ drift risks
+  ├─ RDE Panel
+  │    ├─ assessment result
+  │    ├─ warning
+  │    ├─ required human review
+  │    └─ next action
+  └─ Register / Link
+       ├─ save to Kotonoha DB
+       ├─ link to commit
+       ├─ link to issue / PR
+       └─ export report
+\end{CodeBlock}
+
+このUIは、VSCode extensionとして先行実装する価値がある。理由は、VSCode / Cursor圏ではGit diff、ファイル、選択範囲、branch、commit、テスト、Issue草稿が近くにあるためである。
+
+\section{車輪の再発明を避ける設計原則}
+
+Kotonohaは、既存ツールを再実装しない。
+
+再実装すべきでないものは次の通りである。
+
+\begin{CodeBlock}
+- Obsidian的なノートアプリ全体
+- Cursor的なAIコードエディタ
+- NotebookLM的な資料読解UI
+- GitHub的なIssue / PR管理
+- Gitそのもの
+- 汎用LLMチャットUI
+\end{CodeBlock}
+
+Kotonohaが作るべきものは次の通りである。
+
+\begin{CodeBlock}
+- 意味状態の記録
+- 意味変化 ΔM の登録
+- Git diff と意味差分の対応付け
+- RDE評価の保存
+- 未解決点の保持
+- 人間レビューと判断履歴
+- 外部エージェント出力の意味監査
+\end{CodeBlock}
+
+つまり、\textbf{既存ツールが作業を行い、Kotonohaが意味の履歴を記録する。}
+
+\section{開発方針}
+
+Kotonohaの開発は、最初から大規模な統合知識基盤を目指すのではなく、\textbf{意味履歴を記録・監査する最小構造}から開始する。
+
+初期段階では、対象を主に以下に限定する。
+
+\begin{CodeBlock}
+- Markdown / LaTeX / 設計文書
+- Git管理されたファイル
+- Git diff / commit
+- MeaningState
+- MeaningDelta
+- RDEAssessment
+- ReviewDecision
+- 最小UI
+\end{CodeBlock}
+
+開発原則は次の通りである。
+
+\begin{enumerate}
+\item \textbf{Core first}\par UIや外部ツール連携より先に、Kotonoha Coreのデータモデルを確立する。
+\item \textbf{Git anchored}\par Git commit / diff / file path / line rangeを意味履歴の物理アンカーとして利用する。
+\item \textbf{UI minimal}\par 最初のUIは、編集環境そのものではなく、差分に意味を与える最小UIとする。
+\item \textbf{Human-in-the-loop}\par RDE評価は最終判断ではなく、人間レビューと再審可能性を前提とする。
+\item \textbf{Tool agnostic}\par Obsidian、Cursor、VSCode、ChatGPT app、Claude Code、NotebookLMは交換可能なクライアントまたは外部エージェントとして扱う。
+\end{enumerate}
+
+\section{Phase 0：概念仕様の固定}
+
+\subsection{目的}
+
+Kotonohaの中核概念を、実装可能な仕様へ落とし込む。
+
+\subsection{主な成果物}
+
+\begin{CodeBlock}
+- Kotonoha構想ドキュメント v0.1
+- 用語定義
+- 基本データモデル
+- Document Object図解
+- Git連携モデル
+- RDEとの関係整理
+- v0.1で扱わない範囲の明示
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- MeaningState / MeaningDelta / RDEAssessment / ReviewDecisionの定義がある
+- Document ObjectとGit Commitの関係が図示されている
+- Kotonoha Coreと外部クライアントの境界が明確である
+- マルチモーダルΔMが将来研究扱いとして分離されている
+\end{CodeBlock}
+
+\section{Phase 1：Kotonoha Core最小実装}
+
+\subsection{目的}
+
+Git差分に対してMeaningDeltaとRDE記録を付与できる最小バックエンドを作る。
+
+\subsection{主な実装対象}
+
+\begin{CodeBlock}
+Kotonoha Core v0.1
+  ├─ PostgreSQL
+  ├─ DB migration
+  ├─ Git Adapter
+  ├─ Document Object Registry
+  ├─ MeaningState schema
+  ├─ MeaningDelta schema
+  ├─ RDEAssessment schema
+  ├─ ReviewDecision schema
+  ├─ AgentRun schema 最小版
+  └─ CLI
+\end{CodeBlock}
+
+\subsection{優先機能}
+
+\begin{CodeBlock}
+- kotonoha init
+- kotonoha status
+- kotonoha diff
+- kotonoha delta create
+- kotonoha rde attach
+- kotonoha review approve / hold / reject
+- kotonoha export
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- PostgreSQL上に基本スキーマを作成できる
+- Git管理下の文書に対してMeaningDeltaを作成できる
+- MeaningDeltaがcommit hash / file path / line rangeに紐づく
+- RDEAssessmentをJSONBとして保存できる
+- ReviewDecisionを記録できる
+- CLIから一連の操作が可能である
+\end{CodeBlock}
+
+\section{Phase 2：Kotonoha Minimal UI}
+
+\subsection{目的}
+
+VSCode / Cursor系環境で、Git差分に意味を付与する最小UIを提供する。
+
+\subsection{位置づけ}
+
+Kotonoha Minimal UIは、ObsidianやCursorの代替ではない。それは、差分を意味変化として登録し、RDE評価と人間レビューを結びつけるための最小作業面である。
+
+\subsection{主な機能}
+
+\begin{CodeBlock}
+Kotonoha Minimal UI
+  ├─ Current Context 表示
+  │    ├─ repository
+  │    ├─ branch
+  │    ├─ file
+  │    ├─ selection
+  │    └─ git diff
+  ├─ MeaningDelta 入力
+  │    ├─ intended change
+  │    ├─ preserved elements
+  │    ├─ transformed elements
+  │    ├─ inferred extensions
+  │    ├─ unresolved gaps
+  │    └─ drift risks
+  ├─ RDE Panel
+  │    ├─ assessment result
+  │    ├─ warnings
+  │    ├─ human review required
+  │    └─ next action
+  └─ Register / Link
+       ├─ save to Kotonoha DB
+       ├─ link to commit
+       ├─ link to issue / PR
+       └─ export report
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- VSCode上で現在のGit差分を取得できる
+- 選択範囲またはdiff単位でMeaningDeltaを登録できる
+- RDEAssessmentを表示できる
+- ReviewDecisionをUIから記録できる
+- Kotonoha Coreと通信できる
+\end{CodeBlock}
+
+\section{Phase 3：GitHub / Issue / PR連携}
+
+\subsection{目的}
+
+意味履歴を、GitHub上のIssue、Pull Request、Review Commentと接続する。
+
+\subsection{主な機能}
+
+\begin{CodeBlock}
+- IssueとMeaningDeltaの紐づけ
+- PR diffとRDEAssessmentの紐づけ
+- PR説明文へのRDEサマリー出力
+- ReviewDecisionのGitHub comment反映
+- semantic checkのCI連携
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- PR単位でMeaningDeltaを一覧できる
+- RDE評価結果をPRレビューに添付できる
+- 未解決点がIssueとして再登録できる
+- CI上で最低限のsemantic checkが実行できる
+\end{CodeBlock}
+
+\section{Phase 4：外部エージェント連携}
+
+\subsection{目的}
+
+ChatGPT app、Claude Code、NotebookLM、Obsidianなどの外部ツールを、Kotonoha Coreに接続する。
+
+\subsection{主要連携}
+
+\begin{CodeBlock}
+ChatGPT app
+  - 構想整理
+  - 仕様生成
+  - RDE差異検証
+  - MeaningDelta草案生成
+
+Claude Code
+  - 実装作業
+  - テスト修正
+  - patch生成
+  - AgentRun記録
+
+NotebookLM
+  - Source Set読解
+  - 要約
+  - FAQ
+  - Mind Map
+  - 派生Artifact登録
+
+Obsidian
+  - 研究ノート
+  - 草稿管理
+  - 文書リンク
+  - Kotonoha Console候補
+\end{CodeBlock}
+
+\subsection{必要となる構成}
+
+\begin{CodeBlock}
+- AgentRun schema
+- Context Pack export
+- Derived Artifact registry
+- MCP Gatewayまたは専用Adapter
+- capability制御
+- audit log
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- 外部エージェントの出力をAgentRunとして記録できる
+- AgentRunからMeaningDeltaを生成できる
+- 外部出力をRDEAssessment対象として扱える
+- 直接commit/pushなどの危険操作を制限できる
+\end{CodeBlock}
+
+\section{Phase 5：チーム利用・制度化}
+
+\subsection{目的}
+
+個人研究環境から、チーム・組織で利用できる意味履歴基盤へ拡張する。
+
+\subsection{主な機能}
+
+\begin{CodeBlock}
+- PostgreSQLのマルチユーザー運用
+- Web Console
+- Team / Organization workspace
+- RBAC / capability security
+- audit log hardening
+- review workflow
+- project-level semantic lineage
+- report export
+\end{CodeBlock}
+
+\subsection{完了条件}
+
+\begin{CodeBlock}
+- 複数ユーザーでMeaningDeltaを共有できる
+- ReviewDecisionに権限管理を適用できる
+- Project単位で意味履歴を追跡できる
+- 外部監査向けレポートを出力できる
+\end{CodeBlock}
+
+\section{Phase X：将来研究}
+
+以下は、Kotonoha v0.1の中核実装には含めない。ただし、Kotonohaが意味変化一般の基盤へ拡張される可能性として、研究ノートに保持する。
+
+\begin{CodeBlock}
+- Multimodal MeaningDelta
+- 画像へのΔM評価
+- 音声・音楽へのΔM評価
+- 動画編集における意味変化監査
+- Temporal / Affective / Cross-modal Alignment軸
+- drift subtypeの拡張
+- Counterfactual replay
+- 高度なClaimGraph
+- 自動mergeではなく意味再審としての統合
+\end{CodeBlock}
+
+これらは、実装済み能力として記述しない。あくまで、将来研究・将来実装の射程として扱う。
+
+\section{マイルストーン一覧}
+
+\begin{description}[style=nextline,leftmargin=4em]
+\item[M0: Concept Freeze] Kotonoha構想、用語、基本データモデル、対象範囲を固定する。
+\item[M1: Core Prototype] PostgreSQL + Git Adapter + MeaningDelta schema + CLIを実装する。
+\item[M2: RDE Record Integration] RDEAssessment / ReviewDecisionをMeaningDeltaに紐づける。RDEAssessmentはJSONBとして保持し、後続のschema evolutionに耐える構造にする。
+\item[M3: Minimal UI Prototype] VSCode extensionとして、Git diffとMeaningDelta登録UIを実装する。
+\item[M4: GitHub Integration] Issue / PR / Review Commentと意味履歴を接続する。
+\item[M5: AgentRun Integration] ChatGPT app / Claude Code / NotebookLMなどの外部出力を記録可能にする。
+\item[M6: Team Mode] PostgreSQLのマルチユーザー運用 / Web Console / 権限管理 / 監査ログを実装する。
+\item[MX: Multimodal Research Note] 画像・音声・音楽・動画への$\Delta M$拡張を研究ノートとして整理する。
+\end{description}
+
+\section{v0.1の明確な非対象}
+
+v0.1では、以下を実装対象外とする。
+
+\begin{CodeBlock}
+- Obsidian全体の再実装
+- Cursor的AIコードエディタの再実装
+- NotebookLM的資料読解UIの再実装
+- 完全自動RDE判定
+- 完全自動merge
+- マルチモーダルΔM評価
+- 組織向け高度権限管理
+- 大規模Graph DB
+- 文書生成AIそのもの
+\end{CodeBlock}
+
+これは縮小ではなく、設計上の節制である。
+
+Kotonoha v0.1がまず実証すべきことは、ただ一つである。
+
+\begin{notebox}
+\centering
+\textbf{Git差分に対して、意味変化 $\Delta M$ とRDE評価を記録できるか。}
+\end{notebox}
+
+ここが成立すれば、Kotonohaの基礎は成立する。ここが曖昧なまま外部連携やUIを拡張すると、単なるAIツール統合基盤に流れてしまう。
+
+\section{Multimodal MeaningDeltaの位置づけ}
+
+画像・音声・音楽・動画への$\Delta M$評価は、現時点ではKotonoha v0.1の実装対象ではなく、将来的可能性の方向として提示する。
+
+意味変化$\Delta M$は本質的にはテキストに限定されない。画像、音声、音楽、動画においても、編集・要約・変換・生成によって意味の保存、変形、補完、逸脱が発生する。
+
+ただし、既存の画像類似度、音響品質、動画一貫性評価をそのまま$\Delta M$評価と呼ぶべきではない。それらは下位特徴量であり、RDEが扱うべきなのは、より上位の意味変化である。
+
+\begin{CodeBlock}
+- 何が保存されたか
+- 何が変換されたか
+- 何が補完されたか
+- 何が省略されたか
+- 何が別の意味へ滑ったか
+- その変化は意図されたものか
+- 責任・価値・文脈の配置は変わったか
+\end{CodeBlock}
+
+将来的なMultimodal $\Delta M$評価では、RDEの基本6分類を上位判定カテゴリとして維持しつつ、知覚、対象、行為、時間、感情、様式、文化的象徴、制度的文脈、モダリティ間整合性といった補助評価軸を導入する。
+
+\begin{description}[style=nextline,leftmargin=4em]
+\item[Perceptual Axis] 知覚的変化。
+\item[Object / Entity Axis] 対象・人物・物体・主体の変化。
+\item[Action / Event Axis] 行為・出来事・因果関係の変化。
+\item[Temporal Axis] 時間順序・継続性・編集構造の変化。
+\item[Affective / Tonal Axis] 感情・声色・演出トーン・雰囲気の変化。
+\item[Stylistic / Genre Axis] 様式・ジャンル・表現形式の変化。
+\item[Symbolic / Cultural Axis] 象徴・文化的文脈・記号的意味の変化。
+\item[Contextual / Institutional Axis] 報道性・証拠性・責任配置・制度的意味の変化。
+\item[Cross-modal Alignment Axis] 映像・音声・字幕・音楽・テキスト間の整合性変化。
+\end{description}
+
+ただし、この議論は本文中核ではなく、研究ノートまたは将来展望ノートとして保持する。
+
+\section{RDE差異検証メモ}
+
+\subsection{保存された要素}
+
+Kotonohaが意味変化の履歴を管理する基盤であるという中核は保存されている。
+
+\subsection{変換された要素}
+
+当初のObsidian / Cursor中心の作業環境観から、エディタ非依存のSemantic Lineage Coreとして再定義された。
+
+\subsection{補完された要素}
+
+Git連携DB、Document Object、MeaningState、MeaningDelta、RDEAssessment、ReviewDecision、AgentRun、MCP Gateway、Minimal UI、PostgreSQL前提が補完された。
+
+\subsection{未解決の要素}
+
+PostgreSQLスキーマの詳細、RDEAssessmentのJSONB構造、VSCode extensionのUI仕様、GitHub連携API、AgentRunログ形式、権限モデルは未解決である。
+
+\subsection{逸脱リスク}
+
+Kotonohaが、AIエディタ、Obsidianプラグイン、NotebookLM代替、Git拡張のいずれかに矮小化されるリスクがある。
+
+また、Multimodal $\Delta M$や完全自動RDE評価など、将来研究段階の内容を実装済み能力のように見せてしまうリスクがある。
+
+\subsection{次回更新方針}
+
+次回は、Kotonoha Core v0.1のPostgreSQLスキーマ、CLIコマンド体系、VSCode Minimal UI仕様を分離して具体化する。
+
+\section{要約}
+
+Kotonohaは、Gitなどの内容履歴を物理的アンカーとして用いながら、文書・議論・設計・実装における意味状態と意味変化$\Delta M$を記録し、RDEによって監査可能にするSemantic Lineage Systemである。
+
+Obsidian、Cursor、VSCode、ChatGPT app、Claude Code、NotebookLMは、Kotonohaの本体ではない。それらはすべて、Kotonoha Coreに接続されるクライアントまたは外部エージェントである。
+
+Kotonoha v0.1がまず実証すべきことは、Git差分に対して、MeaningDeltaとRDEAssessmentをPostgreSQL上に記録できるかである。
+
+この最小Coreが成立すれば、Kotonohaは単なる文書管理でも、AI編集支援でもなく、生成AI時代における意味の来歴管理基盤として成立する。
+
+\appendix
+\section{Obsidian用メタデータ}
+
+\begin{CodeBlock}
+---
+title: "Kotonoha構想：意味履歴を管理するSemantic Lineage System"
+created: 2026-05-17T00:00:00+09:00
+updated: 2026-05-17T00:00:00+09:00
+author: "Tomoyuki Kano <tomyuk@zyxcorp.jp>"
+tags: [Kotonoha, SLS, RDE, MeaningDelta, SemanticLineage, Git, PostgreSQL, AI設計]
+source_type: chatgpt
+source_id: "kotonoha-semantic-lineage-concept"
+document_type: concept_note
+status: draft
+links:
+  - [[RDE]]
+  - [[MeaningDelta]]
+  - [[Semantic Lineage System]]
+  - [[Kotonoha Minimal UI]]
+---
+\end{CodeBlock}
+
+\end{document}

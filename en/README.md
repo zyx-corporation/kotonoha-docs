@@ -10,6 +10,7 @@ Japanese counterpart: [`../ja/README.md`](../ja/README.md)
 
 | Section | Purpose |
 | --- | --- |
+| [Concepts](concepts/README.md) | Kotonoha / SLS / RDE vision and conceptual explanations (non-normative) |
 | [Method](method/README.md) | How the project applies SLS + RDE in its own work |
 | [Manual](manual/README.md) | Reference-style usage and operation topics |
 | [Tutorials](tutorials/README.md) | Learning-oriented step-by-step guides |

@@ -121,3 +121,4 @@ Kotonoha は「勝手に処理する秘書」ではなく、「監査可能な�
 ## 5. Related
 
 - Issue: #27
+- Kotonoha 構想（非規範）: [`ja/concepts/kotonoha_concept_overview.md`](../../../ja/concepts/kotonoha_concept_overview.md) / [English](../../../en/concepts/kotonoha_concept_overview.md)

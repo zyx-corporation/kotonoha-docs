@@ -31,7 +31,7 @@ SVG-first の図表方針とレンダリング手順は [`docs/rendering_policy.
 
 - 概念説明
   - 例: SLS、semantic lineage、ΔM、RDE、memory layer、auditability などの説明
-  - 今後 `en/concepts/`, `ja/concepts/` に配置予定
+  - [`en/concepts/`](en/concepts/README.md), [`ja/concepts/`](ja/concepts/README.md)（[#42](https://github.com/zyx-corporation/kotonoha-docs/issues/42)）
 - 利用・運用のマニュアル
   - 例: [`en/manual/`](en/manual/README.md), [`ja/manual/`](ja/manual/README.md)
 - 学習用チュートリアル
