@@ -2,6 +2,8 @@
 
 **Status:** informative (non-normative). Canonical semantics and conformance language live in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) — start with [introduction.md](https://github.com/zyx-corporation/kotonoha-spec/blob/main/docs/introduction.md) and [introduction_ja.md](https://github.com/zyx-corporation/kotonoha-spec/blob/main/docs/introduction_ja.md).
 
+**長文正本（暫定版 v0.1）:** [`../paper/kotonoha_concept.md`](../paper/kotonoha_concept.md)
+
 English companion: [`../../en/concepts/kotonoha_concept_overview.md`](../../en/concepts/kotonoha_concept_overview.md)
 
 ---
