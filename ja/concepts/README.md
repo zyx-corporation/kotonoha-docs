@@ -14,4 +14,5 @@ Kotonoha エコシステムの**構想・概念説明**を置くセクション�
 
 | 文書 | 説明 |
 | --- | --- |
-| [kotonoha_concept_overview.md](kotonoha_concept_overview.md) | Kotonoha / SLS / RDE の構想と、Git・Issue との関係 |
+| [kotonoha_concept_overview.md](kotonoha_concept_overview.md) | Kotonoha / SLS / RDE の構想要約（非規範） |
+| [../paper/kotonoha_concept.md](../paper/kotonoha_concept.md) | 構想長文正本 **暫定版 v0.1**（Paper 領域） |
