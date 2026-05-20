@@ -12,7 +12,7 @@
 | --- | --- |
 | [Concepts](concepts/README.md) | Kotonoha / SLS / RDE の構想・概念説明（非規範） |
 | [Method](method/README.md) | プロジェクト自身が SLS + RDE をどう適用するか |
-| [Manual](manual/README.md) | 利用・運用の参照文書 |
+| [Manual](manual/README.md) | 利用・運用の参照文書（[VS Code 拡張](manual/vscode_extension_operations.md)） |
 | [Tutorials](tutorials/README.md) | 学習向けの段階的ガイド |
 | [Acceptance demos](acceptance/README.md) | 公開動作を確認する検証向け手順 |
 | [Paper（論文）](paper/README.md) | 査読付き論文・プレプリント等（normative ではない） |

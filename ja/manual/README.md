@@ -6,6 +6,12 @@
 
 英語版対応: [`../../en/manual/README.md`](../../en/manual/README.md)
 
+## 文書一覧
+
+| 文書 | 説明 |
+| --- | --- |
+| [vscode_extension_operations.md](vscode_extension_operations.md) | **Kotonoha VS Code 拡張** — 起動・設定・ショートカット・ΔM/RDE/Review 操作 |
+
 ## 配置メモ
 
 マニュアルは利用・運用を説明します。厳密な意味定義を重複させず、必要に応じて [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) へリンクします。
