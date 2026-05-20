@@ -7,10 +7,11 @@ This section will grow as products and CLIs stabilize. Until specific manuals la
 - [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) for authoritative definitions.
 - [`kotonoha-core`](https://github.com/zyx-corporation/kotonoha-core) for build and developer setup tied to the repository.
 
-## Suggested future topics
+## Published manuals (language roots)
 
-- Installation and environment prerequisites
-- Configuration reference (non-normative; link to spec for semantics)
-- Operational checklists and troubleshooting
+| Language | VS Code extension operations |
+| --- | --- |
+| 日本語 | [`ja/manual/vscode_extension_operations.md`](../../ja/manual/vscode_extension_operations.md) |
+| English | [`en/manual/vscode_extension_operations.md`](../../en/manual/vscode_extension_operations.md) |
 
-Add new manuals as separate Markdown files under this directory and link them from this README.
+Add new manuals under `ja/manual/` and `en/manual/` and link them here and from each language README.
