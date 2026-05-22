@@ -6,14 +6,30 @@ This is a demo workflow. The SLM output is only a draft. Kotonoha validation and
 
 Japanese counterpart: [`../../ja/tutorials/slm_demo_quickstart.md`](../../ja/tutorials/slm_demo_quickstart.md)
 
+## Story: a small note before publishing
+
+Imagine you are editing a short note before sharing it with a colleague or publishing it as a small article.
+
+The note looks harmless. You only changed a few sentences. But you are not fully sure what changed in meaning.
+
+Maybe the new version is clearer. Maybe it also removed an important hesitation. Maybe it made the claim sound stronger than you intended.
+
+This is where Kotonoha helps.
+
+In this tutorial, you will play the role of a writer reviewing a short note. A local SLM will act as a cheap draft assistant. It will try to describe what was preserved, changed, lost, or risky. Then Kotonoha will check whether the draft is a valid RDE review output. Finally, you will read it as the human reviewer.
+
+The point is not to trust the SLM. The point is to make a first draft visible enough for you to review.
+
 ## Goal
 
 By the end, you will have:
 
 1. started a local SLM;
-2. generated a candidate RDE JSON draft;
-3. validated the draft with `kotonoha rde validate --strict`;
-4. understood when to escalate to a larger LLM or human review.
+2. created a small note as the review subject;
+3. asked the SLM to draft candidate RDE JSON;
+4. validated the draft with `kotonoha rde validate --strict`;
+5. reviewed the result as a human;
+6. understood when to escalate to a larger LLM or deeper review.
 
 ## Assumptions
 
@@ -28,6 +44,8 @@ You have:
 If you do not have an SLM runtime yet, Ollama is a common local demo option. Other local SLM runtimes may also be used.
 
 ## Step 1 — Start or install an SLM runtime
+
+The story begins with a small assistant running locally.
 
 Example using Ollama:
 
@@ -59,9 +77,11 @@ Say hello in one sentence.
 
 Exit the model shell when done.
 
-## Step 2 — Prepare a subject file
+At this point, you have a local draft assistant. It is not an evaluator, not an approver, and not a source of truth.
 
-Create a small text file for the demo:
+## Step 2 — Prepare the note you want to review
+
+Now create the note that will become the review subject.
 
 ```bash
 mkdir -p kotonoha-demo
@@ -74,9 +94,15 @@ what changed, what was lost, and what should be reviewed next.
 EOF
 ```
 
+In a real workflow, this might be a paragraph from an essay, a README change, a research note, or an Obsidian draft.
+
+For the tutorial, we keep it short so you can see the full loop.
+
 ## Step 3 — Ask the SLM for an RDE draft
 
-Use the SLM to draft a minimal RDE review output.
+Now ask the SLM to describe the note in Kotonoha's RDE format.
+
+The SLM is not deciding whether the note is good. It is only preparing a candidate review record.
 
 Example prompt:
 
@@ -100,7 +126,11 @@ Save the model output as `rde-draft.json`.
 
 If the model returns Markdown fences, remove them so the file contains raw JSON only.
 
+This is the first important boundary: the file is a draft, not a valid Kotonoha record yet.
+
 ## Step 4 — Validate the draft
+
+Now Kotonoha checks the shape of the draft.
 
 Run:
 
@@ -119,7 +149,11 @@ If validation fails, fix the JSON and run validation again. Common errors includ
 - missing or empty `summary` in strict mode;
 - invalid `source_context_status`.
 
-## Step 5 — Review as a human
+Validation does not mean the SLM was right. It only means the draft is shaped well enough to be reviewed.
+
+## Step 5 — Read it as the human reviewer
+
+Now the important part begins.
 
 Even after validation succeeds, read the RDE draft yourself.
 
@@ -131,7 +165,7 @@ Ask:
 - Did it understate a deviation risk?
 - Is the source context complete enough?
 
-Validation proves shape, not final judgment.
+This is the second important boundary: Kotonoha helps you review meaning change, but it does not replace your responsibility.
 
 ## Step 6 — Optional attach / review flow
 
@@ -144,6 +178,8 @@ kotonoha review hold --delta-id <DELTA_ID> --decided-by "your-name"
 ```
 
 Use `hold` while learning. Use `approve` only when you are intentionally recording a human approval.
+
+In the story, `hold` means: "I have made the semantic change visible, but I am not ready to approve it yet."
 
 ## Demo profile
 
@@ -160,7 +196,7 @@ kotonoha:
     approval_authority: human
 ```
 
-## When this is enough
+## When this story is enough
 
 This demo SLM workflow is appropriate for:
 
@@ -183,7 +219,9 @@ Escalate to a larger LLM or deeper human review when:
 
 ## Summary
 
-SLM is useful for starting quickly. It should not be trusted as an authority.
+The story is simple:
+
+A writer changes a note. A small model drafts a review. Kotonoha validates the shape. A human decides what it means.
 
 The safe path is:
 
