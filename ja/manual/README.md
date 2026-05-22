@@ -11,6 +11,7 @@
 | 文書 | 説明 |
 | --- | --- |
 | [vscode_extension_operations.md](vscode_extension_operations.md) | **Kotonoha VS Code 拡張** — 起動・設定・ショートカット・ΔM/RDE/Review 操作 |
+| [llm_slm_usage.md](llm_slm_usage.md) | **LLM / SLM 利用ガイド** — モデル非依存の草案生成、SLMのデフォルト最小利用、validation gate、escalation rule |
 
 ## 配置メモ
 
