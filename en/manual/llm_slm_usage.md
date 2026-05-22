@@ -20,9 +20,11 @@ In short:
 | `kotonoha-core` / `kotonoha-cli` | Validation, persistence path, review record handling |
 | Human reviewer | Final approval, hold, rejection, publication responsibility |
 
-## Default minimal choice: SLM
+## Demo minimal profile: SLM
 
-For personal and lightweight workflows, the default minimal model choice may be an SLM.
+For demos, personal trials, and lightweight workflows, an SLM may be used as the **minimal demo profile**.
+
+This is not a production requirement and not a normative SLS rule. It is a practical configuration example for low-cost, local-first, or quick-start usage.
 
 Expected SLM roles:
 
@@ -31,13 +33,85 @@ Expected SLM roles:
 - format candidate RDE JSON;
 - identify obvious `lost` or `deviation_risk` items;
 - assist note-level or single-file review;
-- keep local-first or low-cost workflows practical.
+- keep demo and low-cost workflows practical.
 
 SLM output is never authoritative. It is only a draft.
 
+## Example configuration profiles
+
+The exact configuration format depends on the channel or implementation. The following examples describe intended profiles.
+
+### Demo SLM profile
+
+Use this for local demos, onboarding, personal notes, and short single-file reviews.
+
+```yaml
+kotonoha:
+  ai:
+    profile: demo-slm
+    model_class: slm
+    role: draft-only
+    allowed_tasks:
+      - rde_draft
+      - category_suggestion
+      - json_formatting
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    attach_requires_validated_json: true
+    approval_authority: human
+    escalation:
+      on_source_context:
+        - missing
+        - partial
+        - contested
+      on_risk:
+        - deviation_risk
+      on_subject:
+        - long_document
+        - multi_document
+        - publication_sensitive
+```
+
+### Hosted LLM escalation profile
+
+Use this when the SLM draft is insufficient, the subject is long, or the review is conceptually or institutionally sensitive.
+
+```yaml
+kotonoha:
+  ai:
+    profile: hosted-llm-escalation
+    model_class: llm
+    role: draft-improvement
+    allowed_tasks:
+      - rde_draft_revision
+      - ambiguity_review
+      - lost_context_review
+      - deviation_risk_review
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    approval_authority: human
+```
+
+### No-model profile
+
+Use this when the user writes RDE observations manually.
+
+```yaml
+kotonoha:
+  ai:
+    profile: no-model
+    model_class: none
+    role: manual-review
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    approval_authority: human
+```
+
+These examples are documentation profiles. They do not define a required public configuration schema.
+
 ## When to escalate to a larger LLM or human review
 
-Escalate beyond the default SLM path when any of the following applies:
+Escalate beyond the demo SLM path when any of the following applies:
 
 - the subject is long or spans multiple documents;
 - source context is `missing`, `partial`, or `contested`;
@@ -62,7 +136,7 @@ The validator checks the machine-readable shape, required RDE categories, and cl
 
 ## Recommended workflow
 
-1. Use an SLM or LLM to draft an RDE review.
+1. Use an SLM, LLM, or manual process to draft an RDE review.
 2. Inspect the draft as a human reviewer.
 3. Validate the JSON with `kotonoha rde validate --strict`.
 4. Attach the validated RDE output with `kotonoha rde attach` when appropriate.
@@ -92,10 +166,10 @@ Do not:
 
 ## Summary
 
-The safest default is:
+A safe demo profile is:
 
 ```text
-Default model: SLM
+Demo model profile: SLM
 Role: draft-only assistant
 Validation: kotonoha rde validate --strict
 Escalation: larger LLM or human review when risk/context requires it
