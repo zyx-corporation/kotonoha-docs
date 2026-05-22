@@ -20,24 +20,98 @@ LLM または SLM は RDE 草案を生成してよいですが、その出力は
 | `kotonoha-core` / `kotonoha-cli` | validation、永続化経路、review record handling |
 | Human reviewer | 最終承認、保留、却下、公開責任 |
 
-## デフォルト最小選択: SLM
+## デモ最小プロファイル: SLM
 
-個人利用や軽量ワークフローでは、デフォルト最小選択として SLM を使ってかまいません。
+デモ、個人試用、軽量ワークフローでは、SLMを **デモ最小プロファイル** として使ってかまいません。
 
-SLM に期待する役割は次の通りです。
+これはproduction requirementでも、normativeなSLS ruleでもありません。低コスト、local-first、quick-start用途の実用的な設定例です。
+
+SLMに期待する役割は次の通りです。
 
 - RDE category item の草案作成。
 - 短い `summary` 文の提案。
 - RDE JSON候補の整形。
 - 明らかな `lost` または `deviation_risk` の抽出補助。
 - ノート単位、単一ファイル単位のレビュー補助。
-- local-first または低コスト運用の実用化。
+- デモおよび低コスト運用の実用化。
 
 SLM 出力は権威ではありません。あくまで草案です。
 
+## 設定プロファイル例
+
+正確な設定形式は、channelまたはimplementationに依存します。以下は意図を示す設定例です。
+
+### Demo SLM profile
+
+local demo、onboarding、個人ノート、短い単一ファイルreview向けです。
+
+```yaml
+kotonoha:
+  ai:
+    profile: demo-slm
+    model_class: slm
+    role: draft-only
+    allowed_tasks:
+      - rde_draft
+      - category_suggestion
+      - json_formatting
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    attach_requires_validated_json: true
+    approval_authority: human
+    escalation:
+      on_source_context:
+        - missing
+        - partial
+        - contested
+      on_risk:
+        - deviation_risk
+      on_subject:
+        - long_document
+        - multi_document
+        - publication_sensitive
+```
+
+### Hosted LLM escalation profile
+
+SLM草案が不十分な場合、対象が長い場合、概念的・制度的にsensitiveなreviewに使います。
+
+```yaml
+kotonoha:
+  ai:
+    profile: hosted-llm-escalation
+    model_class: llm
+    role: draft-improvement
+    allowed_tasks:
+      - rde_draft_revision
+      - ambiguity_review
+      - lost_context_review
+      - deviation_risk_review
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    approval_authority: human
+```
+
+### No-model profile
+
+利用者がRDE observationを手動で書く場合に使います。
+
+```yaml
+kotonoha:
+  ai:
+    profile: no-model
+    model_class: none
+    role: manual-review
+    validation_required: true
+    validation_command: kotonoha rde validate --strict
+    approval_authority: human
+```
+
+これらはdocumentation profileです。必須のpublic configuration schemaを定義するものではありません。
+
 ## 大きなLLMまたは人間レビューへ上げる場合
 
-次のいずれかに該当する場合、デフォルトSLM経路から、大きなLLMまたは人間レビューへ上げます。
+次のいずれかに該当する場合、demo SLM経路から、大きなLLMまたは人間レビューへ上げます。
 
 - 対象が長文、または複数文書にまたがる。
 - source context が `missing`、`partial`、または `contested` である。
@@ -62,7 +136,7 @@ validatorは、機械可読なshape、必須RDE category、`source_context_statu
 
 ## 推奨ワークフロー
 
-1. SLMまたはLLMでRDE review草案を作る。
+1. SLM、LLM、または手動でRDE review草案を作る。
 2. 人間が草案を読む。
 3. `kotonoha rde validate --strict` でJSONを検証する。
 4. 必要に応じて、検証済みRDE outputを `kotonoha rde attach` でattachする。
@@ -92,10 +166,10 @@ validatorは、機械可読なshape、必須RDE category、`source_context_statu
 
 ## 要約
 
-最も安全なdefaultは次の通りです。
+安全なdemo profileは次の通りです。
 
 ```text
-Default model: SLM
+Demo model profile: SLM
 Role: draft-only assistant
 Validation: kotonoha rde validate --strict
 Escalation: larger LLM or human review when risk/context requires it
