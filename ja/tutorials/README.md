@@ -9,6 +9,7 @@
 | チュートリアル | 説明 |
 | --- | --- |
 | [first_cli_session.md](first_cli_session.md) | `kotonoha` CLI の最初のセッション。 |
+| [slm_demo_quickstart.md](slm_demo_quickstart.md) | 初心者向けSLMデモ。local SLMを起動し、RDE JSON草案を作り、Kotonohaで検証して安全にreviewする。 |
 
 ## 配置メモ
 
