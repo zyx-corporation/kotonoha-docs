@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kotonoha-docs</title>
+  <link rel="stylesheet" href="../assets/css/kotonoha-docs.css">
+</head>
+<body>
+<main>
+<h1>kotonoha-docs</h1>
+<p><strong>Public documentation for the Kotonoha ecosystem</strong> that is <strong>not</strong> part of the normative Semantic Lineage System (SLS) specification.</p>
+<p>This repository hosts user-facing and contributor-facing materials such as <strong>concept explanations</strong>, <strong>manuals</strong>, <strong>tutorials</strong>, <strong>how-to guides</strong>, <strong>acceptance demos</strong>, <strong>reference papers</strong>, and <strong>supplementary docs</strong>. Stable, review-facing technical specifications belong in <a href="https://github.com/zyx-corporation/kotonoha-spec"><code>kotonoha-spec</code></a>.</p>
+<h2>Language roots</h2>
+<p>Reader-facing documentation is organized under repository-root language areas:</p>
+<p>| Language | Area | Notes |</p>
+<p>| --- | --- | --- |</p>
+<p>| English | <a href="en/README.md"><code>en/</code></a> | English documentation area. |</p>
+<p>| Japanese | <a href="ja/README.md"><code>ja/</code></a> | 日本語ドキュメント領域。 |</p>
+<p>The English and Japanese areas should normally use the same structure and contain translation pairs or equivalent companion documents.</p>
+<p>Historical material under <a href="docs/README.md"><code>docs/</code></a> remains available when needed, but new conceptual and explanatory documents should prefer <code>en/</code> and <code>ja/</code>.</p>
+<p><strong>Japanese:</strong> <a href="ja/README.md">ja/README.md</a></p>
+<h2>Rendering and figures</h2>
+<p>Figures in this repository should generally be written as SVG. The default publication path is Markdown plus SVG references rendered to static HTML by <a href="tools/render_docs.py"><code>tools/render_docs.py</code></a>. Direct HTML authoring is also allowed when layout, interaction, or print/PDF control requires it.</p>
+<p>See <a href="docs/rendering_policy.md"><code>docs/rendering_policy.md</code></a> for the SVG-first figure policy and rendering workflow.</p>
+<h2>What belongs here</h2>
+<p>| Kind | Preferred location | Notes |</p>
+<p>| --- | --- | --- |</p>
+<p>| Conceptual explanations | <code>en/concepts/</code>, <code>ja/concepts/</code> | Reader-facing explanations of SLS, semantic lineage, ΔM, RDE, memory layer, and related concepts. |</p>
+<p>| End-user and operator <strong>manuals</strong> | <a href="en/manual/README.md"><code>en/manual/</code></a>, <a href="ja/manual/README.md"><code>ja/manual/</code></a> | Task-oriented reference. |</p>
+<p>| <strong>Tutorials</strong> and learning paths | <a href="en/tutorials/README.md"><code>en/tutorials/</code></a>, <a href="ja/tutorials/README.md"><code>ja/tutorials/</code></a> | Step-by-step guides for newcomers. |</p>
+<p>| <strong>Acceptance demos</strong> | <a href="en/acceptance/README.md"><code>en/acceptance/</code></a>, <a href="ja/acceptance/README.md"><code>ja/acceptance/</code></a> | Procedural validation checks; not tutorials. |</p>
+<p>| <strong>Method</strong> | <a href="en/method/README.md"><code>en/method/</code></a>, <a href="ja/method/README.md"><code>ja/method/</code></a> | How we build Kotonoha using SLS and RDE-style review; not the spec. |</p>
+<p>| <strong>Paper reference material</strong> | <a href="ja/paper/README.md"><code>ja/paper/</code></a> | Academic papers and preprints as non-normative background material; not a substitute for <code>kotonoha-spec</code>. |</p>
+<p>| Contribution workflow for this docs repo | <a href="CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a> | Distinct from implementation contribution guides. |</p>
+<h2>What does *not* belong here</h2>
+<ul>
+<li><strong>Normative specifications</strong>, schemas, or stability guarantees for implementers → <a href="https://github.com/zyx-corporation/kotonoha-spec"><code>kotonoha-spec</code></a>.</li>
+<li><strong>Internal planning and non-public decisions</strong> → not authored in repositories under this umbrella; collaborator-only workflows handle material that stays off the public web.</li>
+</ul>
+<p>When documentation must align behavior across implementations, cite or summarize <strong><code>kotonoha-spec</code></strong> rather than duplicating normative text here.</p>
+<h2>Related repositories</h2>
+<p>Public cross-references only.</p>
+<p>| Repository | Role |</p>
+<p>| --- | --- |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-spec"><code>kotonoha-spec</code></a> | Canonical <strong>public specifications</strong> for SLS |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-core"><code>kotonoha-core</code></a> | OSS <strong>core implementation</strong> and developer docs tied to code |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-cli"><code>kotonoha-cli</code></a> | Official <strong><code>kotonoha</code></strong> CLI (<a href="https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md">definition</a>) |</p>
+<p>| <strong>kotonoha-docs (this repository)</strong> | <strong>Non-specification</strong> public documentation (manuals, tutorials, acceptance demos, guides, conceptual explanations, reference papers) |</p>
+<h2>Language policy</h2>
+<p>The repository-root language areas are:</p>
+<ul>
+<li><code>en/</code> for English.</li>
+<li><code>ja/</code> for Japanese.</li>
+</ul>
+<p>Both areas should normally have the same structure. When one language leads temporarily, the corresponding location in the other language should link to the available source or state that translation is pending.</p>
+<h2>License</h2>
+<p>Unless otherwise stated in a specific file, repository content is licensed under the <a href="LICENSE">Apache License 2.0</a>.</p>
+<h2>Links</h2>
+<ul>
+<li>Repository: https://github.com/zyx-corporation/kotonoha-docs</li>
+<li>English docs: <a href="en/README.md"><code>en/</code></a></li>
+<li>Japanese docs: <a href="ja/README.md"><code>ja/</code></a></li>
+<li>Historical documentation index: <a href="docs/README.md"><code>docs/README.md</code></a></li>
+<li>Rendering policy: <a href="docs/rendering_policy.md"><code>docs/rendering_policy.md</code></a></li>
+<li>GitHub Projects (organization workflow): <a href="docs/github_projects_policy.md"><code>docs/github_projects_policy.md</code></a></li>
+</ul>
+</main>
+</body>
+</html>

@@ -1,132 +1,62 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>kotonoha-docs（日本語概要）</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f7f7f4;
-      --panel: #ffffff;
-      --ink: #171717;
-      --muted: #5f5f5f;
-      --line: #d8d8d2;
-      --accent: #1f4f46;
-      --soft: #eef4f1;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      line-height: 1.75;
-    }
-    header {
-      padding: 52px min(6vw, 72px) 36px;
-      background: linear-gradient(135deg, #fff, var(--soft));
-      border-bottom: 1px solid var(--line);
-    }
-    main {
-      width: min(980px, calc(100% - 32px));
-      margin: 32px auto 80px;
-    }
-    section {
-      margin: 0 0 28px;
-      padding: clamp(22px, 4vw, 40px);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--panel);
-      box-shadow: 0 14px 40px rgb(0 0 0 / 0.04);
-    }
-    h1 { margin: 0; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.08; }
-    h2 { margin: 0 0 16px; font-size: clamp(1.35rem, 3vw, 2rem); }
-    h3 { margin-top: 24px; }
-    .lead { color: var(--muted); max-width: 780px; }
-    a { color: var(--accent); font-weight: 700; }
-    ul { padding-left: 1.35rem; }
-    li { margin: 0.3rem 0; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 18px 0;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    th, td {
-      border-bottom: 1px solid var(--line);
-      padding: 12px 14px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th { background: var(--soft); color: var(--accent); }
-    tr:last-child td { border-bottom: 0; }
-    .note {
-      padding: 14px 18px;
-      background: var(--soft);
-      border-left: 5px solid var(--accent);
-      border-radius: 12px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>kotonoha-docs（日本語公開情報の入口）</title>
+  <link rel="stylesheet" href="../assets/css/kotonoha-docs.css">
 </head>
 <body>
-  <header>
-    <h1>kotonoha-docs（日本語概要）</h1>
-    <p class="lead"><strong>Semantic Lineage System（SLS）の仕様に含まれない</strong>、利用者・コミュニティ向けの公開ドキュメントを置くリポジトリです。</p>
-    <p><a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/README.md">English source</a> / <a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/README_ja.md">Markdown source</a></p>
-  </header>
-
-  <main>
-    <section>
-      <h2>概要</h2>
-      <p>仕様の正本・規範的な定義は <a href="https://github.com/zyx-corporation/kotonoha-spec">kotonoha-spec</a> にあります。本リポジトリは、マニュアル、チュートリアル、ハウツー、受入デモ、補助的な説明など、normative ではない公開文書を対象とします。</p>
-    </section>
-
-    <section>
-      <h2>置くもの／置かないもの</h2>
-      <h3>置くもの</h3>
-      <ul>
-        <li>利用・運用のマニュアル（<a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/manual/README.md">docs/manual/</a>）</li>
-        <li>学習用チュートリアル（<a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/tutorials_ja/README.md">docs/tutorials_ja/</a>）</li>
-        <li>受入デモなど、仕様外の確認手順（<a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/acceptance_ja/README.md">docs/acceptance_ja/</a>）</li>
-        <li>FAQ、移行メモ、ハウツー、補助的な説明</li>
-        <li>開発手法の説明（例: <a href="docs/method_ja/method_site/index.html">Kotonoha Method HTML</a> / <a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/docs/method_ja/README.md">docs/method_ja/ source</a>）</li>
-        <li>本リポジトリへの貢献手順（<a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/CONTRIBUTING.md">CONTRIBUTING</a>）</li>
-      </ul>
-      <h3>置かないもの</h3>
-      <ul>
-        <li>実装者向けの規範仕様・スキーマ・安定インターフェースの定義。仕様の正本は <a href="https://github.com/zyx-corporation/kotonoha-spec">kotonoha-spec</a> に置きます。</li>
-        <li>非公開の計画・草案。この公開サイトでは書かず、提携コントリビューターへはメンテナ側のチャネルで個別に案内があります。</li>
-      </ul>
-      <p class="note">HTML版が未整備の文書は、当面 GitHub 上のMarkdownソースへ直接リンクします。Method文書はHTMLプロトタイプを用意しています。</p>
-    </section>
-
-    <section>
-      <h2>関連リポジトリ</h2>
-      <table>
-        <thead>
-          <tr><th>リポジトリ</th><th>役割</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="https://github.com/zyx-corporation/kotonoha-spec">kotonoha-spec</a></td><td>SLS の公開仕様（正本）</td></tr>
-          <tr><td><a href="https://github.com/zyx-corporation/kotonoha-core">kotonoha-core</a></td><td>OSS コア実装とコードに紐づく開発者向け文書</td></tr>
-          <tr><td><a href="https://github.com/zyx-corporation/kotonoha-cli">kotonoha-cli</a></td><td>公式 <code>kotonoha</code> CLI</td></tr>
-          <tr><td><strong>kotonoha-docs</strong></td><td>仕様外の公開ドキュメント（マニュアル・チュートリアル・受入デモ等）</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2>言語方針</h2>
-      <p>原則 <strong>英語</strong> を正とします。日本語版は英語の横に <code>*_ja.md</code> で追加します。</p>
-    </section>
-
-    <section>
-      <h2>ライセンス</h2>
-      <p>特記なき限り <a href="https://github.com/zyx-corporation/kotonoha-docs/blob/main/LICENSE">Apache License 2.0</a> とします。</p>
-      <p class="note">Kotonoha Method文書など、個別ディレクトリで別ライセンスを明記している場合は、そのディレクトリの注記を優先します。</p>
-    </section>
-  </main>
+<main>
+<h1>kotonoha-docs（日本語公開情報の入口）</h1>
+<h2>プロジェクトの目的と目標</h2>
+<p>Kotonoha は、AI 支援開発における意味変化を追跡可能にし、設計意図と実装のずれを監査可能にするための取り組みです。</p>
+<p><code>kotonoha-docs</code> は、そのための公開ドキュメント入口として、利用者やコミュニティが「何を目指しているか」「どこから始めるか」を短時間で把握できるようにすることを目標とします。</p>
+<ul>
+<li>目的: 概念、運用、学習手順を公開し、理解と参加のハードルを下げる</li>
+<li>目標: 初学者が「理解する → 試す → 継続利用する」までの導線を明確にする</li>
+<li>範囲: 規範仕様ではない説明文書（概念説明、マニュアル、チュートリアル、受入デモ、参考資料）</li>
+</ul>
+<p>仕様の正本・規範定義は <a href="https://github.com/zyx-corporation/kotonoha-spec"><code>kotonoha-spec</code></a> にあります。</p>
+<h2>最初に読む（プロジェクト理解）</h2>
+<ul>
+<li>プロジェクト全体像: <a href="ja/README.md"><code>ja/README.md</code></a></li>
+<li>主要概念（SLS / semantic lineage / RDE など）: <a href="ja/concepts/README.md"><code>ja/concepts/README.md</code></a></li>
+<li>背景となる開発方法論: <a href="ja/method/README.md"><code>ja/method/README.md</code></a></li>
+</ul>
+<h2>はじめる（インストール・初回実行）</h2>
+<ul>
+<li>もっとも短い導入手順: <a href="ja/tutorials/first_cli_session.md"><code>ja/tutorials/first_cli_session.md</code></a></li>
+<li>クイックスタート（SLM デモ）: <a href="ja/tutorials/slm_demo_quickstart.md"><code>ja/tutorials/slm_demo_quickstart.md</code></a></li>
+<li>CLI リポジトリ: <a href="https://github.com/zyx-corporation/kotonoha-cli"><code>kotonoha-cli</code></a></li>
+</ul>
+<h2>用途別ドキュメント導線</h2>
+<p>| 目的 | 読む場所 |</p>
+<p>| --- | --- |</p>
+<p>| 概念を理解したい | <a href="ja/concepts/README.md"><code>ja/concepts/</code></a> |</p>
+<p>| 実運用の手順を見たい | <a href="ja/manual/README.md"><code>ja/manual/</code></a> |</p>
+<p>| 学習しながら試したい | <a href="ja/tutorials/README.md"><code>ja/tutorials/</code></a> |</p>
+<p>| 公開受入手順を確認したい | <a href="ja/acceptance/README.md"><code>ja/acceptance/</code></a> |</p>
+<p>| 研究背景を参照したい | <a href="ja/paper/README.md"><code>ja/paper/</code></a> |</p>
+<h2>関連リポジトリ</h2>
+<p>| リポジトリ | 役割 |</p>
+<p>| --- | --- |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-spec"><code>kotonoha-spec</code></a> | 公開仕様の正本（normative） |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-core"><code>kotonoha-core</code></a> | OSS コア実装と開発者向け文書 |</p>
+<p>| <a href="https://github.com/zyx-corporation/kotonoha-cli"><code>kotonoha-cli</code></a> | 公式 CLI と CLI 定義 |</p>
+<p>| <strong>kotonoha-docs（本リポジトリ）</strong> | 仕様外の公開説明文書（non-normative） |</p>
+<h2>言語案内</h2>
+<ul>
+<li>日本語: <code>ja/</code></li>
+<li>英語: <code>en/</code>（<a href="en/README.md">English README</a>）</li>
+</ul>
+<p>両言語は、原則として同じ構造を保つ方針です。</p>
+<h2>補足</h2>
+<ul>
+<li>図表のレンダリング方針: <a href="docs/rendering_policy.md"><code>docs/rendering_policy.md</code></a></li>
+<li>貢献手順: <a href="CONTRIBUTING.md"><code>CONTRIBUTING.md</code></a></li>
+<li>ライセンス: <a href="LICENSE">Apache License 2.0</a></li>
+</ul>
+</main>
 </body>
 </html>
