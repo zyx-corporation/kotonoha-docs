@@ -17,7 +17,7 @@ kotonoha version
 Pin a release:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/scripts/install.sh | bash -s -- --version v0.3.0
+curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/scripts/install.sh | bash -s -- --version v0.3.1
 ```
 
 If no release binary exists for your platform, the installer falls back to `cargo install` (Rust required). See the Japanese tutorial for PATH and troubleshooting detail.

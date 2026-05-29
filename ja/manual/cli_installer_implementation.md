@@ -33,7 +33,7 @@ kotonoha-<TAG>-<PLATFORM>.tar.gz
 
 | 要素 | 例 |
 | --- | --- |
-| `<TAG>` | `v0.3.0`（`Cargo.toml` の `version` と `v` 接頭辞で一致） |
+| `<TAG>` | `v0.3.1`（`Cargo.toml` の `version` と `v` 接頭辞で一致） |
 | `<PLATFORM>` | `linux-amd64`, `macos-arm64` |
 | 中身 | 実行ファイル `kotonoha` のみ |
 
