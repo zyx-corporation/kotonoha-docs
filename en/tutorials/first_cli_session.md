@@ -18,21 +18,17 @@ By the end of this tutorial, you should understand:
 
 ## Prerequisites
 
-- Rust toolchain
-- A checkout of [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli)
+Complete [Install the Kotonoha CLI](install_kotonoha_cli.md) so that `kotonoha version` works.
 
 You do not need PostgreSQL for this tutorial.
 
-## 1. Build the CLI
-
-From a checkout of `kotonoha-cli`:
+## 0. Verify install
 
 ```bash
-cargo build --release
-export PATH="$PWD/target/release:$PATH"
+kotonoha version
 ```
 
-This makes the local `kotonoha` command available in your shell.
+If you see `command not found`, return to the install tutorial.
 
 ## 2. Confirm CLI identity
 

@@ -19,8 +19,10 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 
 ## はじめる（インストール・初回実行）
 
-- もっとも短い導入手順: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
+- CLI インストール（`curl | bash`）: [`ja/tutorials/install_kotonoha_cli.md`](ja/tutorials/install_kotonoha_cli.md)
+- 最初の CLI セッション: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
 - クイックスタート（SLM デモ）: [`ja/tutorials/slm_demo_quickstart.md`](ja/tutorials/slm_demo_quickstart.md)
+- インストーラー実装手順（メンテナ）: [`ja/manual/cli_installer_implementation.md`](ja/manual/cli_installer_implementation.md)
 - CLI リポジトリ: [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli)
 
 ## 用途別ドキュメント導線

@@ -6,10 +6,11 @@ Japanese counterpart: [`../../ja/tutorials/README.md`](../../ja/tutorials/README
 
 ## Current tutorials
 
-| Tutorial | Description |
-| --- | --- |
-| [first_cli_session.md](first_cli_session.md) | First `kotonoha` CLI session. |
-| [slm_demo_quickstart.md](slm_demo_quickstart.md) | Beginner-friendly SLM demo: start a local SLM, draft RDE JSON, validate with Kotonoha, and review safely. |
+| # | Tutorial | Purpose |
+| --- | --- | --- |
+| 0 | [install_kotonoha_cli.md](install_kotonoha_cli.md) | Install via `curl \| bash` and verify `kotonoha version` |
+| 1 | [first_cli_session.md](first_cli_session.md) | RDE skeleton and interchange envelope |
+| 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | Local SLM draft → validate → human review |
 
 ## Placement note
 

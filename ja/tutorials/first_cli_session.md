@@ -1,105 +1,112 @@
 # 最初の CLI セッション
 
-本チュートリアルは、[`kotonoha`](https://github.com/zyx-corporation/kotonoha-cli) CLI を学ぶための最初のセッションです。
+[`kotonoha`](https://github.com/zyx-corporation/kotonoha-cli) CLI を**初めて触る**ためのセッションです。コマンドの意味と、Kotonoha の概念との関係を学びます。
 
-最初に実行するコマンドの意味と、それらが Kotonoha の概念とどう関係するかを説明します。これは受入チェックリストではありません。期待される終了コードを含むリリース確認が必要な場合は、[Phase 2 CLI 受入デモ](../acceptance/phase2_cli_acceptance_demo.md) を参照してください。
+**前提:** [Kotonoha CLI のインストール](install_kotonoha_cli.md) を完了し、ターミナルで `kotonoha version` が動くこと。
 
-**English (primary):** [../../en/tutorials/first_cli_session.md](../../en/tutorials/first_cli_session.md)
+**English:** [../../en/tutorials/first_cli_session.md](../../en/tutorials/first_cli_session.md)
+
+受入チェックリスト（終了コードの厳密確認）が必要な場合は [Phase 2 CLI 受入デモ](../acceptance/phase2_cli_acceptance_demo.md) を使います。本稿は学習用です。
+
+---
 
 ## 学ぶこと
 
-このチュートリアルを終えると、以下を理解できるようになります。
+| 項目 | 説明 |
+| --- | --- |
+| CLI identity | どの CLI バージョンが、どの spec bundle を対象にしているか |
+| RDE skeleton | 意味変化レビューを記録するための最小構造 |
+| interchange envelope | ツール間でデータを交換するための輸送用の形 |
+| 契約の参照先 | 厳密なコマンド定義はどこにあるか |
 
-- CLI の identity を確認する方法
-- CLI が対象 spec bundle を報告する理由
-- RDE skeleton が何を表すか
-- interchange envelope が何を表すか
-- 厳密なコマンド契約をどこで確認するか
+このチュートリアルでは **PostgreSQL は不要** です。
 
-## 前提
+---
 
-- Rust ツールチェーン
-- [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli) のチェックアウト
+## 0. 準備確認
 
-このチュートリアルでは PostgreSQL は不要です。
-
-## 1. CLI をビルドする
-
-`kotonoha-cli` をチェックアウトしたディレクトリで:
-
-```bash
-cargo build --release
-export PATH="$PWD/target/release:$PATH"
-```
-
-これで、ローカルの `kotonoha` コマンドをシェルから使えるようになります。
-
-## 2. CLI の identity を確認する
-
-実行します。
+新しいターミナルで PATH が通っているか確認します。
 
 ```bash
 kotonoha version
 ```
 
-重要なのは、単にコマンドが動くことだけではありません。CLI は、自分自身と、対象とする仕様バンドルを識別できる必要があります。
+`command not found` となる場合は、[インストール手順](install_kotonoha_cli.md) の PATH 設定に戻ってください。
 
-Kotonoha では、実装の振る舞いと規範仕様を分離します。この分離は、ドキュメント、テスト、将来の実装が、どの公開契約について話しているのかを明確にするために重要です。
+---
 
-正確な出力規則は [`cli-definition.md`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md) を参照してください。
+## 1. CLI の identity を確認する
 
-## 3. RDE skeleton を出力する
+```bash
+kotonoha version
+```
 
-実行します。
+### なぜこれが重要か
+
+Kotonoha では、**実装の振る舞い**と**規範仕様**を分離します。`version` は「このバイナリが何を対象にしているか」を示す入口です。ドキュメント・テスト・レビューが同じ契約を指しているか確認するために使います。
+
+出力の厳密な規則は [cli-definition.md](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md) を参照してください。
+
+---
+
+## 2. RDE skeleton を出力する
 
 ```bash
 kotonoha rde emit
 ```
 
-RDE skeleton は、意味変化レビューを記録するための最小構造です。この段階で、人を判断したりユーザーをスコアリングしたりするわけではありません。生成・変換された内容が元の意図をどのように保存し、変換し、補完し、あるいは逸脱するかを点検するための形を準備します。
+### RDE skeleton とは
 
-次に検証します。
+生成・変換された内容が、元の意図をどう**保存・変形・補完・逸脱**したかを点検するための、レビュー向けの最小構造です。この段階で人を評価したり自動合否したりするものではありません。
+
+### 検証する
 
 ```bash
 kotonoha rde emit | kotonoha rde validate --strict
 ```
 
-validate は、出力された構造が期待される契約に合っているかを確認します。チュートリアルでは形の理解が目的です。受入デモでは、期待される終了コードの確認が目的です。
+`validate` は、出力が期待される JSON 契約に合っているかを確認します。チュートリアルでは**形の理解**が目的です。
 
-## 4. interchange envelope を出力する
+---
 
-実行します。
+## 3. interchange envelope を出力する
 
 ```bash
 kotonoha interchange emit
 ```
 
-interchange envelope は、Kotonoha 関連データをツール間で交換するための輸送用の形です。これは理論全体でも、完全な保存モデルでもありません。複数のツールが「何を受け渡しているのか」について合意するための最小公開面です。
+### interchange envelope とは
 
-検証します。
+Kotonoha 関連データをツール間で渡すための**輸送用の形**です。理論全体でも完全な保存モデルでもありません。「何を受け渡しているか」について複数ツールが合意するための最小公開面です。
+
+### 検証する
 
 ```bash
 kotonoha interchange emit | kotonoha interchange validate --strict
 ```
 
-**契約メモ：** **`kotonoha-core`** **0.1.6** 以降、interchange エンベロープには **許可されるトップレベルキーのみ**（`format`、`spec_bundle`、`lineage_unit`、`rde_document`）。**`lineage_unit`** オブジェクトにも **`id` と `prior_unit_id` だけ** が許されます。未定義のフィールドがあると検証が失敗し（`interchange validate` で終了コード **2**）、仕様側で vocabulary を追記したバージョンを待つ運用になります。
+**契約メモ（kotonoha-core 0.1.6 以降）:** トップレベルは `format` / `spec_bundle` / `lineage_unit` / `rde_document` など許可キーのみ。未定義フィールドがあると終了コード **2** になります。
 
-RDE skeleton と interchange envelope の違いは重要です。
+### RDE skeleton との違い
 
-- RDE skeleton: 意味変化を点検するためのレビュー向け構造
-- Interchange envelope: ツール間でデータを移動するための交換向け構造
+| 種類 | 役割 |
+| --- | --- |
+| RDE skeleton | 意味変化の**レビュー**向け |
+| interchange envelope | ツール間の**交換**向け |
 
-## 5. 次に進む場所
+---
 
-Phase 2 の振る舞いをリリース確認やレビュー目的で検証したい場合は、以下を使います。
+## 4. 次に進む場所
 
-- [Phase 2 CLI 受入デモ](../acceptance/phase2_cli_acceptance_demo.md)
+| 目的 | 文書 |
+| --- | --- |
+| SLM 草案と検証の体験 | [slm_demo_quickstart.md](slm_demo_quickstart.md) |
+| リリース確認 | [phase2_cli_acceptance_demo.md](../acceptance/phase2_cli_acceptance_demo.md) |
+| コマンド契約 | [cli-definition.md](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md) |
+| 公開仕様 | [kotonoha-spec](https://github.com/zyx-corporation/kotonoha-spec) |
 
-厳密なコマンド名、出力規則、終了コード契約が必要な場合は、以下を参照してください。
-
-- [`cli-definition.md`](https://github.com/zyx-corporation/kotonoha-cli/blob/main/docs/cli-definition.md)
-- [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec)
+---
 
 ## RDE note
 
-このチュートリアルでは、CLI を理論そのものとして提示しないようにしています。CLI は入口です。理論は、仕様、method 文書、今後の semantic-lineage workflow にあります。
+CLI は入口です。理論・方法論は仕様と [Method](../method/README.md) 文書にあります。本セッションは「コマンドが動く」ことと「何を表すか」の理解を目的とし、最終的な意味判断は人間の責務です。

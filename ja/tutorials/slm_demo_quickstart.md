@@ -1,10 +1,12 @@
 # SLM デモ quickstart
 
-このチュートリアルは、小規模言語モデル（SLM）をローカルで起動し、Kotonoha用のRDE review草案を作るための初心者向け手順です。
+小規模言語モデル（SLM）をローカルで起動し、Kotonoha 用の RDE review **草案**を作る初心者向け手順です。
 
-これはデモ用ワークフローです。SLM出力はあくまで草案です。Kotonoha validationと人間レビューは必須です。
+**前提:** [CLI のインストール](install_kotonoha_cli.md) と [最初の CLI セッション](first_cli_session.md) を完了していること。
 
-英語版対応: [`../../en/tutorials/slm_demo_quickstart.md`](../../en/tutorials/slm_demo_quickstart.md)
+これはデモ用ワークフローです。SLM 出力は草案であり、Kotonoha の validation と人間レビューは必須です。
+
+英語版: [`../../en/tutorials/slm_demo_quickstart.md`](../../en/tutorials/slm_demo_quickstart.md)
 
 ## 物語: 公開前の小さなノート
 
@@ -33,15 +35,15 @@
 
 ## 前提
 
-以下を前提とします。
+| 項目 | 説明 |
+| --- | --- |
+| OS | macOS または Linux |
+| ターミナル | コピー＆ペーストでコマンドを実行できること |
+| `kotonoha` CLI | [install_kotonoha_cli.md](install_kotonoha_cli.md) 済み（`kotonoha version` が動くこと） |
+| 作業ディレクトリ | 任意のフォルダ（Git 管理は任意） |
+| SLM runtime | Ollama など（未導入なら Step 1 で準備） |
 
-- macOS または Linux。
-- terminalを使えること。
-- `kotonoha` CLIがインストール済みであること。
-- Git管理された作業ディレクトリ、または通常の作業ディレクトリがあること。
-- OllamaなどのSLM runtimeを使えること。
-
-SLM runtimeがまだない場合、Ollamaはローカルデモ用の一般的な選択肢です。他のlocal SLM runtimeでも構いません。
+SLM runtime がまだない場合、Ollama はローカルデモ向けの一般的な選択肢です。他の local SLM でも構いません。
 
 ## Step 1 — SLM runtimeを起動または確認する
 
