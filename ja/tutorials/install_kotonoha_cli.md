@@ -52,7 +52,7 @@ curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/s
 ### バージョンを指定したい場合
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/scripts/install.sh | bash -s -- --version v0.2.9
+curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/scripts/install.sh | bash -s -- --version v0.3.0
 ```
 
 ### インストール先を変えたい場合
