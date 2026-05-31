@@ -33,6 +33,7 @@ Kotonoha は、AI 支援開発における **意味の変化** を追跡し、�
 | 段階 | 目的 | 文書 |
 | --- | --- | --- |
 | 1 | 構想を把握する | [kotonoha_concept_overview.md](concepts/kotonoha_concept_overview.md) |
+| 1b | 配布 baseline（Release Train）を確認する | [kotonoha-release-train-2026-05.md](releases/kotonoha-release-train-2026-05.md) |
 | 2 | CLI をインストールする | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) |
 | 3 | CLI を手で試す（DB 不要） | [first_cli_session.md](tutorials/first_cli_session.md) |
 | 4 | SLM 草案と検証の流れを体験する | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) |
@@ -97,6 +98,15 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 | --- | --- |
 | [phase2_cli_acceptance_demo.md](acceptance/phase2_cli_acceptance_demo.md) | CLI + Core 最小面、strict 検証、任意の永続化 |
 | [README.md](acceptance/README.md) | 受入デモ領域の索引 |
+
+### Release Train
+
+モジュール横断の配布 baseline と commit / stability tier の一覧です。
+
+| 文書 | 内容 |
+| --- | --- |
+| [kotonoha-release-train-2026-05.md](releases/kotonoha-release-train-2026-05.md) | 2026-05 / v0.3 train — First UI hardening baseline |
+| [README.md](releases/README.md) | Release Train 領域の索引 |
 
 ### 論文・長文（Paper）
 
