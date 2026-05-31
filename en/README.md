@@ -15,6 +15,7 @@ Japanese counterpart: [`../ja/README.md`](../ja/README.md)
 | [Manual](manual/README.md) | Reference-style usage and operation topics |
 | [Tutorials](tutorials/README.md) | Learning-oriented step-by-step guides |
 | [Acceptance demos](acceptance/README.md) | Validation-oriented public behavior checks |
+| [Release Train](releases/README.md) | Cross-module distribution baselines |
 | [Paper reference material](../ja/paper/README.md) | Academic papers and preprints as non-normative reference material |
 
 ## Placement rule

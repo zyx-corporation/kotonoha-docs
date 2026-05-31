@@ -19,6 +19,7 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 
 ## はじめる（インストール・初回実行）
 
+- **Release Train 2026-05（v0.3 baseline）:** [`ja/releases/kotonoha-release-train-2026-05.md`](ja/releases/kotonoha-release-train-2026-05.md)
 - CLI インストール（`curl | bash`）: [`ja/tutorials/install_kotonoha_cli.md`](ja/tutorials/install_kotonoha_cli.md)
 - Obsidian プラグイン（GitHub Release）: [`ja/manual/install_obsidian_kotonoha_console.md`](ja/manual/install_obsidian_kotonoha_console.md)
 - 最初の CLI セッション: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
@@ -34,6 +35,7 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 | 実運用の手順を見たい | [`ja/manual/`](ja/manual/README.md) |
 | 学習しながら試したい | [`ja/tutorials/`](ja/tutorials/README.md) |
 | 公開受入手順を確認したい | [`ja/acceptance/`](ja/acceptance/README.md) |
+| Release Train / 配布 baseline | [`ja/releases/`](ja/releases/README.md) |
 | 研究背景を参照したい | [`ja/paper/`](ja/paper/README.md) |
 
 ## 関連リポジトリ
