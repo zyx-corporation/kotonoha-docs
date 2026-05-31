@@ -5,6 +5,7 @@
 **次のステップ:** インストール後は [最初の CLI セッション](first_cli_session.md) へ進んでください。
 
 **English:** [../../en/tutorials/install_kotonoha_cli.md](../../en/tutorials/install_kotonoha_cli.md)  
+**推奨バージョン方針:** [../manual/cli_version_policy.md](../manual/cli_version_policy.md)  
 **メンテナ向け実装手順:** [../manual/cli_installer_implementation.md](../manual/cli_installer_implementation.md)
 
 ---

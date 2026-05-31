@@ -47,7 +47,20 @@ Normative source（英語正本）: [`kotonoha-spec` `docs/current-official-arch
 - Obsidian UI の dogfood
 - VSCode UI の thin adapter 化
 
+## CLI 推奨バージョン
+
+| 区分 | バージョン |
+| --- | --- |
+| 推奨 | **v0.3.1** |
+| 最小（standalone CLI） | v0.3.0 |
+| 最小（Obsidian / VSCode） | v0.3.1 |
+
+詳細・更新方針: [CLI 推奨バージョン](../manual/cli_version_policy.md)
+
+`kotonoha-cli` は実行基盤であり仕様正本ではない。契約の正本は `kotonoha-spec` である。
+
 ## 関連
 
+- CLI 推奨バージョン: [cli_version_policy.md](../manual/cli_version_policy.md)
 - Obsidian dogfood: [`obsidian-kotonoha-console` `docs/dogfood-acceptance.ja.md`](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/dogfood-acceptance.ja.md)
 - VSCode thin console: [`kotonoha-vscode` `docs/thin-developer-console.ja.md`](https://github.com/zyx-corporation/kotonoha-vscode/blob/main/docs/thin-developer-console.ja.md)
