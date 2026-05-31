@@ -28,7 +28,9 @@ mock / http backend だけ使う場合、CLI は不要です。
 └── styles.css
 ```
 
-Release zip（`obsidian-kotonoha-console-v0.3.0.zip`）を展開したら、フォルダ名を **`kotonoha-console`** にリネームして上記パスに置きます。
+Release zip **`kotonoha-console-v0.3.1.zip`** を `.obsidian/plugins/` に展開（フォルダ名 `kotonoha-console/` のまま配置可）。
+
+v0.3.0 zip（`obsidian-kotonoha-console-v0.3.0.zip`）の場合は **`kotonoha-console`** にリネームしてください。
 
 ---
 
