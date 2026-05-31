@@ -12,7 +12,7 @@ Obsidian 上で **提案・RDE 監査・人間承認** を行う [`obsidian-koto
 | 項目 | 要件 |
 | --- | --- |
 | Obsidian | 1.4.0 以上 |
-| 入手方法 | [GitHub Release](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases)（v0.3.0 以降） |
+| 入手方法 | [GitHub Release](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases)（**v0.3.1 推奨**） |
 | CLI backend（任意） | [CLI インストール](../tutorials/install_kotonoha_cli.md) 済み、`kotonoha >= 0.3.1` |
 
 mock / http backend だけ使う場合、CLI は不要です。

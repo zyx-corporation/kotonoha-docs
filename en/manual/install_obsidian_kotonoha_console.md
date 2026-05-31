@@ -26,7 +26,9 @@ Install guide for [`obsidian-kotonoha-console`](https://github.com/zyx-corporati
 └── styles.css
 ```
 
-After unzipping `obsidian-kotonoha-console-v0.3.0.zip`, rename the folder to **`kotonoha-console`**.
+After unzipping **`kotonoha-console-v0.3.1.zip`**, place `kotonoha-console/` under `.obsidian/plugins/`.
+
+v0.3.0 zip requires renaming `obsidian-kotonoha-console/` to **`kotonoha-console`**.
 
 ---
 
