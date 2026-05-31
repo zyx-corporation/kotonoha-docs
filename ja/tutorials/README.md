@@ -16,6 +16,7 @@
 
 | 文書 | 目的 |
 | --- | --- |
+| [install_obsidian_kotonoha_console.md](../manual/install_obsidian_kotonoha_console.md) | Obsidian プラグイン（GitHub Release） |
 | [phase2_cli_acceptance_demo.md](../acceptance/phase2_cli_acceptance_demo.md) | リリース前の受入確認（終了コード・strict 検証） |
 | [cli_installer_implementation.md](../manual/cli_installer_implementation.md) | インストーラーのメンテナ向け実装手順 |
 
