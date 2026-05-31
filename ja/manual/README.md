@@ -11,6 +11,7 @@
 | 文書 | 説明 |
 | --- | --- |
 | [cli_version_policy.md](cli_version_policy.md) | **CLI 推奨バージョン** — recommended / minimum、UI アダプタ互換、更新方針 |
+| [install_obsidian_kotonoha_console.md](install_obsidian_kotonoha_console.md) | **Obsidian Kotonoha Console** — GitHub Release からの手動インストール |
 | [vscode_extension_operations.md](vscode_extension_operations.md) | **Kotonoha VS Code 拡張** — 起動・設定・ショートカット・ΔM/RDE/Review 操作 |
 | [llm_slm_usage.md](llm_slm_usage.md) | **LLM / SLM 利用ガイド** — モデル非依存の草案生成、SLMのデフォルト最小利用、validation gate、escalation rule |
 

@@ -36,8 +36,9 @@ Kotonoha は、AI 支援開発における **意味の変化** を追跡し、�
 | 2 | CLI をインストールする | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) |
 | 3 | CLI を手で試す（DB 不要） | [first_cli_session.md](tutorials/first_cli_session.md) |
 | 4 | SLM 草案と検証の流れを体験する | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) |
-| 5 | エディタで ΔM / RDE / Review を使う | [vscode_extension_operations.md](manual/vscode_extension_operations.md) |
-| 6 | リリース前の最小動作を確認する | [phase2_cli_acceptance_demo.md](acceptance/phase2_cli_acceptance_demo.md) |
+| 5 | Obsidian で提案・RDE・承認を使う | [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) |
+| 6 | VS Code で ΔM / RDE / Review を使う | [vscode_extension_operations.md](manual/vscode_extension_operations.md) |
+| 7 | リリース前の最小動作を確認する | [phase2_cli_acceptance_demo.md](acceptance/phase2_cli_acceptance_demo.md) |
 
 段階 1 のあと、背景を深く読む場合は [kotonoha_concept.md](paper/kotonoha_concept.md)（暫定版 v0.1）へ進みます。段階 6 は学習用チュートリアルとは目的が異なり、終了コードと strict 検証を確認する手順です。
 
@@ -71,6 +72,7 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 
 | 文書 | 内容 |
 | --- | --- |
+| [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) | Obsidian プラグイン — GitHub Release からの手動インストール |
 | [vscode_extension_operations.md](manual/vscode_extension_operations.md) | CLI・DB・ワークスペース、ΔM / RDE / Review 操作 |
 | [llm_slm_usage.md](manual/llm_slm_usage.md) | 草案生成、validation、人間による最終判断の分離 |
 | [cli_installer_implementation.md](manual/cli_installer_implementation.md) | CLI インストーラーのメンテナ向け実装手順 |
@@ -114,6 +116,7 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 | [kotonoha-spec](https://github.com/zyx-corporation/kotonoha-spec) | 公開仕様の正本（normative） |
 | [kotonoha-core](https://github.com/zyx-corporation/kotonoha-core) | OSS コア実装 |
 | [kotonoha-cli](https://github.com/zyx-corporation/kotonoha-cli) | 公式 CLI（契約: `docs/cli-definition.md`） |
+| [obsidian-kotonoha-console](https://github.com/zyx-corporation/obsidian-kotonoha-console) | Obsidian プラグイン（first usable UI） |
 | [kotonoha-vscode](https://github.com/zyx-corporation/kotonoha-vscode) | VS Code / Cursor 拡張（M3 最小 UI） |
 
 ## 配置方針

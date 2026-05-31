@@ -132,6 +132,7 @@ curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/s
 | --- | --- | --- |
 | 1 | [first_cli_session.md](first_cli_session.md) | RDE / interchange の初回体験 |
 | 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | ローカル SLM と草案検証 |
+| — | [install_obsidian_kotonoha_console.md](../manual/install_obsidian_kotonoha_console.md) | Obsidian プラグイン（UI） |
 | — | [phase2_cli_acceptance_demo.md](../acceptance/phase2_cli_acceptance_demo.md) | リリース確認（学習とは別目的） |
 
 ---

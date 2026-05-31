@@ -20,6 +20,7 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 ## はじめる（インストール・初回実行）
 
 - CLI インストール（`curl | bash`）: [`ja/tutorials/install_kotonoha_cli.md`](ja/tutorials/install_kotonoha_cli.md)
+- Obsidian プラグイン（GitHub Release）: [`ja/manual/install_obsidian_kotonoha_console.md`](ja/manual/install_obsidian_kotonoha_console.md)
 - 最初の CLI セッション: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
 - クイックスタート（SLM デモ）: [`ja/tutorials/slm_demo_quickstart.md`](ja/tutorials/slm_demo_quickstart.md)
 - インストーラー実装手順（メンテナ）: [`ja/manual/cli_installer_implementation.md`](ja/manual/cli_installer_implementation.md)
