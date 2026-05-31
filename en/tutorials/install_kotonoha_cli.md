@@ -4,6 +4,7 @@ Beginner-oriented install guide for the official `kotonoha` command.
 
 **Next:** [First CLI session](first_cli_session.md)  
 **Japanese:** [../../ja/tutorials/install_kotonoha_cli.md](../../ja/tutorials/install_kotonoha_cli.md)  
+**Version policy:** [../manual/cli_version_policy.md](../manual/cli_version_policy.md)  
 **Maintainer guide:** [../../ja/manual/cli_installer_implementation.md](../../ja/manual/cli_installer_implementation.md)
 
 ## Install
