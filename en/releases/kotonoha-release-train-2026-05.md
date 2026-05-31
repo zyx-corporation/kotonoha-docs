@@ -21,7 +21,7 @@ This Release Train extends **single-repo releases** into a **Kotonoha-wide distr
 
 | Component | Version / Ref | Commit (short) | Role | Stability |
 | --- | --- | --- | --- | --- |
-| [obsidian-kotonoha-console](https://github.com/zyx-corporation/obsidian-kotonoha-console) | **v0.3.0** | [`10a9d6c`](https://github.com/zyx-corporation/obsidian-kotonoha-console/commit/10a9d6c830440a51ca47160d107697867a2e60f9) | First usable UI | **Stable (UI)** |
+| [obsidian-kotonoha-console](https://github.com/zyx-corporation/obsidian-kotonoha-console) | **v0.3.1** (current) / v0.3.0 | [`019a028`](https://github.com/zyx-corporation/obsidian-kotonoha-console/commit/019a028) | First usable UI | **Stable (UI)** |
 | [kotonoha-cli](https://github.com/zyx-corporation/kotonoha-cli) | **v0.3.1** | [`1e99139`](https://github.com/zyx-corporation/kotonoha-cli/commit/1e9913971f653fe45a07224678b93304a30adc77) | First stable runtime | **Stable (runtime)** |
 | [kotonoha-spec](https://github.com/zyx-corporation/kotonoha-spec) | main @ train cut | [`3e72ad5`](https://github.com/zyx-corporation/kotonoha-spec/commit/3e72ad54d68e4f2d4db2b3664c2a70df656e0bd8) | Normative source | **Normative** |
 | [kotonoha-core](https://github.com/zyx-corporation/kotonoha-core) | **v0.1.16** | [`b345756`](https://github.com/zyx-corporation/kotonoha-core/commit/b345756b57f2242c4158aea0f552d3c1b5f1c18f) | Shared implementation layer | **Stable (library)** |
@@ -33,10 +33,10 @@ This Release Train extends **single-repo releases** into a **Kotonoha-wide distr
 
 | Component | GitHub Release | Install |
 | --- | --- | --- |
-| obsidian-kotonoha-console | [v0.3.0](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases/tag/v0.3.0) | [install_obsidian_kotonoha_console.md](../manual/install_obsidian_kotonoha_console.md) |
+| obsidian-kotonoha-console | [v0.3.1](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases/tag/v0.3.1) ([v0.3.0](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases/tag/v0.3.0) also available) | [install_obsidian_kotonoha_console.md](../manual/install_obsidian_kotonoha_console.md) |
 | kotonoha-cli | [v0.3.1](https://github.com/zyx-corporation/kotonoha-cli/releases/tag/v0.3.1) | [install_kotonoha_cli.md](../tutorials/install_kotonoha_cli.md) |
 
-Obsidian install path: `<vault>/.obsidian/plugins/kotonoha-console/` (rename zip folder to `kotonoha-console` after unzip).
+Obsidian install path: `<vault>/.obsidian/plugins/kotonoha-console/` (v0.3.1 zip uses `kotonoha-console/`; v0.3.0 zip requires rename)
 
 ---
 
