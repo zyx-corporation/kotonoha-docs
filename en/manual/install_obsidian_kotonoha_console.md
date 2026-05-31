@@ -36,6 +36,6 @@ v0.3.0 zip requires renaming `obsidian-kotonoha-console/` to **`kotonoha-console
 
 1. Settings → Community plugins → **Restricted mode OFF**
 2. Enable **Kotonoha Console**
-3. Settings → Backend: `mock` for first run
+3. Settings → Backend: `mock` for UI-only; see [backend setup](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/backend-setup.md) for CLI / HTTP orchestrator
 
-See the plugin repo [`docs/install.md`](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/install.md) for troubleshooting and backend notes.
+See [`docs/backend-setup.md`](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/backend-setup.md) and [`docs/install.md`](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/install.md).

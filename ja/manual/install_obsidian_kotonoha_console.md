@@ -38,7 +38,7 @@ v0.3.0 zip（`obsidian-kotonoha-console-v0.3.0.zip`）の場合は **`kotonoha-c
 
 1. Settings → Community plugins → **Restricted mode OFF**
 2. **Kotonoha Console** を Enable
-3. Settings → Kotonoha Console → Backend: 初回は `mock` 推奨
+3. Settings → Kotonoha Console → Backend: UI のみなら `mock`。[backend setup](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/backend-setup.ja.md) で CLI / HTTP orchestrator を設定
 
 ---
 
@@ -46,9 +46,10 @@ v0.3.0 zip（`obsidian-kotonoha-console-v0.3.0.zip`）の場合は **`kotonoha-c
 
 | 順 | 文書 | 内容 |
 | --- | --- | --- |
-| 1 | [CLI インストール](../tutorials/install_kotonoha_cli.md) | CLI backend を使う場合 |
-| 2 | [obsidian-kotonoha-console README](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/README.md) | v0.3 の現在地・境界 |
-| 3 | [dogfood 受け入れ](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/dogfood-acceptance.ja.md) | 手動確認チェックリスト |
+| 1 | [backend-setup（Obsidian repo）](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/backend-setup.ja.md) | Mock / CLI / HTTP orchestrator |
+| 2 | [CLI インストール](../tutorials/install_kotonoha_cli.md) | CLI backend を使う場合 |
+| 3 | [obsidian-kotonoha-console README](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/README.md) | v0.3 の現在地・境界 |
+| 4 | [dogfood 受け入れ](https://github.com/zyx-corporation/obsidian-kotonoha-console/blob/main/docs/dogfood-acceptance.ja.md) | 手動確認チェックリスト |
 
 ---
 
