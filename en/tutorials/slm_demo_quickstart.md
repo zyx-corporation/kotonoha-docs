@@ -167,9 +167,22 @@ Ask:
 
 This is the second important boundary: Kotonoha helps you review meaning change, but it does not replace your responsibility.
 
-## Step 6 — Optional attach / review flow
+## Step 6 — Optional: keep it as a Kotonoha record
 
-If you are using a Kotonoha project with persistence enabled, you may continue with the normal CLI flow:
+Up to this point, `rde-draft.json` is still a temporary draft file.
+
+If your goal is only to learn the workflow, you can stop at Step 5.
+If you want to keep the draft as part of a Kotonoha record, you can continue into the CLI `delta create`, `rde attach`, and `review hold` flow.
+
+Here, "keep it as a record" means creating a `delta` for the note, attaching the validated RDE draft to that delta, and recording a human review decision such as `hold`.
+
+This step is optional. It is not required to run the quickstart.
+
+The flow has three steps:
+
+1. `delta create`: create a meaning-change record for the note.
+2. `rde attach`: attach the validated RDE draft to that delta.
+3. `review hold`: record a human decision to keep the review in a held state.
 
 ```bash
 kotonoha delta create note.md

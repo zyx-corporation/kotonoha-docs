@@ -228,9 +228,22 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 ここが二つ目の重要な境界です。Kotonohaは意味変化のレビューを助けますが、あなたの責任を置き換えるものではありません。
 
-## Step 6 — 任意: attach / review flow
+## Step 6 — 任意: Kotonoha の記録として残す
 
-永続化が有効なKotonoha projectを使っている場合は、通常のCLI flowへ進めます。
+ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。
+
+学習だけが目的なら、Step 5 までで十分です。
+一方で、この草案を Kotonoha の記録として残したい場合は、CLI の `delta create`、`rde attach`、`review hold` の流れへ進めます。
+
+ここでいう「記録として残す」とは、ノートに対する意味変化を `delta` として作り、その delta に RDE 草案を添付し、人間の判断を `hold` などの review decision として残す、という意味です。
+
+この手順は任意です。quickstart を実行するために必須ではありません。
+
+流れは次の3段階です。
+
+1. `delta create`: ノートに対する意味変化の記録を作る。
+2. `rde attach`: 検証済みの RDE 草案を delta に添付する。
+3. `review hold`: 人間として「保留」の判断を記録する。
 
 ```bash
 kotonoha delta create note.md
