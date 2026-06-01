@@ -40,12 +40,10 @@ By the end, you will have:
 | `kotonoha` CLI | installed ([install guide](../../en/tutorials/install_kotonoha_cli.md); `kotonoha version` works) |
 | Working directory | any folder (Git optional for Steps 1–5) |
 | SLM runtime | Ollama or similar (prepare in Step 1 if needed) |
-| PostgreSQL | optional; required only for Step 6 if you store the validated RDE draft as a Kotonoha record with `delta create`, `rde attach`, and `review hold` |
-| Docker | optional; used only for the minimal local PostgreSQL demo setup |
-| `DATABASE_URL` | optional; required only for the DB-backed Step 6 record-keeping flow |
+| Optional follow-up | [kotonoha_record_flow.md](kotonoha_record_flow.md) — store a validated draft as a DB-backed Kotonoha record |
 
 > Steps 1–5 do not require a database.
-> PostgreSQL, Docker, and `DATABASE_URL` are needed only if you continue to Step 6 and store the validated RDE draft as a Kotonoha record.
+> PostgreSQL and `DATABASE_URL` are needed only for the optional [record flow](kotonoha_record_flow.md).
 
 If you do not have an SLM runtime yet, Ollama is a common local demo option. Other local SLM runtimes may also be used.
 
@@ -173,142 +171,27 @@ Ask:
 
 This is the second important boundary: Kotonoha helps you review meaning change, but it does not replace your responsibility.
 
-## Before Step 6 — Optional: prepare a local PostgreSQL database
-
-Steps 1–5 do not require a database.
-PostgreSQL and `DATABASE_URL` are needed only if you run Step 6.
-
-If you only want to generate an SLM draft and validate its JSON shape with `kotonoha rde validate --strict`, you can stop there.
-
-Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record, and the current CLI record-keeping commands require PostgreSQL via `DATABASE_URL`.
-
-If you have not set up a database yet, treat Step 6 as reference and run it later.
-
-### Minimal local PostgreSQL example
-
-If Docker is available, you can start PostgreSQL with:
-
-```bash
-docker run --name kotonoha-postgres \
-  -e POSTGRES_USER=kotonoha \
-  -e POSTGRES_PASSWORD=kotonoha \
-  -e POSTGRES_DB=kotonoha \
-  -p 5432:5432 \
-  -d postgres:16
-```
-
-Set `DATABASE_URL`:
-
-```bash
-export DATABASE_URL="postgres://kotonoha:kotonoha@localhost:5432/kotonoha"
-```
-
-Run migrations:
-
-```bash
-kotonoha db migrate
-```
-
-Check status:
-
-```bash
-kotonoha status
-```
-
-This is a local demo setup. For production or shared environments, design credentials, permissions, backups, and network exposure separately.
-
 ## Step 6 — Optional: keep it as a Kotonoha record
 
 From here on is optional.
 
-If you only need to validate `rde-draft.json` as a temporary file, Step 5 is enough.
-Continue to Step 6 only when you want to keep the validated RDE draft as a DB-backed Kotonoha record.
+Steps 1–5 do not require a database. For learning purposes, stopping at Step 5 is enough.
 
-> **Note:** Steps 1–5 do not require a database.
-> Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record.
-> The current `delta create`, `rde attach`, and `review hold` commands use a database-backed project. If `DATABASE_URL` is not set, the CLI will report: `DATABASE_URL is not set`.
+If you want to keep the validated RDE draft as a Kotonoha record, continue with the DB-backed record flow. That flow requires PostgreSQL and `DATABASE_URL`.
 
-If your goal is only to learn the workflow, stopping at Step 5 is enough.
+See [Kotonoha record flow quickstart](kotonoha_record_flow.md) for the full procedure.
 
-Continue to Step 6 when you want to:
-
-- keep the RDE draft as a Kotonoha record, not only a temporary file;
-- try the `delta create`, `rde attach`, and `review hold` flow;
-- use a DB-backed Kotonoha project you already have.
-
-If you have not set up a database yet, treat this section as reference and run it later.
-
-### Steps 1–5 vs Step 6
-
-- **Steps 1–5:** no DB required. Create an SLM draft and validate `rde-draft.json` with `kotonoha rde validate --strict`.
-- **Step 6:** optional. Store the validated draft in the DB as a Kotonoha record via `delta create`, `rde attach`, and `review hold`. **Requires `DATABASE_URL`.**
-
-Up to this point, `rde-draft.json` is still a temporary draft file.
-
-### What is `DATABASE_URL`?
-
-`DATABASE_URL` tells the Kotonoha CLI where to store records. Use the value from the minimal PostgreSQL example above. If you run `delta create` without it, the CLI reports `DATABASE_URL is not set`.
-
-### What each command does
-
-| Command | Role |
-| --- | --- |
-| `delta create` | create a **MeaningDelta container (anchor)** in the DB for `note.md` |
-| `rde attach` | **explicitly** attach the validated `rde-draft.json` from Steps 3–4 to that delta |
-| `review hold` | **explicitly** record a human review decision of `hold` in the DB |
-
-`delta create` does not automatically import sidecar history or temporary files from earlier steps. It first creates a delta record for `note.md` in the DB; then `rde attach` explicitly attaches the validated `rde-draft.json`.
-
-### What `delta create` actually stores
-
-`kotonoha delta create note.md` does not deeply compute and store the full semantic change. It mainly stores:
-
-- the current Git commit
-- the file path (`note.md`)
-- a line range or `diff_ref` (when omitted, something like `unstaged:note.md`)
-- project / principal IDs (when set via environment variables)
-- `observation` (empty `{}` unless you pass `--observation`)
-- an empty `source_context`
-
-**Not stored at this step:** the SLM `rde-draft.json`, validation results, Obsidian Console sidecar files, or a full snapshot of the note body. Those require separate commands.
-
-`delta create` requires a **Git repository** and **`DATABASE_URL`** (above); see [CLI install](../../en/tutorials/install_kotonoha_cli.md) and [first CLI session](../../en/tutorials/first_cli_session.md).
-
-### Obsidian Console sidecar
-
-Obsidian Console `.kotonoha/` (`proposals/`, `audit/`, `reviews/`) holds **local** proposal / audit / review traces in the UI. In this quickstart CLI flow you attach `rde-draft.json` explicitly via `rde attach`, not via sidecar. Automatic sync between sidecar and DB records is out of scope for this procedure.
-
-### How to obtain `<DELTA_ID>`
-
-`<DELTA_ID>` is not a value you invent. It is the **UUID** printed by `delta create` (`meaning_deltas.id`).
+Minimal flow:
 
 ```bash
 DELTA_ID=$(kotonoha delta create note.md)
-kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm --strict rde-draft.json
 kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
-`DELTA_ID` is not a value you choose manually. It is the UUID printed by `kotonoha delta create note.md`. The example stores that output in the `DELTA_ID` shell variable and reuses it for `rde attach` and `review hold`.
+`DELTA_ID` is not a value you choose manually. It is the UUID returned by `delta create`.
 
-You may pass a simple observation at delta creation (not a substitute for the RDE draft; attach RDE with `rde attach`):
-
-```bash
-cat > observation.json <<'EOF'
-{
-  "note": "SLM quickstart demo delta",
-  "source": "note.md",
-  "intent": "Create a delta anchor before attaching validated RDE draft"
-}
-EOF
-
-DELTA_ID=$(kotonoha delta create note.md --observation observation.json)
-kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
-kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
-```
-
-Use `hold` while learning. Use `approve` only when you are intentionally recording a human approval.
-
-In the story, `hold` means: "I have made the semantic change visible, but I am not ready to approve it yet."
+`delta create` does not automatically ingest earlier drafts or sidecar history. It first creates a MeaningDelta container in the DB for `note.md`; then `rde attach` explicitly attaches the validated `rde-draft.json`.
 
 ## What the demo profile means
 

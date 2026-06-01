@@ -42,12 +42,10 @@
 | `kotonoha` CLI | [install_kotonoha_cli.md](install_kotonoha_cli.md) 済み（`kotonoha version` が動くこと） |
 | 作業ディレクトリ | 任意のフォルダ（Git 管理は任意） |
 | SLM runtime | Ollama など（未導入なら Step 1 で準備） |
-| PostgreSQL | 任意。Step 6 で `delta create` / `rde attach` / `review hold` を実行し、Kotonoha の記録として保存する場合に必要 |
-| Docker | 任意。ローカル検証用 PostgreSQL を簡単に起動する場合に使用 |
-| `DATABASE_URL` | 任意。Step 6 の DB-backed flow を実行する場合に必要な DB 接続先 |
+| 任意の続き | [kotonoha_record_flow.md](kotonoha_record_flow.md) — 検証済み草案を DB-backed な Kotonoha record として保存する |
 
 > Step 1〜5 は DB なしで実行できます。
-> PostgreSQL / Docker / `DATABASE_URL` が必要になるのは、Step 6 で検証済みの RDE 草案を Kotonoha の記録として保存する場合だけです。
+> PostgreSQL / `DATABASE_URL` が必要になるのは、任意の [record flow](kotonoha_record_flow.md) だけです。
 
 SLM runtime がまだない場合、Ollama はローカルデモ向けの一般的な選択肢です。他の local SLM でも構いません。
 
@@ -234,142 +232,27 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 ここが二つ目の重要な境界です。Kotonohaは意味変化のレビューを助けますが、あなたの責任を置き換えるものではありません。
 
-## Step 6 の前に — 任意: ローカル PostgreSQL を用意する
-
-Step 1〜5 は DB なしで実行できます。
-Step 6 を実行する場合だけ、PostgreSQL と `DATABASE_URL` が必要です。
-
-SLM に RDE 草案を作らせ、`kotonoha rde validate --strict` で形を検証するだけなら、PostgreSQL は不要です。
-
-まだ DB を用意していない場合は、Step 6 は読み物として確認し、実行は後回しにしても構いません。
-
-### ローカル検証用 PostgreSQL の最小例
-
-Docker が使える場合は、次のように PostgreSQL を起動できます。
-
-```bash
-docker run --name kotonoha-postgres \
-  -e POSTGRES_USER=kotonoha \
-  -e POSTGRES_PASSWORD=kotonoha \
-  -e POSTGRES_DB=kotonoha \
-  -p 5432:5432 \
-  -d postgres:16
-```
-
-次に、Kotonoha CLI がこの DB に接続できるように `DATABASE_URL` を設定します。
-
-```bash
-export DATABASE_URL="postgres://kotonoha:kotonoha@localhost:5432/kotonoha"
-```
-
-DB migration を実行します。
-
-```bash
-kotonoha db migrate
-```
-
-確認します。
-
-```bash
-kotonoha status
-```
-
-これで Step 6 の保存系コマンドを試せる状態になります。
-
-この設定はローカル検証用です。公開環境や本番環境では、パスワード、権限、バックアップ、ネットワーク公開範囲を別途設計してください。
-
 ## Step 6 — 任意: Kotonoha の記録として残す
 
 ここから先は任意です。
 
-`rde-draft.json` を一時ファイルとして検証するだけなら、Step 5 までで十分です。
-検証済みの RDE 草案を Kotonoha の記録として DB に残したい場合だけ、この Step 6 に進みます。
+Step 1〜5 は DB なしで実行できます。学習目的であれば、Step 5 までで十分です。
 
-> **注意:** Step 1〜5 は DB なしで実行できます。
-> 一方、この Step 6 は、検証済みの RDE 草案を Kotonoha の記録として保存するための任意手順です。
-> 現在の `delta create` / `rde attach` / `review hold` は保存先 DB を使うため、`DATABASE_URL` が設定されていない環境では `DATABASE_URL is not set` と表示されます。
+検証済みの RDE 草案を Kotonoha の記録として残したい場合は、DB-backed な record flow へ進みます。この flow では PostgreSQL と `DATABASE_URL` が必要です。
 
-学習目的であれば、Step 5 までで十分です。
+詳しくは [Kotonoha record flow quickstart](kotonoha_record_flow.md) を参照してください。
 
-Step 6 に進むのは、次のような場合です。
-
-- RDE 草案を一時ファイルではなく Kotonoha の記録として残したい。
-- `delta create`、`rde attach`、`review hold` の流れを試したい。
-- DB-backed な Kotonoha project をすでに用意している。
-
-まだ DB を用意していない場合は、この Step 6 は読み物として確認し、実行は後回しにしてください。
-
-### Step 1〜5 と Step 6 の違い
-
-- **Step 1〜5:** DB 不要。SLM 草案を作り、`rde-draft.json` を `kotonoha rde validate --strict` で検証する。
-- **Step 6:** 任意。検証済み草案を Kotonoha の記録として DB に残す。`delta create` / `rde attach` / `review hold` を使う。**`DATABASE_URL` が必要。**
-
-ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。
-
-### `DATABASE_URL` とは
-
-`DATABASE_URL` は、Kotonoha CLI が記録を保存するためのデータベース接続先です。上の「ローカル検証用 PostgreSQL の最小例」で設定した値を使います。未設定のまま `delta create` を実行すると `DATABASE_URL is not set` と表示されます。
-
-### 3コマンドがそれぞれ何をするか
-
-| 操作 | 役割 |
-| --- | --- |
-| `delta create` | `note.md` に対する **MeaningDelta の器（アンカー）** を DB に作る |
-| `rde attach` | Step 3〜4 で作って検証した `rde-draft.json` を、その delta に **明示的に** 添付する |
-| `review hold` | 人間として「保留」の review decision を DB に **明示的に** 記録する |
-
-`delta create` は、ここまでの sidecar や一時ファイルの履歴を自動的に取り込む操作ではありません。まず `note.md` に対する delta record を DB に作り、その後 `rde attach` によって検証済みの `rde-draft.json` を明示的に添付します。
-
-### `delta create` が実際に保存するもの
-
-`kotonoha delta create note.md` は、意味変化の中身を深く計算して保存する操作ではありません。主に次を保存します。
-
-- 現在の Git commit
-- ファイルパス（`note.md`）
-- line range または `diff_ref`（未指定時は `unstaged:note.md` など）
-- project / principal ID（環境変数があれば）
-- `observation`（`--observation` を渡さなければ空の `{}`）
-- 空の `source_context`
-
-**この時点では入りません:** SLM の `rde-draft.json`、validation 結果、Obsidian Console の sidecar、ノート全文のスナップショット。これらは別操作です。
-
-`delta create` には **Git リポジトリ** と **`DATABASE_URL`**（上記）が必要です（詳細は [CLI インストール](install_kotonoha_cli.md) および [最初の CLI セッション](first_cli_session.md) を参照）。
-
-### Obsidian Console の sidecar との関係
-
-Obsidian Console の `.kotonoha/`（`proposals/`、`audit/`、`reviews/`）は、Console 上の proposal / audit / review の **ローカル証跡** です。この quickstart の CLI flow では sidecar ではなく `rde-draft.json` を明示的に `rde attach` します。sidecar と DB record の自動同期は、この手順の対象外です。
-
-### `<DELTA_ID>` の決め方
-
-`<DELTA_ID>` は任意の文字列ではありません。`delta create` が標準出力に出す **UUID**（`meaning_deltas.id`）です。
+最小の流れは次です。
 
 ```bash
 DELTA_ID=$(kotonoha delta create note.md)
-kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm --strict rde-draft.json
 kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
-`DELTA_ID` は任意に決める値ではありません。`kotonoha delta create note.md` が出力する UUID です。上の例では、その出力を `DELTA_ID` 変数に保存し、続く `rde attach` と `review hold` で同じ delta を参照しています。
+`DELTA_ID` は任意に決める値ではなく、`delta create` が返す UUID です。
 
-必要であれば、delta 作成時に簡単な observation を渡せます（RDE review output そのものではありません。RDE 草案は `rde attach` で明示的に添付します）。
-
-```bash
-cat > observation.json <<'EOF'
-{
-  "note": "SLM quickstart demo delta",
-  "source": "note.md",
-  "intent": "Create a delta anchor before attaching validated RDE draft"
-}
-EOF
-
-DELTA_ID=$(kotonoha delta create note.md --observation observation.json)
-kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
-kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
-```
-
-学習中は `hold` を使うのが安全です。`approve` は、人間として承認を記録する意図がある場合だけ使います。
-
-この物語の中で `hold` は、「意味変化を見える形にはしたが、まだ承認する段階ではない」という意味です。
+`delta create` は、ここまでの草案や sidecar 履歴を自動的に取り込む操作ではありません。まず `note.md` に対する MeaningDelta の器を DB に作り、次の `rde attach` で検証済みの `rde-draft.json` を明示的に添付します。
 
 ## Demo profile は何を表しているか
 

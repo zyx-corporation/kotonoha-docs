@@ -24,6 +24,7 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 - Obsidian プラグイン（GitHub Release）: [`ja/manual/install_obsidian_kotonoha_console.md`](ja/manual/install_obsidian_kotonoha_console.md)
 - 最初の CLI セッション: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
 - クイックスタート（SLM デモ）: [`ja/tutorials/slm_demo_quickstart.md`](ja/tutorials/slm_demo_quickstart.md)
+- 記録フロー（DB-backed、任意）: [`ja/tutorials/kotonoha_record_flow.md`](ja/tutorials/kotonoha_record_flow.md)
 - インストーラー実装手順（メンテナ）: [`ja/manual/cli_installer_implementation.md`](ja/manual/cli_installer_implementation.md)
 - CLI リポジトリ: [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli)
 
