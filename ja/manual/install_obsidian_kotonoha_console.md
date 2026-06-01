@@ -28,7 +28,7 @@ mock / http backend だけ使う場合、CLI は不要です。
 └── styles.css
 ```
 
-Release zip **`kotonoha-console-v0.3.0.zip`** を `.obsidian/plugins/` に展開（フォルダ名 `kotonoha-console/` のまま配置可）。
+Release zip **`obsidian-kotonoha-console-v0.3.0.zip`** を `.obsidian/plugins/` に展開（フォルダ名 `kotonoha-console/` のまま配置可）。
 
 ---
 
