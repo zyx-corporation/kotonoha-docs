@@ -228,7 +228,56 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 ここが二つ目の重要な境界です。Kotonohaは意味変化のレビューを助けますが、あなたの責任を置き換えるものではありません。
 
+## Step 6 の前に — 任意: ローカル PostgreSQL を用意する
+
+Step 1〜5 は DB なしで実行できます。
+SLM に RDE 草案を作らせ、`kotonoha rde validate --strict` で形を検証するだけなら、PostgreSQL は不要です。
+
+一方、次の Step 6 で `delta create`、`rde attach`、`review hold` を実行する場合は、Kotonoha CLI が記録を保存するための PostgreSQL が必要です。
+
+まだ DB を用意していない場合は、Step 6 は読み物として確認し、実行は後回しにしても構いません。
+
+### ローカル検証用 PostgreSQL の最小例
+
+Docker が使える場合は、次のように PostgreSQL を起動できます。
+
+```bash
+docker run --name kotonoha-postgres \
+  -e POSTGRES_USER=kotonoha \
+  -e POSTGRES_PASSWORD=kotonoha \
+  -e POSTGRES_DB=kotonoha \
+  -p 5432:5432 \
+  -d postgres:16
+```
+
+次に、Kotonoha CLI がこの DB に接続できるように `DATABASE_URL` を設定します。
+
+```bash
+export DATABASE_URL="postgres://kotonoha:kotonoha@localhost:5432/kotonoha"
+```
+
+DB migration を実行します。
+
+```bash
+kotonoha db migrate
+```
+
+確認します。
+
+```bash
+kotonoha status
+```
+
+これで Step 6 の保存系コマンドを試せる状態になります。
+
+この設定はローカル検証用です。公開環境や本番環境では、パスワード、権限、バックアップ、ネットワーク公開範囲を別途設計してください。
+
 ## Step 6 — 任意: Kotonoha の記録として残す
+
+ここから先は任意です。
+
+`rde-draft.json` を一時ファイルとして検証するだけなら、Step 5 までで十分です。
+検証済みの RDE 草案を Kotonoha の記録として DB に残したい場合だけ、この Step 6 に進みます。
 
 > **注意:** Step 1〜5 は DB なしで実行できます。
 > 一方、この Step 6 は、検証済みの RDE 草案を Kotonoha の記録として保存するための任意手順です。
@@ -253,15 +302,7 @@ Step 6 に進むのは、次のような場合です。
 
 ### `DATABASE_URL` とは
 
-`DATABASE_URL` は、Kotonoha CLI が記録を保存するためのデータベース接続先です。
-
-例:
-
-```bash
-export DATABASE_URL="postgres://user:password@localhost:5432/kotonoha"
-```
-
-この quickstart では DB の作成手順までは扱いません。DB の準備がまだの場合でも、Step 5 までの SLM 草案作成と validation は実行できます。
+`DATABASE_URL` は、Kotonoha CLI が記録を保存するためのデータベース接続先です。上の「ローカル検証用 PostgreSQL の最小例」で設定した値を使います。未設定のまま `delta create` を実行すると `DATABASE_URL is not set` と表示されます。
 
 ### 3コマンドがそれぞれ何をするか
 

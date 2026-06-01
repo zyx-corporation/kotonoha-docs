@@ -167,7 +167,54 @@ Ask:
 
 This is the second important boundary: Kotonoha helps you review meaning change, but it does not replace your responsibility.
 
+## Before Step 6 — Optional: prepare a local PostgreSQL database
+
+Steps 1–5 do not require a database.
+If you only want to generate an SLM draft and validate its JSON shape with `kotonoha rde validate --strict`, you can stop there.
+
+Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record, and the current CLI record-keeping commands require PostgreSQL via `DATABASE_URL`.
+
+If you have not set up a database yet, treat Step 6 as reference and run it later.
+
+### Minimal local PostgreSQL example
+
+If Docker is available, you can start PostgreSQL with:
+
+```bash
+docker run --name kotonoha-postgres \
+  -e POSTGRES_USER=kotonoha \
+  -e POSTGRES_PASSWORD=kotonoha \
+  -e POSTGRES_DB=kotonoha \
+  -p 5432:5432 \
+  -d postgres:16
+```
+
+Set `DATABASE_URL`:
+
+```bash
+export DATABASE_URL="postgres://kotonoha:kotonoha@localhost:5432/kotonoha"
+```
+
+Run migrations:
+
+```bash
+kotonoha db migrate
+```
+
+Check status:
+
+```bash
+kotonoha status
+```
+
+This is a local demo setup. For production or shared environments, design credentials, permissions, backups, and network exposure separately.
+
 ## Step 6 — Optional: keep it as a Kotonoha record
+
+From here on is optional.
+
+If you only need to validate `rde-draft.json` as a temporary file, Step 5 is enough.
+Continue to Step 6 only when you want to keep the validated RDE draft as a DB-backed Kotonoha record.
 
 > **Note:** Steps 1–5 do not require a database.
 > Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record.
@@ -192,15 +239,7 @@ Up to this point, `rde-draft.json` is still a temporary draft file.
 
 ### What is `DATABASE_URL`?
 
-`DATABASE_URL` tells the Kotonoha CLI where to store records.
-
-Example:
-
-```bash
-export DATABASE_URL="postgres://user:password@localhost:5432/kotonoha"
-```
-
-This quickstart does not cover database setup. You can still complete Steps 1–5 without a database.
+`DATABASE_URL` tells the Kotonoha CLI where to store records. Use the value from the minimal PostgreSQL example above. If you run `delta create` without it, the CLI reports `DATABASE_URL is not set`.
 
 ### What each command does
 
