@@ -12,7 +12,7 @@ Install guide for [`obsidian-kotonoha-console`](https://github.com/zyx-corporati
 | Item | Requirement |
 | --- | --- |
 | Obsidian | 1.4.0+ |
-| Source | [GitHub Release](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases) (v0.3.0+) |
+| Source | [GitHub Release v0.3.0](https://github.com/zyx-corporation/obsidian-kotonoha-console/releases/tag/v0.3.0) |
 | CLI backend (optional) | [Install Kotonoha CLI](../tutorials/install_kotonoha_cli.md), `kotonoha >= 0.3.1` |
 
 ---
@@ -26,9 +26,7 @@ Install guide for [`obsidian-kotonoha-console`](https://github.com/zyx-corporati
 └── styles.css
 ```
 
-After unzipping **`kotonoha-console-v0.3.1.zip`**, place `kotonoha-console/` under `.obsidian/plugins/`.
-
-v0.3.0 zip requires renaming `obsidian-kotonoha-console/` to **`kotonoha-console`**.
+After unzipping **`kotonoha-console-v0.3.0.zip`**, place `kotonoha-console/` under `.obsidian/plugins/`.
 
 ---
 
