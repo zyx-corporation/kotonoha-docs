@@ -22,3 +22,20 @@ curl -fsSL https://raw.githubusercontent.com/zyx-corporation/kotonoha-cli/main/s
 ```
 
 If no release binary exists for your platform, the installer falls back to `cargo install` (Rust required). See the Japanese tutorial for PATH and troubleshooting detail.
+
+---
+
+## Next reading
+
+| Order | Document | Content |
+| --- | --- | --- |
+| 1 | [first_cli_session.md](first_cli_session.md) | First RDE / interchange session |
+| 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | Local SLM and draft validation |
+| — | [install_obsidian_kotonoha_console.md](../manual/install_obsidian_kotonoha_console.md) | Obsidian plugin (UI) |
+| — | [phase2_cli_acceptance_demo.md](../acceptance/phase2_cli_acceptance_demo.md) | Release verification (separate from learning) |
+
+---
+
+## RDE note
+
+Installation is an **entry point**, not Kotonoha theory itself. Meaning audit and normative definitions live in [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) and each tool's contract docs.
