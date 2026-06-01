@@ -169,25 +169,66 @@ This is the second important boundary: Kotonoha helps you review meaning change,
 
 ## Step 6 — Optional: keep it as a Kotonoha record
 
-Up to this point, `rde-draft.json` is still a temporary draft file.
+### Steps 1–5 vs Step 6
 
-If your goal is only to learn the workflow, you can stop at Step 5.
-If you want to keep the draft as part of a Kotonoha record, you can continue into the CLI `delta create`, `rde attach`, and `review hold` flow.
+- **Steps 1–5:** without a DB, create an SLM draft and validate the RDE JSON shape.
+- **Step 6:** only if you want to keep the validated draft as a DB-backed Kotonoha record (optional).
 
-Here, "keep it as a record" means creating a `delta` for the note, attaching the validated RDE draft to that delta, and recording a human review decision such as `hold`.
+Up to this point, `rde-draft.json` is still a temporary draft file. If your goal is only to learn the workflow, you can stop at Step 5.
 
-This step is optional. It is not required to run the quickstart.
+### What each command does
 
-The flow has three steps:
+| Command | Role |
+| --- | --- |
+| `delta create` | create a **MeaningDelta container (anchor)** in the DB for `note.md` |
+| `rde attach` | **explicitly** attach the validated `rde-draft.json` from Steps 3–4 to that delta |
+| `review hold` | **explicitly** record a human review decision of `hold` in the DB |
 
-1. `delta create`: create a meaning-change record for the note.
-2. `rde attach`: attach the validated RDE draft to that delta.
-3. `review hold`: record a human decision to keep the review in a held state.
+`delta create` does not automatically import sidecar history or temporary files from earlier steps. It first creates a delta record for `note.md` in the DB; then `rde attach` explicitly attaches the validated `rde-draft.json`.
+
+### What `delta create` actually stores
+
+`kotonoha delta create note.md` does not deeply compute and store the full semantic change. It mainly stores:
+
+- the current Git commit
+- the file path (`note.md`)
+- a line range or `diff_ref` (when omitted, something like `unstaged:note.md`)
+- project / principal IDs (when set via environment variables)
+- `observation` (empty `{}` unless you pass `--observation`)
+- an empty `source_context`
+
+**Not stored at this step:** the SLM `rde-draft.json`, validation results, Obsidian Console sidecar files, or a full snapshot of the note body. Those require separate commands.
+
+`delta create` requires a **Git repository** and **`DATABASE_URL`** (see [CLI install](../../en/tutorials/install_kotonoha_cli.md) and [first CLI session](../../en/tutorials/first_cli_session.md)).
+
+### Obsidian Console sidecar
+
+Obsidian Console `.kotonoha/` (`proposals/`, `audit/`, `reviews/`) holds **local** proposal / audit / review traces in the UI. In this quickstart CLI flow you attach `rde-draft.json` explicitly via `rde attach`, not via sidecar. Automatic sync between sidecar and DB records is out of scope for this procedure.
+
+### How to obtain `<DELTA_ID>`
+
+`<DELTA_ID>` is not a value you invent. It is the **UUID** printed by `delta create` (`meaning_deltas.id`).
 
 ```bash
-kotonoha delta create note.md
-kotonoha rde attach --delta-id <DELTA_ID> --source-kind llm rde-draft.json
-kotonoha review hold --delta-id <DELTA_ID> --decided-by "your-name"
+DELTA_ID=$(kotonoha delta create note.md)
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
+```
+
+You may pass auxiliary context at delta creation with `--observation` (this is not a substitute for the RDE draft; attach RDE with `rde attach`):
+
+```bash
+cat > observation.json <<'EOF'
+{
+  "note": "SLM quickstart demo delta",
+  "source": "note.md",
+  "intent": "Create a delta anchor before attaching validated RDE draft"
+}
+EOF
+
+DELTA_ID=$(kotonoha delta create note.md --observation observation.json)
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
 Use `hold` while learning. Use `approve` only when you are intentionally recording a human approval.

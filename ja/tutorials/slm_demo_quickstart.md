@@ -230,25 +230,66 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 ## Step 6 — 任意: Kotonoha の記録として残す
 
-ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。
+### Step 1〜5 と Step 6 の違い
 
-学習だけが目的なら、Step 5 までで十分です。
-一方で、この草案を Kotonoha の記録として残したい場合は、CLI の `delta create`、`rde attach`、`review hold` の流れへ進めます。
+- **Step 1〜5:** DB なしで、SLM 草案を作り、RDE JSON の形を検証する。
+- **Step 6:** 検証済み草案を DB 上の Kotonoha record として残したい場合だけ進む（任意）。
 
-ここでいう「記録として残す」とは、ノートに対する意味変化を `delta` として作り、その delta に RDE 草案を添付し、人間の判断を `hold` などの review decision として残す、という意味です。
+ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。学習だけが目的なら、Step 5 までで十分です。
 
-この手順は任意です。quickstart を実行するために必須ではありません。
+### 3コマンドがそれぞれ何をするか
 
-流れは次の3段階です。
+| 操作 | 役割 |
+| --- | --- |
+| `delta create` | `note.md` に対する **MeaningDelta の器（アンカー）** を DB に作る |
+| `rde attach` | Step 3〜4 で作って検証した `rde-draft.json` を、その delta に **明示的に** 添付する |
+| `review hold` | 人間として「保留」の review decision を DB に **明示的に** 記録する |
 
-1. `delta create`: ノートに対する意味変化の記録を作る。
-2. `rde attach`: 検証済みの RDE 草案を delta に添付する。
-3. `review hold`: 人間として「保留」の判断を記録する。
+`delta create` は、ここまでの sidecar や一時ファイルの履歴を自動的に取り込む操作ではありません。まず `note.md` に対する delta record を DB に作り、その後 `rde attach` によって検証済みの `rde-draft.json` を明示的に添付します。
+
+### `delta create` が実際に保存するもの
+
+`kotonoha delta create note.md` は、意味変化の中身を深く計算して保存する操作ではありません。主に次を保存します。
+
+- 現在の Git commit
+- ファイルパス（`note.md`）
+- line range または `diff_ref`（未指定時は `unstaged:note.md` など）
+- project / principal ID（環境変数があれば）
+- `observation`（`--observation` を渡さなければ空の `{}`）
+- 空の `source_context`
+
+**この時点では入りません:** SLM の `rde-draft.json`、validation 結果、Obsidian Console の sidecar、ノート全文のスナップショット。これらは別操作です。
+
+`delta create` には **Git リポジトリ** と **`DATABASE_URL`** が必要です（[CLI インストール](install_kotonoha_cli.md) および [最初の CLI セッション](first_cli_session.md) を参照）。
+
+### Obsidian Console の sidecar との関係
+
+Obsidian Console の `.kotonoha/`（`proposals/`、`audit/`、`reviews/`）は、Console 上の proposal / audit / review の **ローカル証跡** です。この quickstart の CLI flow では sidecar ではなく `rde-draft.json` を明示的に `rde attach` します。sidecar と DB record の自動同期は、この手順の対象外です。
+
+### `<DELTA_ID>` の決め方
+
+`<DELTA_ID>` は任意の文字列ではありません。`delta create` が標準出力に出す **UUID**（`meaning_deltas.id`）です。
 
 ```bash
-kotonoha delta create note.md
-kotonoha rde attach --delta-id <DELTA_ID> --source-kind llm rde-draft.json
-kotonoha review hold --delta-id <DELTA_ID> --decided-by "your-name"
+DELTA_ID=$(kotonoha delta create note.md)
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
+```
+
+任意の補助情報を delta 作成時に残したい場合は `--observation` を使えます（RDE 草案そのものの代わりにはなりません。RDE は `rde attach` で添付します）。
+
+```bash
+cat > observation.json <<'EOF'
+{
+  "note": "SLM quickstart demo delta",
+  "source": "note.md",
+  "intent": "Create a delta anchor before attaching validated RDE draft"
+}
+EOF
+
+DELTA_ID=$(kotonoha delta create note.md --observation observation.json)
+kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
+kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
 学習中は `hold` を使うのが安全です。`approve` は、人間として承認を記録する意図がある場合だけ使います。
