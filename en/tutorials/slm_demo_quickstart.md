@@ -169,12 +169,38 @@ This is the second important boundary: Kotonoha helps you review meaning change,
 
 ## Step 6 — Optional: keep it as a Kotonoha record
 
+> **Note:** Steps 1–5 do not require a database.
+> Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record.
+> The current `delta create`, `rde attach`, and `review hold` commands use a database-backed project. If `DATABASE_URL` is not set, the CLI will report: `DATABASE_URL is not set`.
+
+If your goal is only to learn the workflow, stopping at Step 5 is enough.
+
+Continue to Step 6 when you want to:
+
+- keep the RDE draft as a Kotonoha record, not only a temporary file;
+- try the `delta create`, `rde attach`, and `review hold` flow;
+- use a DB-backed Kotonoha project you already have.
+
+If you have not set up a database yet, treat this section as reference and run it later.
+
 ### Steps 1–5 vs Step 6
 
-- **Steps 1–5:** without a DB, create an SLM draft and validate the RDE JSON shape.
-- **Step 6:** only if you want to keep the validated draft as a DB-backed Kotonoha record (optional).
+- **Steps 1–5:** no DB required. Create an SLM draft and validate `rde-draft.json` with `kotonoha rde validate --strict`.
+- **Step 6:** optional. Store the validated draft in the DB as a Kotonoha record via `delta create`, `rde attach`, and `review hold`. **Requires `DATABASE_URL`.**
 
-Up to this point, `rde-draft.json` is still a temporary draft file. If your goal is only to learn the workflow, you can stop at Step 5.
+Up to this point, `rde-draft.json` is still a temporary draft file.
+
+### What is `DATABASE_URL`?
+
+`DATABASE_URL` tells the Kotonoha CLI where to store records.
+
+Example:
+
+```bash
+export DATABASE_URL="postgres://user:password@localhost:5432/kotonoha"
+```
+
+This quickstart does not cover database setup. You can still complete Steps 1–5 without a database.
 
 ### What each command does
 
@@ -199,7 +225,7 @@ Up to this point, `rde-draft.json` is still a temporary draft file. If your goal
 
 **Not stored at this step:** the SLM `rde-draft.json`, validation results, Obsidian Console sidecar files, or a full snapshot of the note body. Those require separate commands.
 
-`delta create` requires a **Git repository** and **`DATABASE_URL`** (see [CLI install](../../en/tutorials/install_kotonoha_cli.md) and [first CLI session](../../en/tutorials/first_cli_session.md)).
+`delta create` requires a **Git repository** and **`DATABASE_URL`** (above); see [CLI install](../../en/tutorials/install_kotonoha_cli.md) and [first CLI session](../../en/tutorials/first_cli_session.md).
 
 ### Obsidian Console sidecar
 
@@ -215,7 +241,9 @@ kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
 kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
-You may pass auxiliary context at delta creation with `--observation` (this is not a substitute for the RDE draft; attach RDE with `rde attach`):
+`DELTA_ID` is not a value you choose manually. It is the UUID printed by `kotonoha delta create note.md`. The example stores that output in the `DELTA_ID` shell variable and reuses it for `rde attach` and `review hold`.
+
+You may pass a simple observation at delta creation (not a substitute for the RDE draft; attach RDE with `rde attach`):
 
 ```bash
 cat > observation.json <<'EOF'

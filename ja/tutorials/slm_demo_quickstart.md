@@ -230,12 +230,38 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 ## Step 6 — 任意: Kotonoha の記録として残す
 
+> **注意:** Step 1〜5 は DB なしで実行できます。
+> 一方、この Step 6 は、検証済みの RDE 草案を Kotonoha の記録として保存するための任意手順です。
+> 現在の `delta create` / `rde attach` / `review hold` は保存先 DB を使うため、`DATABASE_URL` が設定されていない環境では `DATABASE_URL is not set` と表示されます。
+
+学習目的であれば、Step 5 までで十分です。
+
+Step 6 に進むのは、次のような場合です。
+
+- RDE 草案を一時ファイルではなく Kotonoha の記録として残したい。
+- `delta create`、`rde attach`、`review hold` の流れを試したい。
+- DB-backed な Kotonoha project をすでに用意している。
+
+まだ DB を用意していない場合は、この Step 6 は読み物として確認し、実行は後回しにしてください。
+
 ### Step 1〜5 と Step 6 の違い
 
-- **Step 1〜5:** DB なしで、SLM 草案を作り、RDE JSON の形を検証する。
-- **Step 6:** 検証済み草案を DB 上の Kotonoha record として残したい場合だけ進む（任意）。
+- **Step 1〜5:** DB 不要。SLM 草案を作り、`rde-draft.json` を `kotonoha rde validate --strict` で検証する。
+- **Step 6:** 任意。検証済み草案を Kotonoha の記録として DB に残す。`delta create` / `rde attach` / `review hold` を使う。**`DATABASE_URL` が必要。**
 
-ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。学習だけが目的なら、Step 5 までで十分です。
+ここまでの手順では、`rde-draft.json` はまだ一時的な草案ファイルです。
+
+### `DATABASE_URL` とは
+
+`DATABASE_URL` は、Kotonoha CLI が記録を保存するためのデータベース接続先です。
+
+例:
+
+```bash
+export DATABASE_URL="postgres://user:password@localhost:5432/kotonoha"
+```
+
+この quickstart では DB の作成手順までは扱いません。DB の準備がまだの場合でも、Step 5 までの SLM 草案作成と validation は実行できます。
 
 ### 3コマンドがそれぞれ何をするか
 
@@ -260,7 +286,7 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 
 **この時点では入りません:** SLM の `rde-draft.json`、validation 結果、Obsidian Console の sidecar、ノート全文のスナップショット。これらは別操作です。
 
-`delta create` には **Git リポジトリ** と **`DATABASE_URL`** が必要です（[CLI インストール](install_kotonoha_cli.md) および [最初の CLI セッション](first_cli_session.md) を参照）。
+`delta create` には **Git リポジトリ** と **`DATABASE_URL`**（上記）が必要です（詳細は [CLI インストール](install_kotonoha_cli.md) および [最初の CLI セッション](first_cli_session.md) を参照）。
 
 ### Obsidian Console の sidecar との関係
 
@@ -276,7 +302,9 @@ kotonoha rde attach --delta-id "$DELTA_ID" --source-kind llm rde-draft.json
 kotonoha review hold --delta-id "$DELTA_ID" --decided-by "your-name"
 ```
 
-任意の補助情報を delta 作成時に残したい場合は `--observation` を使えます（RDE 草案そのものの代わりにはなりません。RDE は `rde attach` で添付します）。
+`DELTA_ID` は任意に決める値ではありません。`kotonoha delta create note.md` が出力する UUID です。上の例では、その出力を `DELTA_ID` 変数に保存し、続く `rde attach` と `review hold` で同じ delta を参照しています。
+
+必要であれば、delta 作成時に簡単な observation を渡せます（RDE review output そのものではありません。RDE 草案は `rde attach` で明示的に添付します）。
 
 ```bash
 cat > observation.json <<'EOF'
