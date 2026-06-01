@@ -33,13 +33,19 @@ By the end, you will have:
 
 ## Assumptions
 
-You have:
+| Item | Description |
+| --- | --- |
+| OS | macOS or Linux |
+| Terminal | able to copy and paste commands |
+| `kotonoha` CLI | installed ([install guide](../../en/tutorials/install_kotonoha_cli.md); `kotonoha version` works) |
+| Working directory | any folder (Git optional for Steps 1–5) |
+| SLM runtime | Ollama or similar (prepare in Step 1 if needed) |
+| PostgreSQL | optional; required only for Step 6 if you store the validated RDE draft as a Kotonoha record with `delta create`, `rde attach`, and `review hold` |
+| Docker | optional; used only for the minimal local PostgreSQL demo setup |
+| `DATABASE_URL` | optional; required only for the DB-backed Step 6 record-keeping flow |
 
-- macOS or Linux;
-- a terminal;
-- `kotonoha` CLI installed;
-- a Git-backed or plain working directory;
-- an SLM runtime such as Ollama.
+> Steps 1–5 do not require a database.
+> PostgreSQL, Docker, and `DATABASE_URL` are needed only if you continue to Step 6 and store the validated RDE draft as a Kotonoha record.
 
 If you do not have an SLM runtime yet, Ollama is a common local demo option. Other local SLM runtimes may also be used.
 
@@ -170,6 +176,8 @@ This is the second important boundary: Kotonoha helps you review meaning change,
 ## Before Step 6 — Optional: prepare a local PostgreSQL database
 
 Steps 1–5 do not require a database.
+PostgreSQL and `DATABASE_URL` are needed only if you run Step 6.
+
 If you only want to generate an SLM draft and validate its JSON shape with `kotonoha rde validate --strict`, you can stop there.
 
 Step 6 is optional. It stores the validated RDE draft as part of a Kotonoha record, and the current CLI record-keeping commands require PostgreSQL via `DATABASE_URL`.

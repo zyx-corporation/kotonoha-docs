@@ -42,6 +42,12 @@
 | `kotonoha` CLI | [install_kotonoha_cli.md](install_kotonoha_cli.md) 済み（`kotonoha version` が動くこと） |
 | 作業ディレクトリ | 任意のフォルダ（Git 管理は任意） |
 | SLM runtime | Ollama など（未導入なら Step 1 で準備） |
+| PostgreSQL | 任意。Step 6 で `delta create` / `rde attach` / `review hold` を実行し、Kotonoha の記録として保存する場合に必要 |
+| Docker | 任意。ローカル検証用 PostgreSQL を簡単に起動する場合に使用 |
+| `DATABASE_URL` | 任意。Step 6 の DB-backed flow を実行する場合に必要な DB 接続先 |
+
+> Step 1〜5 は DB なしで実行できます。
+> PostgreSQL / Docker / `DATABASE_URL` が必要になるのは、Step 6 で検証済みの RDE 草案を Kotonoha の記録として保存する場合だけです。
 
 SLM runtime がまだない場合、Ollama はローカルデモ向けの一般的な選択肢です。他の local SLM でも構いません。
 
@@ -231,9 +237,9 @@ validationが成功しても、RDE草案は必ず自分で読みます。
 ## Step 6 の前に — 任意: ローカル PostgreSQL を用意する
 
 Step 1〜5 は DB なしで実行できます。
-SLM に RDE 草案を作らせ、`kotonoha rde validate --strict` で形を検証するだけなら、PostgreSQL は不要です。
+Step 6 を実行する場合だけ、PostgreSQL と `DATABASE_URL` が必要です。
 
-一方、次の Step 6 で `delta create`、`rde attach`、`review hold` を実行する場合は、Kotonoha CLI が記録を保存するための PostgreSQL が必要です。
+SLM に RDE 草案を作らせ、`kotonoha rde validate --strict` で形を検証するだけなら、PostgreSQL は不要です。
 
 まだ DB を用意していない場合は、Step 6 は読み物として確認し、実行は後回しにしても構いません。
 
