@@ -65,6 +65,11 @@ Ollamaが入っていない場合は、公式手順に従って利用環境へ�
 ollama pull qwen2.5:3b-instruct
 ```
 
+日本語での草案作成では、次を目安にすると安定しやすくなります。
+
+- 推奨: `qwen2.5:7b-instruct`（日本語の指示追従と要約が比較的安定）
+- 軽量優先: `qwen2.5:3b-instruct`（メモリが限られる環境向け）
+
 テスト起動します。
 
 ```bash
@@ -109,15 +114,31 @@ SLMは、このノートが良いか悪いかを決めるわけではありま�
 プロンプト例:
 
 ```text
-Create a candidate Kotonoha RDE review output JSON for the following note.
-Use spec_version "0.1".
-Use subject_ref "file:note.md".
-Include the seven categories:
+次のノートに対する Kotonoha RDE review output の候補JSONを作成してください。
+トップレベルは次の厳密な形にしてください:
+{
+  "rde_review_output": {
+    "spec_version": "0.1",
+    "subject_ref": "file:note.md",
+    "categories": {
+      "preserved": [],
+      "transformed": [],
+      "complemented": [],
+      "intentionally_unresolved": [],
+      "lost": [],
+      "deviation_risk": [],
+      "next_update_policy": []
+    }
+  }
+}
+spec_version は "0.1" を使用してください。
+subject_ref は "file:note.md" を使用してください。
+次の7カテゴリを含めてください:
 preserved, transformed, complemented, intentionally_unresolved, lost, deviation_risk, next_update_policy.
-Each category must be an array. Each item should be an object with a summary field.
-Return JSON only.
+各カテゴリは配列にしてください。各要素は summary フィールドを持つオブジェクトにしてください。
+JSONのみを返し、トップレベルキーは "rde_review_output" にしてください。
 
-Note:
+ノート:
 # Draft note
 
 Kotonoha records meaning changes. It helps users inspect what was preserved,
@@ -125,6 +146,44 @@ what changed, what was lost, and what should be reviewed next.
 ```
 
 モデルの出力を `rde-draft.json` として保存します。
+
+Ollamaへ明示的にプロンプトを渡してファイル保存する例:
+
+```bash
+cat > rde-prompt.txt <<'EOF'
+次のノートに対する Kotonoha RDE review output の候補JSONを作成してください。
+トップレベルは次の厳密な形にしてください:
+{
+  "rde_review_output": {
+    "spec_version": "0.1",
+    "subject_ref": "file:note.md",
+    "categories": {
+      "preserved": [],
+      "transformed": [],
+      "complemented": [],
+      "intentionally_unresolved": [],
+      "lost": [],
+      "deviation_risk": [],
+      "next_update_policy": []
+    }
+  }
+}
+spec_version は "0.1" を使用してください。
+subject_ref は "file:note.md" を使用してください。
+次の7カテゴリを含めてください:
+preserved, transformed, complemented, intentionally_unresolved, lost, deviation_risk, next_update_policy.
+各カテゴリは配列にしてください。各要素は summary フィールドを持つオブジェクトにしてください。
+JSONのみを返し、トップレベルキーは "rde_review_output" にしてください。
+
+ノート:
+# Draft note
+
+Kotonoha records meaning changes. It helps users inspect what was preserved,
+what changed, what was lost, and what should be reviewed next.
+EOF
+
+ollama run qwen2.5:7b-instruct < rde-prompt.txt > rde-draft.json
+```
 
 Markdownのコードフェンスが付いている場合は削除し、ファイルには生のJSONだけを残します。
 
@@ -183,9 +242,19 @@ kotonoha review hold --delta-id <DELTA_ID> --decided-by "your-name"
 
 この物語の中で `hold` は、「意味変化を見える形にはしたが、まだ承認する段階ではない」という意味です。
 
-## Demo profile
+## Demo profile は何を表しているか
 
-このチュートリアルは、公開ガイド上のdemo SLM profileに対応します。
+この節の `profile` は、この quickstart を実行するために必須の設定ファイルではありません。
+
+ここでは、このチュートリアルでの SLM の扱いを「利用ポリシー」として名前付きで表しています。
+
+`demo-slm` は次を意味します。
+
+- SLM は草案作成専用である。
+- SLM 出力は承認済み Kotonoha record ではない。
+- `kotonoha rde validate --strict` による validation が必要である。
+- validation が成功しても、内容が正しいとは限らない。
+- 最終判断と承認権限は人間に残る。
 
 ```yaml
 kotonoha:
@@ -197,6 +266,8 @@ kotonoha:
     validation_command: kotonoha rde validate --strict
     approval_authority: human
 ```
+
+将来、この形式は Kotonoha の設定ファイルや profile registry に接続される可能性があります。ただし、この quickstart では、この YAML を保存しなくても手順を実行できます。
 
 ## この物語で十分な場合
 

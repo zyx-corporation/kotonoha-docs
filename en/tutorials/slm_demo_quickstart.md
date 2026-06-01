@@ -181,9 +181,19 @@ Use `hold` while learning. Use `approve` only when you are intentionally recordi
 
 In the story, `hold` means: "I have made the semantic change visible, but I am not ready to approve it yet."
 
-## Demo profile
+## What the demo profile means
 
-This tutorial corresponds to the public demo SLM profile:
+The `profile` shown here is not a required configuration file for running this quickstart.
+
+It is a named usage policy that describes how the SLM is treated in this tutorial.
+
+`demo-slm` means:
+
+- The SLM is used for drafting only.
+- SLM output is not an accepted Kotonoha record.
+- Validation with `kotonoha rde validate --strict` is required.
+- Passing validation does not mean the content is correct.
+- Final judgment and approval authority remain with the human reviewer.
 
 ```yaml
 kotonoha:
@@ -195,6 +205,8 @@ kotonoha:
     validation_command: kotonoha rde validate --strict
     approval_authority: human
 ```
+
+In the future, this form may be connected to a Kotonoha configuration file or profile registry. In this quickstart, however, you do not need to save this YAML in order to run the demo.
 
 ## When this story is enough
 
