@@ -11,6 +11,7 @@ Japanese counterpart: [`../../ja/tutorials/README.md`](../../ja/tutorials/README
 | 0 | [install_kotonoha_cli.md](install_kotonoha_cli.md) | Install via `curl \| bash` and verify `kotonoha version` |
 | 1 | [first_cli_session.md](first_cli_session.md) | RDE skeleton and interchange envelope |
 | 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | Local SLM draft → validate → human review |
+| 3 | [kotonoha_record_flow.md](kotonoha_record_flow.md) | Store a validated RDE draft as a DB-backed Kotonoha record |
 
 ## Placement note
 

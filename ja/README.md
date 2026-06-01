@@ -37,6 +37,7 @@ Kotonoha は、AI 支援開発における **意味の変化** を追跡し、�
 | 2 | CLI をインストールする | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) |
 | 3 | CLI を手で試す（DB 不要） | [first_cli_session.md](tutorials/first_cli_session.md) |
 | 4 | SLM 草案と検証の流れを体験する | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) |
+| 4b | 検証済み草案を Kotonoha record として保存する | [kotonoha_record_flow.md](tutorials/kotonoha_record_flow.md) |
 | 5 | Obsidian で提案・RDE・承認を使う | [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) |
 | 6 | VS Code で ΔM / RDE / Review を使う | [vscode_extension_operations.md](manual/vscode_extension_operations.md) |
 | 7 | リリース前の最小動作を確認する | [phase2_cli_acceptance_demo.md](acceptance/phase2_cli_acceptance_demo.md) |
@@ -88,6 +89,7 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) | `curl \| bash` による CLI 導入 |
 | [first_cli_session.md](tutorials/first_cli_session.md) | `version` / `rde emit` / `interchange emit` の入門 |
 | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) | ローカル SLM → 検証 → 人間レビューの体験 |
+| [kotonoha_record_flow.md](tutorials/kotonoha_record_flow.md) | 検証済み RDE 草案を DB-backed な Kotonoha record として保存 |
 | [README.md](tutorials/README.md) | チュートリアル領域の索引 |
 
 ### 受入デモ（Acceptance）

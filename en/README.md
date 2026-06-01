@@ -6,6 +6,16 @@ This is the English documentation area for the Kotonoha ecosystem.
 
 Japanese counterpart: [`../ja/README.md`](../ja/README.md)
 
+## Suggested reading order
+
+| Stage | Goal | Document |
+| --- | --- | --- |
+| 1 | Understand the vision | [kotonoha_concept_overview.md](concepts/kotonoha_concept_overview.md) |
+| 2 | Install the CLI | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) |
+| 3 | Try the CLI without a DB | [first_cli_session.md](tutorials/first_cli_session.md) |
+| 4 | SLM draft and validation | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) |
+| 4b | Store a validated draft as a Kotonoha record | [kotonoha_record_flow.md](tutorials/kotonoha_record_flow.md) |
+
 ## Sections
 
 | Section | Purpose |

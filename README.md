@@ -19,6 +19,8 @@ Historical material under [`docs/`](docs/README.md) remains available when neede
 
 **Japanese:** [ja/README.md](ja/README.md)
 
+**Learning path (optional DB-backed record flow):** [ja/tutorials/kotonoha_record_flow.md](ja/tutorials/kotonoha_record_flow.md) · [en/tutorials/kotonoha_record_flow.md](en/tutorials/kotonoha_record_flow.md)
+
 ## Rendering and figures
 
 Figures in this repository should generally be written as SVG. The default publication path is Markdown plus SVG references rendered to static HTML by [`tools/render_docs.py`](tools/render_docs.py). Direct HTML authoring is also allowed when layout, interaction, or print/PDF control requires it.

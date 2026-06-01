@@ -11,6 +11,7 @@
 | 0 | [install_kotonoha_cli.md](install_kotonoha_cli.md) | `curl \| bash` で CLI を入れ、`kotonoha version` まで確認する |
 | 1 | [first_cli_session.md](first_cli_session.md) | RDE skeleton と interchange envelope を体験する |
 | 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | ローカル SLM の草案を Kotonoha で検証する |
+| 3 | [kotonoha_record_flow.md](kotonoha_record_flow.md) | 検証済み RDE 草案を DB-backed な Kotonoha record として保存する流れ |
 
 ## 関連（チュートリアル外）
 
