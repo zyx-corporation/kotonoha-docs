@@ -1,43 +1,67 @@
 # kotonoha-docs（日本語公開情報の入口）
 
-## プロジェクトの目的と目標
+## まず読む
 
-Kotonoha は、AI 支援開発における意味変化を追跡可能にし、設計意図と実装のずれを監査可能にするための取り組みです。  
-`kotonoha-docs` は、そのための公開ドキュメント入口として、利用者やコミュニティが「何を目指しているか」「どこから始めるか」を短時間で把握できるようにすることを目標とします。
+Kotonoha を初めて知る人は、まず次のページから始めてください。
 
-- 目的: 概念、運用、学習手順を公開し、理解と参加のハードルを下げる
-- 目標: 初学者が「理解する → 試す → 継続利用する」までの導線を明確にする
-- 範囲: 規範仕様ではない説明文書（概念説明、マニュアル、チュートリアル、受入デモ、参考資料）
+- [はじめての Kotonoha](ja/start-here.md)
+- [初学者向け用語集](ja/glossary_for_beginners.md)
+- [読者別ラーニングパス](ja/learning-path.md)
 
-仕様の正本・規範定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) にあります。
+`kotonoha-docs` は、Kotonoha エコシステムの公開説明文書です。仕様の正本ではありません。厳密な意味・適合条件・スキーマ・安定性の定義は [`kotonoha-spec`](https://github.com/zyx-corporation/kotonoha-spec) を参照してください。
 
-## 最初に読む（プロジェクト理解）
+## Kotonoha を一言でいうと
 
-- プロジェクト全体像: [`ja/README.md`](ja/README.md)
-- 主要概念（SLS / semantic lineage / RDE など）: [`ja/concepts/README.md`](ja/concepts/README.md)
-- 背景となる開発方法論: [`ja/method/README.md`](ja/method/README.md)
+Kotonoha は、AI や人間が文章・仕様・コードを変更したときに、**何が変わったか**だけでなく、**その変更によって何が保存され、何が失われ、どこに意味のずれが生まれたか**を確認するための仕組みです。
 
-## はじめる（インストール・初回実行）
+Git は文字列の差分を残します。Kotonoha は、その差分の背後にある意味の変化を扱います。
 
-- **Release Train 2026-05（v0.3 baseline）:** [`ja/releases/kotonoha-release-train-2026-05.md`](ja/releases/kotonoha-release-train-2026-05.md)
-- CLI インストール（`curl | bash`）: [`ja/tutorials/install_kotonoha_cli.md`](ja/tutorials/install_kotonoha_cli.md)
-- Obsidian プラグイン（GitHub Release）: [`ja/manual/install_obsidian_kotonoha_console.md`](ja/manual/install_obsidian_kotonoha_console.md)
-- 最初の CLI セッション: [`ja/tutorials/first_cli_session.md`](ja/tutorials/first_cli_session.md)
-- クイックスタート（SLM デモ）: [`ja/tutorials/slm_demo_quickstart.md`](ja/tutorials/slm_demo_quickstart.md)
-- 記録フロー（DB-backed、任意）: [`ja/tutorials/kotonoha_record_flow.md`](ja/tutorials/kotonoha_record_flow.md)
-- インストーラー実装手順（メンテナ）: [`ja/manual/cli_installer_implementation.md`](ja/manual/cli_installer_implementation.md)
-- CLI リポジトリ: [`kotonoha-cli`](https://github.com/zyx-corporation/kotonoha-cli)
+## 5分で試す
 
-## 用途別ドキュメント導線
+ターミナルを使える人は、次の順で進めてください。
 
-| 目的 | 読む場所 |
+| 順 | 文書 | 到達点 |
+| --- | --- | --- |
+| 1 | [CLI インストール](ja/tutorials/install_kotonoha_cli.md) | `kotonoha version` が動く |
+| 2 | [最初の CLI セッション](ja/tutorials/first_cli_session.md) | `kotonoha rde emit` と `validate --strict` を試す |
+
+この段階では PostgreSQL、Obsidian、VS Code、Release Train、受入デモは不要です。
+
+## 読者別の入口
+
+| 目的 | 入口 |
 | --- | --- |
-| 概念を理解したい | [`ja/concepts/`](ja/concepts/README.md) |
-| 実運用の手順を見たい | [`ja/manual/`](ja/manual/README.md) |
-| 学習しながら試したい | [`ja/tutorials/`](ja/tutorials/README.md) |
-| 公開受入手順を確認したい | [`ja/acceptance/`](ja/acceptance/README.md) |
-| Release Train / 配布 baseline | [`ja/releases/`](ja/releases/README.md) |
-| 研究背景を参照したい | [`ja/paper/`](ja/paper/README.md) |
+| まず概要を知りたい | [はじめての Kotonoha](ja/start-here.md) |
+| 用語を確認したい | [初学者向け用語集](ja/glossary_for_beginners.md) |
+| 自分に合う読み順を選びたい | [読者別ラーニングパス](ja/learning-path.md) |
+| 概念を深く理解したい | [Kotonoha 構想概要](ja/concepts/kotonoha_concept_overview.md) |
+| 学習しながら試したい | [Tutorials](ja/tutorials/README.md) |
+| 実運用の手順を見たい | [Manual](ja/manual/README.md) |
+| 公開受入手順を確認したい | [Acceptance](ja/acceptance/README.md) |
+| Release Train / 配布 baseline を確認したい | [Releases](ja/releases/README.md) |
+| 研究背景を参照したい | [Paper](ja/paper/README.md) |
+
+## プロジェクトの目的と範囲
+
+`kotonoha-docs` の目的は、Kotonoha の概念、運用、学習手順を公開し、利用者やコミュニティが「何を目指しているか」「どこから始めるか」を短時間で把握できるようにすることです。
+
+| 項目 | 内容 |
+| --- | --- |
+| 目的 | 概念、運用、学習手順を公開し、理解と参加のハードルを下げる |
+| 目標 | 初学者が「理解する → 試す → 継続利用する」までの導線を明確にする |
+| 範囲 | 規範仕様ではない説明文書、概念説明、マニュアル、チュートリアル、受入デモ、参考資料 |
+
+## まだ読まなくてよいもの
+
+初学者は、最初からすべてを読む必要はありません。
+
+| 文書 | 後でよい理由 |
+| --- | --- |
+| `kotonoha-spec` | 仕様・適合性・スキーマが必要になってから読む |
+| Release Train | バージョン整合性や配布 baseline を確認するときに読む |
+| Acceptance demo | リリース確認・受入確認向けで、学習用ではない |
+| CLI installer implementation | メンテナ向けの実装手順 |
+| Paper | 背景思想や研究文脈を深く読むための長文 |
 
 ## 関連リポジトリ
 
@@ -50,10 +74,10 @@ Kotonoha は、AI 支援開発における意味変化を追跡可能にし、�
 
 ## 言語案内
 
-- 日本語: `ja/`
-- 英語: `en/`（[English README](en/README.md)）
+- 日本語: [`ja/`](ja/README.md)
+- English: [`en/`](en/README.md)
 
-両言語は、原則として同じ構造を保つ方針です。
+両言語は、原則として同じ構造を保つ方針です。ただし、現在は日本語側の初学者向け導線を先行整備しています。
 
 ## 補足
 
