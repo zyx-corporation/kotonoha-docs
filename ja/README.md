@@ -1,52 +1,68 @@
 # Kotonoha ドキュメント — 日本語
 
-## このページについて
+## はじめての方へ
 
-本ページは、`kotonoha-docs` リポジトリの **日本語公開文書**（`ja/`）の入口です。対象読者は、利用者、コミュニティ参加者、新規のコントリビュータです。
+このページは、`kotonoha-docs` リポジトリの日本語公開文書（`ja/`）の入口です。
 
-ここに置く文書は **非規範**（informative）です。概念の説明、運用手順、学習ガイド、受入確認、研究背景の参考資料を扱います。API・スキーマ・適合要件の正本は別リポジトリに置き、本領域では重複定義しません。
+Kotonoha を初めて知る人は、まず次の順で読んでください。
+
+| 順 | 文書 | 目的 |
+| --- | --- | --- |
+| 1 | [はじめての Kotonoha](start-here.md) | Kotonoha が何をする仕組みかを理解する |
+| 2 | [初学者向け用語集](glossary_for_beginners.md) | RDE / SLS / interchange などの用語をざっくり理解する |
+| 3 | [読者別ラーニングパス](learning-path.md) | 自分の目的に合う読み順を選ぶ |
+
+この 3 つを読めば、最初から仕様正本、受入デモ、Release Train、長文論文を読む必要はありません。
 
 ## Kotonoha の位置づけ
 
-Kotonoha は、AI 支援開発における **意味の変化** を追跡し、設計意図と成果物のずれを監査可能にする取り組みです。
+Kotonoha は、AI 支援開発や文書更新における **意味の変化** を追跡し、設計意図と成果物のずれを監査可能にする取り組みです。
 
 | 観点 | Git 等の従来の記録 | Kotonoha が問うこと |
 | --- | --- | --- |
 | 変更の記録 | 何が変わったか | その変化で何が起きたか |
-| 対象 | 差分・履歴 | 保存、変形、暗黙補完、逸脱、不確実性 |
+| 対象 | 差分・履歴 | 保存、変形、補完、喪失、逸脱、不確実性 |
 | 目的 | 再現・マージ | 意味履歴としての追跡と再合意 |
 
-中核概念は **Semantic Lineage System（SLS）** と **Resonant Deviation Evaluator（RDE）** です。詳細は「概念」セクションの文書を参照してください。
+中核概念は **Semantic Lineage System（SLS）** と **Resonant Deviation Evaluator（RDE）** です。ただし、初学者は最初から厳密な仕様定義を読む必要はありません。
 
-## 上位入口と言語
+## まず試す
 
-| 種別 | パス |
-| --- | --- |
-| リポジトリ全体（目的・目標・導線） | [README_ja.md](../README_ja.md) |
-| 英語ドキュメント領域 | [en/README.md](../en/README.md) |
-| 規範仕様（正本） | [kotonoha-spec](https://github.com/zyx-corporation/kotonoha-spec) |
+ターミナルを使える場合は、次の順で進めます。
 
-## 読み進め方
-
-用途に応じて、次の順序を目安にしてください。各段階の文書パスは下表のとおりです。
-
-| 段階 | 目的 | 文書 |
+| 順 | 文書 | 到達点 |
 | --- | --- | --- |
-| 1 | 構想を把握する | [kotonoha_concept_overview.md](concepts/kotonoha_concept_overview.md) |
-| 1b | 配布 baseline（Release Train）を確認する | [kotonoha-release-train-2026-05.md](releases/kotonoha-release-train-2026-05.md) |
-| 2 | CLI をインストールする | [install_kotonoha_cli.md](tutorials/install_kotonoha_cli.md) |
-| 3 | CLI を手で試す（DB 不要） | [first_cli_session.md](tutorials/first_cli_session.md) |
-| 4 | SLM 草案と検証の流れを体験する | [slm_demo_quickstart.md](tutorials/slm_demo_quickstart.md) |
-| 4b | 検証済み草案を Kotonoha record として保存する | [kotonoha_record_flow.md](tutorials/kotonoha_record_flow.md) |
-| 5 | Obsidian で提案・RDE・承認を使う | [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) |
-| 6 | VS Code で ΔM / RDE / Review を使う | [vscode_extension_operations.md](manual/vscode_extension_operations.md) |
-| 7 | リリース前の最小動作を確認する | [phase2_cli_acceptance_demo.md](acceptance/phase2_cli_acceptance_demo.md) |
+| 1 | [Kotonoha CLI のインストール](tutorials/install_kotonoha_cli.md) | `kotonoha version` が動く |
+| 2 | [最初の CLI セッション](tutorials/first_cli_session.md) | `kotonoha rde emit` と `validate --strict` を試す |
+| 3 | [SLM デモクイックスタート](tutorials/slm_demo_quickstart.md) | 草案生成と検証の流れを体験する |
 
-段階 1 のあと、背景を深く読む場合は [kotonoha_concept.md](paper/kotonoha_concept.md)（暫定版 v0.1）へ進みます。段階 6 は学習用チュートリアルとは目的が異なり、終了コードと strict 検証を確認する手順です。
+この段階では PostgreSQL、Obsidian、VS Code は必須ではありません。
+
+## 読者別導線
+
+| 読者 | 入口 |
+| --- | --- |
+| 初めて来た人 | [はじめての Kotonoha](start-here.md) |
+| 用語で迷った人 | [初学者向け用語集](glossary_for_beginners.md) |
+| 自分に合う読み順を選びたい人 | [読者別ラーニングパス](learning-path.md) |
+| CLI を試したい人 | [Tutorials](tutorials/README.md) |
+| Obsidian / VS Code で使いたい人 | [Manual](manual/README.md) |
+| 開発やレビューに参加したい人 | [Method](method/README.md) |
+| リリース確認をしたい人 | [Acceptance](acceptance/README.md) |
+| 配布 baseline を確認したい人 | [Releases](releases/README.md) |
+| 背景思想を読みたい人 | [Paper](paper/README.md) |
 
 ## 文書一覧
 
 各ブロックは **説明（本文）** と **索引（表）** に分けています。パスは `ja/` からの相対パスです。
+
+### 初学者向け入口
+
+| 文書 | 内容 |
+| --- | --- |
+| [start-here.md](start-here.md) | Kotonoha を初めて読む人のための入口 |
+| [glossary_for_beginners.md](glossary_for_beginners.md) | 初学者向けの用語説明 |
+| [learning-path.md](learning-path.md) | 読者別の読み進め方 |
 
 ### 概念（Concepts）
 
@@ -54,31 +70,8 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 
 | 文書 | 内容 |
 | --- | --- |
-| [kotonoha_concept_overview.md](concepts/kotonoha_concept_overview.md) | 短い非規範要約（意味履歴、RDE の役割、人間承認） |
+| [kotonoha_concept_overview.md](concepts/kotonoha_concept_overview.md) | 非規範要約（意味履歴、RDE の役割、人間承認） |
 | [README.md](concepts/README.md) | 概念領域の索引・関連リンク |
-
-### 方法論（Method）
-
-プロジェクト自身が SLS + RDE をどう適用するかを説明します。公開ドラフト・事例・運用要約を含みます。
-
-| 文書 | 内容 |
-| --- | --- |
-| [kotonoha_method_outline.md](method/kotonoha_method_outline.md) | 方法論の骨子（タスクではなく意味・責任の系列として統治） |
-| [sls_rde_development_method.md](method/sls_rde_development_method.md) | 仕様・実装・文書化への dogfooding 事例 |
-| [rde_review_quick_guide.md](method/rde_review_quick_guide.md) | いつ RDE を検討するかの公開向け要約 |
-| [README.md](method/README.md) | Method 領域の索引（HTML プロトタイプへのリンク含む） |
-
-### マニュアル（Manual）
-
-利用・運用の参照文書です。前提条件と手順を中心に記述します。
-
-| 文書 | 内容 |
-| --- | --- |
-| [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) | Obsidian プラグイン — GitHub Release からの手動インストール |
-| [vscode_extension_operations.md](manual/vscode_extension_operations.md) | CLI・DB・ワークスペース、ΔM / RDE / Review 操作 |
-| [llm_slm_usage.md](manual/llm_slm_usage.md) | 草案生成、validation、人間による最終判断の分離 |
-| [cli_installer_implementation.md](manual/cli_installer_implementation.md) | CLI インストーラーのメンテナ向け実装手順 |
-| [README.md](manual/README.md) | マニュアル領域の索引 |
 
 ### チュートリアル（Tutorials）
 
@@ -92,9 +85,32 @@ Kotonoha / SLS / RDE の構想と用語を説明します。規範定義の代�
 | [kotonoha_record_flow.md](tutorials/kotonoha_record_flow.md) | 検証済み RDE 草案を DB-backed な Kotonoha record として保存 |
 | [README.md](tutorials/README.md) | チュートリアル領域の索引 |
 
+### マニュアル（Manual）
+
+利用・運用の参照文書です。前提条件と手順を中心に記述します。
+
+| 文書 | 内容 |
+| --- | --- |
+| [install_obsidian_kotonoha_console.md](manual/install_obsidian_kotonoha_console.md) | Obsidian プラグイン — GitHub Release からの手動インストール |
+| [vscode_extension_operations.md](manual/vscode_extension_operations.md) | CLI・DB・ワークスペース、ΔM / RDE / Review 操作 |
+| [llm_slm_usage.md](manual/llm_slm_usage.md) | 草案生成、validation、人間による最終判断の分離 |
+| [cli_installer_implementation.md](manual/cli_installer_implementation.md) | CLI インストーラーのメンテナ向け実装手順 |
+| [README.md](manual/README.md) | マニュアル領域の索引 |
+
+### 方法論（Method）
+
+プロジェクト自身が SLS + RDE をどう適用するかを説明します。公開ドラフト・事例・運用要約を含みます。
+
+| 文書 | 内容 |
+| --- | --- |
+| [kotonoha_method_outline.md](method/kotonoha_method_outline.md) | 方法論の骨子（タスクではなく意味・責任の系列として統治） |
+| [sls_rde_development_method.md](method/sls_rde_development_method.md) | 仕様・実装・文書化への dogfooding 事例 |
+| [rde_review_quick_guide.md](method/rde_review_quick_guide.md) | いつ RDE を検討するかの公開向け要約 |
+| [README.md](method/README.md) | Method 領域の索引 |
+
 ### 受入デモ（Acceptance）
 
-公開動作の検証手順です。リリース確認・受入テスト向けです。
+公開動作の検証手順です。リリース確認・受入テスト向けであり、初学者向けチュートリアルではありません。
 
 | 文書 | 内容 |
 | --- | --- |
