@@ -12,6 +12,7 @@ Japanese counterpart: [`../../ja/tutorials/README.md`](../../ja/tutorials/README
 | 1 | [first_cli_session.md](first_cli_session.md) | RDE skeleton and interchange envelope |
 | 2 | [slm_demo_quickstart.md](slm_demo_quickstart.md) | Local SLM draft → validate → human review |
 | 3 | [kotonoha_record_flow.md](kotonoha_record_flow.md) | Store a validated RDE draft as a DB-backed Kotonoha record |
+| 4 | [rde_draft_assistance.md](rde_draft_assistance.md) | M8 CLI scaffold draft → validate → attach → human review |
 
 ## Placement note
 
