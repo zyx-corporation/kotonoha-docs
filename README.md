@@ -35,6 +35,7 @@ For the current Japanese beginner flow:
 | --- | --- | --- |
 | 1 | [Kotonoha CLI のインストール](ja/tutorials/install_kotonoha_cli.md) | Run `kotonoha version` |
 | 2 | [最初の CLI セッション](ja/tutorials/first_cli_session.md) | Try `kotonoha rde emit` and `validate --strict` |
+| 3 | [RDE draft assistance quickstart](ja/tutorials/rde_draft_assistance.md) | Learn draft → validate → attach → human review |
 
 PostgreSQL, Obsidian, VS Code, Release Train, and acceptance demos are not required for this first trial.
 

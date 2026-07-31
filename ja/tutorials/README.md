@@ -24,6 +24,7 @@ CLI の最小体験が済んだら、目的に応じて進んでください。
 | 目的 | チュートリアル | 到達点 |
 | --- | --- | --- |
 | 草案生成と検証を体験したい | [slm_demo_quickstart.md](slm_demo_quickstart.md) | ローカル SLM の草案を Kotonoha で検証する |
+| MeaningDelta から草案を作りたい | [rde_draft_assistance.md](rde_draft_assistance.md) | M8 の CLI scaffold draft → validate → attach → human review を理解する |
 | 検証済み草案を保存したい | [kotonoha_record_flow.md](kotonoha_record_flow.md) | DB-backed な Kotonoha record として保存する流れを理解する |
 
 ## 読まなくてもよいもの
