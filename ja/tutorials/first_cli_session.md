@@ -158,7 +158,7 @@ CLI だけで完結するなら、封筒はまだ必要に見えないかもし�
 kotonoha interchange emit | kotonoha interchange validate --strict
 ```
 
-**契約メモ（kotonoha-core 0.1.6 以降）:** トップレベルは `format` / `spec_bundle` / `lineage_unit` / `rde_document` など許可キーのみ。未定義フィールドがあると終了コード **2** になります。
+**契約メモ（kotonoha-core 0.1.6 以降）:** interchange envelope は strict JSON として検証されます。トップレベルは `format` / `spec_bundle` / `lineage_unit` / `rde_document` など許可されたキーのみで、`lineage_unit` の中も `id` / `prior_unit_id` 以外の未定義フィールドは拒否されます。未定義フィールドがあると `kotonoha interchange validate --strict` は終了コード **2** で失敗します。
 
 この検証も、意味の正しさではなく形式の確認です。
 
